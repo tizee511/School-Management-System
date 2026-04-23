@@ -7,13 +7,19 @@
     <meta name="description" content="Webmin - Bootstrap 5 & Angular 5 Admin Dashboard Template" />
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <style>
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
     @include('layouts.head')
 </head>
+
 <body>
     <div class="wrapper">
         <!--==========(preloader)==========-->
         <div id="pre-loader">
-            <img src="assets/images/pre-loader/loader-01.svg" alt="">
+            <img src="{{ URL::assete('assets/images/pre-loader/loader-01.svg') }}" alt="">
         </div>
         <!--=========(preloader)======== -->
         @include('layouts.main-header')
@@ -23,8 +29,8 @@
         <div class="content-wrapper">
             @yield('page-header')
             @yield('content')
-        <!--================(wrapper)=================-->
-        <!--================(footer)=================-->
+            <!--================(wrapper)=================-->
+            <!--================(footer)=================-->
             @include('layouts.footer')
         </div><!-- main content wrapper end-->
     </div>
@@ -33,4 +39,5 @@
     <!--============(footer)==========-->
     @include('layouts.footer-scripts')
 </body>
+
 </html>
