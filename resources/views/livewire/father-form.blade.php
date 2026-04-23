@@ -1,7 +1,8 @@
+<div>
 @if($currentStep == 1)
-<div class="row setup-content" id="step-1">
- <div class="col-xs-12">
-  <div class="col-md-12">
+<div class="row setup-content" id="step-1" >
+ <div class="col-xs-12 ">
+  <div class="col-md-12" >
    <br>
    <div class="form-row">
     <div class="col">
@@ -132,3 +133,4 @@
  </div>
 </div>
 @endif
+</div>

@@ -215,7 +215,7 @@ this._delay(function(){n===this.counter&&this.refreshPositions(!s)})},_clear:fun
     Bootstrap 4.0
 *************************/
 /*!
-  * Bootstrap v4.0.0 (https://getbootstrap.com)
+  * Bootstrap 5.3.3 (https://getbootstrap.com/)
   * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */

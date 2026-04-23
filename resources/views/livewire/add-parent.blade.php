@@ -16,6 +16,7 @@
     @if($show_table)
     @include('livewire.parent-table')
     @else
+
     <div class="stepwizard mb-4">
         <div class="stepwizard-row setup-panel d-flex justify-content-between align-items-center">
             <div class="stepwizard-step text-center flex-fill">
@@ -38,11 +39,11 @@
 
     @include('livewire.father-form')
     @include('livewire.mother-form')
-    
+
     <div class="row setup-content {{ $currentStep != 3 ? 'displayNone' : '' }}" id="step-3">
         @if($currentStep != 3)
-            <div style="display: none" class="row setup-content" id="step-3">
-        @endif
+        <div style="display: none" class="row setup-content" id="step-3">
+            @endif
 
             <div class="col-xs-12">
                 <div class="col-md-12"><br>
