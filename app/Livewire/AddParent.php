@@ -15,42 +15,18 @@ use Livewire\Features\SupportFileUploads\WithFileUploads;
 class AddParent extends Component
 {
     use WithFileUploads;
-
     // كومبوننت Livewire الخاص بصفحة إضافة ولي أمر
     // يدير الخطوات، التحقق، الحفظ، ورفع الملفات
-    public $successMessage = '';
-    public $catchError;
-    public $updateMode = false;
-    public $photos = [];
-    public $show_table = true;
-    public $Parent_id;
-    public $currentStep = 1;
-
-    public $Email;
-    public $Password;
-    public $Name_Father;
-    public $Name_Father_en;
-    public $National_ID_Father;
-    public $Passport_ID_Father;
-    public $Phone_Father;
-    public $Job_Father;
-    public $Job_Father_en;
-    public $Nationality_Father_id;
-    public $Blood_Type_Father_id;
-    public $Address_Father;
-    public $Religion_Father_id;
-
-    public $Name_Mother;
-    public $Name_Mother_en;
-    public $National_ID_Mother;
-    public $Passport_ID_Mother;
-    public $Phone_Mother;
-    public $Job_Mother;
-    public $Job_Mother_en;
-    public $Nationality_Mother_id;
-    public $Blood_Type_Mother_id;
-    public $Address_Mother;
-    public $Religion_Mother_id;
+    // * columns Fathers
+    public $successMessage = '', $catchError, $updateMode = false,
+        $photos = [], $show_table = true, $Parent_id, $currentStep = 1,
+        $Email, $Password, $Name_Father, $Name_Father_en, $National_ID_Father,
+        $Passport_ID_Father, $Phone_Father, $Job_Father, $Job_Father_en, $Nationality_Father_id,
+        $Blood_Type_Father_id, $Address_Father, $Religion_Father_id;
+    // * Column Mothers
+    public $Name_Mother, $Name_Mother_en, $National_ID_Mother, $Passport_ID_Mother,
+        $Phone_Mother, $Job_Mother, $Job_Mother_en, $Nationality_Mother_id,
+        $Blood_Type_Mother_id, $Address_Mother, $Religion_Mother_id;
 
     // تحقق مباشر لخاصية واحدة أثناء الكتابة
     public function updated($propertyName)
@@ -68,7 +44,6 @@ class AddParent extends Component
             'my_parents' => MyParent::all(),
         ]);
     }
-
     // عرض نموذج إضافة ولي أمر جديد
     public function showFormAdd()
     {
@@ -80,19 +55,16 @@ class AddParent extends Component
 
     public function goToStep($step)
     {
-        if (! in_array($step, [1, 2, 3])) {
+        if (!in_array($step, [1, 2, 3])) {
             return;
         }
-
         $this->currentStep = $step;
     }
-
     public function firstStepSubmit()
     {
         $this->validate($this->rulesStepOne());
         $this->currentStep = 2;
     }
-
     public function secondStepSubmit()
     {
         $this->validate($this->rulesStepTwo());
@@ -151,7 +123,6 @@ class AddParent extends Component
     public function edit($id)
     {
         $parent = MyParent::findOrFail($id);
-
         $this->show_table = false;
         $this->updateMode = true;
         $this->currentStep = 1;
@@ -169,7 +140,6 @@ class AddParent extends Component
         $this->Blood_Type_Father_id = $parent->Blood_Type_Father_id;
         $this->Address_Father = $parent->Address_Father;
         $this->Religion_Father_id = $parent->Religion_Father_id;
-
         $this->Name_Mother = $parent->getTranslation('Name_Mother', 'ar');
         $this->Name_Mother_en = $parent->getTranslation('Name_Mother', 'en');
         $this->Job_Mother = $parent->getTranslation('Job_Mother', 'ar');

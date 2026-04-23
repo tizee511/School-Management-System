@@ -44,8 +44,8 @@ Route::group([
         //*========================={Sections}========================
         Route::resource('Sections', controller: SectionController::class);
         //*========================={Parents}========================
-        Route::view('/Parents', 'livewire.show_form')
-            ->middleware('auth');
+        Route::view('/Parents', 'livewire.show_form');
+        // Route::view('/addparent', 'livewire.father-form')->name('addparent');
         //*========================={Classes}========================
         Route::get('/classes/{id}', [SectionController::class, 'getclasses'])->name('classes.get');
     });

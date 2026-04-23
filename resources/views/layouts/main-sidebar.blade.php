@@ -115,6 +115,10 @@
         {{-- {{ url('add_parent') }} --}}
         <a href="{{ url('/Parents') }}">{{ trans('main_trans.List_Parents') }}</a>
        </li>
+       <li>
+        {{-- {{ url('add_parent') }} --}}
+        <a href="{{ url('/addparent') }}">{{ trans('Parent_trans.add_parent') }}</a>
+       </li>
       </ul>
      </li>
 
