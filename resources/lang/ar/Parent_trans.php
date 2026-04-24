@@ -36,7 +36,8 @@ return [
     'Back' => 'السابق',
     'Finish' => 'تاكيد',
     'Choose' => 'اختيار من القائمة',
-    'Attachments' => 'المرفقات',
+    'Attachments' => 'اضافة مرفق',
+    'add_Attachments'=> 'اضافة',
     'Processes' => 'العمليات',
 
 

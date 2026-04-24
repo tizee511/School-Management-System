@@ -18,44 +18,19 @@ class AddParent extends Component
 
     // كومبوننت Livewire الخاص بصفحة إضافة ولي أمر
     // يدير الخطوات، التحقق، الحفظ، ورفع الملفات
-    public $successMessage = '';
-    public $catchError;
-    public $updateMode = false;
-    public $photos = [];
-    public $show_table = true;
-    public $Parent_id;
-    public $currentStep = 1;
+    public $successMessage = '',$catchError,$updateMode = false,$photos = [],$show_table = true,$Parent_id,$currentStep = 1,$Email,$Password,$Name_Father,$Name_Father_en,$National_ID_Father,$Passport_ID_Father,$Phone_Father,$Job_Father,$Job_Father_en,$Nationality_Father_id,$Blood_Type_Father_id,$Address_Father,$Religion_Father_id;
 
-    public $Email;
-    public $Password;
-    public $Name_Father;
-    public $Name_Father_en;
-    public $National_ID_Father;
-    public $Passport_ID_Father;
-    public $Phone_Father;
-    public $Job_Father;
-    public $Job_Father_en;
-    public $Nationality_Father_id;
-    public $Blood_Type_Father_id;
-    public $Address_Father;
-    public $Religion_Father_id;
-
-    public $Name_Mother;
-    public $Name_Mother_en;
-    public $National_ID_Mother;
-    public $Passport_ID_Mother;
-    public $Phone_Mother;
-    public $Job_Mother;
-    public $Job_Mother_en;
-    public $Nationality_Mother_id;
-    public $Blood_Type_Mother_id;
-    public $Address_Mother;
-    public $Religion_Mother_id;
+    public $Name_Mother,$Name_Mother_en,$National_ID_Mother,$Passport_ID_Mother,$Phone_Mother,$Job_Mother,$Job_Mother_en,$Nationality_Mother_id,$Blood_Type_Mother_id,$Address_Mother,$Religion_Mother_id;
 
     // تحقق مباشر لخاصية واحدة أثناء الكتابة
     public function updated($propertyName)
     {
-        $this->validateOnly($propertyName, $this->validationRules());
+        // $this->validateOnly($propertyName, $this->validationRules());
+        $this->validateOnly($propertyName,
+            'Email' => 'required|email',
+            'Nationality_Father_id' => 'required|string|min:10|max:10|regex::/[0-9]{9}/',
+            'Name_Father' => 'required',
+        );
     }
 
     // إعادة العرض الرئيسي للمكون
