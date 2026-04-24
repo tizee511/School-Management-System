@@ -1,5 +1,5 @@
 @if($currentStep == 2)
-<div class="row setup-content" id="step-2">
+<div class="row setup-content justify-content-center" id="step-2">
  <div class="col-xs-12">
   <div class="col-md-12">
    <br>
@@ -105,17 +105,16 @@
     @enderror
    </div>
 
-   <button class="btn btn-danger btn-sm nextBtn btn-lg pull-right" type="button" wire:click="goToStep(1)">
+   <button class="ml-10 btn btn-danger btn-sm nextBtn btn-lg pull-right" type="button" wire:click="goToStep(1)">
     {{ trans('Parent_trans.Back') }}
    </button>
    @if($updateMode)
-   <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" wire:click="secondStepSubmit_edit" type="button">{{ trans('Parent_trans.Next') }}
+   <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" wire:click="secondStepSubmit_edit" type="button"> {{ trans('Parent_trans.Next') }}
    </button>
    @else
-   <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="button" wire:click="secondStepSubmit">{{ trans('Parent_trans.Next') }}</button>
+   <button style="margin-right: 6px;" class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="button" wire:click="secondStepSubmit">{{ trans('Parent_trans.Next') }}</button>
    @endif
   </div>
  </div>
 </div>
 @endif
-
