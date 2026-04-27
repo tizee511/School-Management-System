@@ -1,19 +1,19 @@
 @if($currentStep == 2)
-<div class="row setup-content justify-content-center" id="step-2">
+<div  class="row setup-content justify-content-center" id="step-2">
     <div class="col-xs-12">
         <div class="col-md-12">
             <br>
             <div class="form-row">
-                <div class="col">
+                <div class="col-md-6">
                     <label>{{ trans('Parent_trans.Name_Mother') }}</label>
-                    <input type="text" wire:model.debounce.500ms="Name_Mother" class="form-control">
+                    <input type="text" wire:model.live="Name_Mother" class="form-control">
                     @error('Name_Mother')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                     <label>{{ trans('Parent_trans.Name_Mother_en') }}</label>
-                    <input type="text" wire:model.debounce.500ms="Name_Mother_en" class="form-control">
+                    <input type="text" wire:model.live="Name_Mother_en" class="form-control">
                     @error('Name_Mother_en')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -23,35 +23,35 @@
             <div class="form-row">
                 <div class="col-md-3">
                     <label>{{ trans('Parent_trans.Job_Mother') }}</label>
-                    <input type="text" wire:model.debounce.500ms="Job_Mother" class="form-control">
+                    <input type="text" wire:model.live="Job_Mother" class="form-control">
                     @error('Job_Mother')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-3">
                     <label>{{ trans('Parent_trans.Job_Mother_en') }}</label>
-                    <input type="text" wire:model.debounce.500ms="Job_Mother_en" class="form-control">
+                    <input type="text" wire:model.live="Job_Mother_en" class="form-control">
                     @error('Job_Mother_en')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col">
                     <label>{{ trans('Parent_trans.National_ID_Mother') }}</label>
-                    <input type="text" wire:model.debounce.500ms="National_ID_Mother" class="form-control">
+                    <input type="text" wire:model.live="National_ID_Mother" class="form-control">
                     @error('National_ID_Mother')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col">
                     <label>{{ trans('Parent_trans.Passport_ID_Mother') }}</label>
-                    <input type="text" wire:model.debounce.500ms="Passport_ID_Mother" class="form-control">
+                    <input type="text" wire:model.live="Passport_ID_Mother" class="form-control">
                     @error('Passport_ID_Mother')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col">
                     <label>{{ trans('Parent_trans.Phone_Mother') }}</label>
-                    <input type="text" wire:model.debounce.500ms="Phone_Mother" class="form-control">
+                    <input type="text" wire:model.live="Phone_Mother" class="form-control">
                     @error('Phone_Mother')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -121,3 +121,4 @@
     </div>
 </div>
 @endif
+

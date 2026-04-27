@@ -32,6 +32,7 @@ return [
     'Next' => 'Next',
     'Back' => 'Back',
     'Finish' => 'Finish',
+    'Back_show_table'=>' Back Show Table',
     'Choose' => 'Choose',
     'Attachments' => 'Attachments',
     'Processes' => 'Processes',

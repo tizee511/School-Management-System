@@ -6,6 +6,7 @@
         {{ $successMessage }}
     </div>
     @endif
+
     @if ($catchError)
     <div class="alert alert-danger" id="success-danger">
         <button type="button" class="close" data-dismiss="alert">x</button>
@@ -16,6 +17,7 @@
     @if($show_table)
     @include('livewire.parent-table')
     @else
+
     <div class="stepwizard mb-4">
         <div class="stepwizard-row setup-panel d-flex justify-content-between align-items-center">
             <div class="stepwizard-step text-center flex-fill">
@@ -38,10 +40,10 @@
 
     @include('livewire.father-form')
     @include('livewire.mother-form')
-
-    <div class="justify-content-center row setup-content {{ $currentStep != 3 ? 'displayNone' : '' }}" id="step-3">
+{{-- justify-content-center --}}
+    <div class="row setup-content {{ $currentStep != 3 ? 'displayNone' : '' }}">
         @if($currentStep != 3)
-        <div style="display: none" class="row setup-content" id="step-3">
+        <div style="display: none" class="row setup-content">
             @endif
 
             <div class="col-xs-12">
@@ -62,10 +64,13 @@
                     @else
                     <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="button"
                         wire:click="submitForm">{{ trans('Parent_trans.Finish') }}</button>
+
+                    <button class="ml-60 btn btn-danger btn-sm nextBtn btn-lg pull-right" type="button"
+                        wire:click="back(0)">{{ trans('Parent_trans.Back_show_table') }}</button>
                     @endif
                 </div>
             </div>
         </div>
     </div>
-    @endif
-</div>
+        @endif
+    </div>

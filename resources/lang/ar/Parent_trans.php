@@ -35,6 +35,7 @@ return [
     'Next' => 'التالي',
     'Back' => 'السابق',
     'Finish' => 'تاكيد',
+    'Back_show_table'=>'الروجع الى الواجهة الرئيسية',
     'Choose' => 'اختيار من القائمة',
     'Attachments' => 'اضافة مرفق',
     'add_Attachments'=> 'اضافة',
