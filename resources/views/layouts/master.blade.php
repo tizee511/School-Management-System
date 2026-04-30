@@ -7,16 +7,17 @@
     <meta name="description" content="Webmin - Bootstrap 5 Admin Dashboard Template" />
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <style>
+     @include('layouts.head')
+    {{-- <style>
         * {
             font-family: 'Cairo', sans-serif;
         }
-    </style>
+    </style> --}}
     @include('layouts.head')
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper" style="font-family: 'Cairo', sans-serif">
         <!--==========(preloader)==========-->
         <div id="pre-loader">
             <img src="{{ URL::asset('assets/images/pre-loader/loader-01.svg') }}" alt="">
@@ -28,6 +29,19 @@
         <!-- main-content -->
         <div class="content-wrapper">
             @yield('page-header')
+<div class="page-title">  
+  <div class="row">
+        <div class="col">
+            <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">@yield('PageTitle')</h4>
+        </div>
+        <div class="col">
+            <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
+                <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}" class="default-color">{{trans('main_trans.Dashboard')}}</a></li>
+                <li class="breadcrumb-item active">@yield('PageTitle')</li>
+            </ol>
+        </div>
+    </div>
+    
             @yield('content')
             <!--================(wrapper)=================-->
             <!--================(footer)=================-->

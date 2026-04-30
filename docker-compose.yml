@@ -1,0 +1,68 @@
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: School_Management_System_app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    depends_on:
+      - db
+    networks:
+      - School_Management_System_network
+
+  webserver:
+    image: nginx:alpine
+    container_name: School_Management_System_webserver
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d
+    depends_on:
+      - app
+    networks:
+      - School_Management_System_network
+
+  db:
+    image: mysql:8.0
+    container_name: School_Management_System_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: Schools_System_db
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: tizee
+      MYSQL_PASSWORD: tizee@!123
+    ports:
+      - "3307:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - School_Management_System_network
+      
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: School_Management_System_phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: tizee
+      PMA_PASSWORD: tizee@!123
+    networks:
+      - School_Management_System_network
+  
+volumes:
+  dbdata:
+
+networks:
+  School_Management_System_network:
+    driver: bridge
+
+    

@@ -1,5 +1,3 @@
-<div>
-    {{-- جدول الآباء مع زر فتح النموذج --}}
     <button class="btn btn-success btn-sm btn-lg pull-right" wire:click="showFormAdd" type="button">{{
         trans('Parent_trans.add_parent') }}</button><br><br>
     <div class="table-responsive">
@@ -40,4 +38,3 @@
             </tbody>
         </table>
     </div>
-</div>

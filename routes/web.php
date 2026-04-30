@@ -9,28 +9,36 @@ use App\Http\Controllers\Section\SectionController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-Route::get('/', function () {
-    return Auth::check()
-        ? redirect(LaravelLocalization::localizeUrl('/dashboard'))
-        : redirect(LaravelLocalization::localizeUrl('/login'));
-});
+require __DIR__ . '/auth.php';
 
+// Route::get('/', function () {
+
+//     // return Auth::check()
+//     //     ? redirect(LaravelLocalization::localizeUrl('/dashboard'))
+//     //     : redirect(LaravelLocalization::localizeUrl('/login'));
+// });
+Route::group(
+    ['middleware' => ['guest']],
+    function () {
+        Route::get('/', function () {
+            return view('auth.login');
+        });
+    }
+);
+//* ==============================Translate all pages============================
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
 ], function () {
     Route::get('/', function () {
         return Auth::check()
             ? redirect()->route('dashboard')
             : redirect()->route('login');
     });
-
-    require __DIR__ . '/auth.php';
     //*========================={Dashboard}========================
     Route::get('/dashboard', [HomeController::class, 'index'])
-        ->middleware(['auth'])
         ->name('dashboard');
-    //*========================={Auth}========================
+    //*========================={Profile}========================
     Route::middleware('auth')->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -43,11 +51,10 @@ Route::group([
         Route::post('Filter_Classes', [ClassroomController::class, 'Filter_Classes'])->name('Filter_Classes');
         //*========================={Sections}========================
         Route::resource('Sections', controller: SectionController::class);
-        //*========================={Parents}========================
-        Route::view('Add_Parent', 'livewire.show_form')
-            ->middleware('auth');
-        //*========================={Classes}========================
         Route::get('/classes/{id}', [SectionController::class, 'getclasses'])->name('classes.get');
+        //*========================={Parents}========================
+        Route::view('Add_Parent', 'livewire.show_form');
+        //*========================={Classes}========================
     });
     //*========================={Sutdentes}========================
 

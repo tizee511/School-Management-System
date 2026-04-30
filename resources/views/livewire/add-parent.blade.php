@@ -1,17 +1,24 @@
-<div class="justify-content-center">
-    {{-- العرض الرئيسي لكومبوننت Livewire AddParent --}}
-    @if (!empty($successMessage))
-    <div class="alert alert-success" id="success-alert">
-        <button type="button" class="close" data-dismiss="alert">x</button>
-        {{ $successMessage }}
-    </div>
-    @endif
+<!-- {{-- <div class="justify-content-center"> --}} -->
+    <div>
+        <style>
+            p,label {
+                margin-top: 10px;
+                font-weight: bold;
+            }
+        </style>
 
     @if ($catchError)
-    <div class="alert alert-danger" id="success-danger">
+        <div class="alert alert-danger success-danger" >
         <button type="button" class="close" data-dismiss="alert">x</button>
         {{ $catchError }}
-    </div>
+        </div>
+    @endif
+    {{-- العرض الرئيسي لكومبوننت Livewire AddParent --}}
+    @if (!empty($successMessage))
+        <div class="alert alert-success ">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            {{ $successMessage }}
+        </div>
     @endif
 
     @if($show_table)
@@ -21,18 +28,18 @@
     <div class="stepwizard mb-4">
         <div class="stepwizard-row setup-panel d-flex justify-content-between align-items-center">
             <div class="stepwizard-step text-center flex-fill">
-                <button type="button" wire:click="goToStep(1)"
-                    class="btn btn-circle {{ $currentStep != 1 ? 'btn-default' : 'btn-success' }}">1</button>
+                <button type="button" id="#Step-1" wire:click="goToStep(1)"
+                    class="btn btn-circle {{ $currentStep != 1 ? 'btn-default' : 'btn-success' }}" disabled="disabled">1</button>
                 <p class="mt-2 mb-0">{{ trans('Parent_trans.Step1') }}</p>
             </div>
             <div class="stepwizard-step text-center flex-fill">
-                <button type="button" wire:click="goToStep(2)"
-                    class="btn btn-circle {{ $currentStep != 2 ? 'btn-default' : 'btn-success' }}">2</button>
+                <button type="button" id="#Step-2" wire:click="goToStep(2)"
+                    class="btn btn-circle {{ $currentStep != 2 ? 'btn-default' : 'btn-success' }}" disabled="disabled">2</button>
                 <p class="mt-2 mb-0">{{ trans('Parent_trans.Step2') }}</p>
             </div>
             <div class="stepwizard-step text-center flex-fill">
-                <button type="button" wire:click="goToStep(3)"
-                    class="btn btn-circle {{ $currentStep != 3 ? 'btn-default' : 'btn-success' }}">3</button>
+                <button type="button" id="#Step-3" wire:click="goToStep(3)"
+                    class="btn btn-circle {{ $currentStep != 3 ? 'btn-default' : 'btn-success' }}" disabled="disabled">3</button>
                 <p class="mt-2 mb-0">{{ trans('Parent_trans.Step3') }}</p>
             </div>
         </div>
@@ -40,12 +47,10 @@
 
     @include('livewire.father-form')
     @include('livewire.mother-form')
-{{-- justify-content-center --}}
-    <div class="row setup-content {{ $currentStep != 3 ? 'displayNone' : '' }}">
+    <div class="row setup-content {{ $currentStep != 3 ? 'displayNone' : '' }}" id="Step-3">
         @if($currentStep != 3)
-        <div style="display: none" class="row setup-content">
+        <div style="display: none" class="row setup-content" id="Step-3">
             @endif
-
             <div class="col-xs-12">
                 <div class="col-md-12"><br>
                     <label style="color: red; font-weight: bold;">{{ trans('Parent_trans.Attachments') }}</label>
@@ -53,7 +58,8 @@
                         <input type="file" wire:model="photos" accept="image/*" multiple>
                     </div>
                     <br>
-                    <input type="hidden" wire:model="Parent_id">
+                    {{-- <input type="text" wire:model="Parent_id"> --}}
+
                     <button class="btn btn-danger btn-sm nextBtn btn-lg pull-right " type="button"
                         style="margin-left: 6px;" wire:click="back(2)">{{ trans('Parent_trans.Back') }}</button>
 
@@ -72,5 +78,5 @@
             </div>
         </div>
     </div>
-        @endif
-    </div>
+    @endif
+</div>

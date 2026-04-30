@@ -113,12 +113,7 @@
                         </a>
                         <ul id="Parents-menu" class="collapse" data-parent="#sidebarnav">
                             <li>
-                                {{-- {{ url('add_parent') }} --}}
-                                <a href="#">{{ trans('main_trans.List_Parents') }}</a>
-                            </li>
-                            <li>
-                                {{-- {{ url('add_parent') }} --}}
-                                <a href="{{ url('Add_Parent') }}">{{ trans('main_trans.Add_Parent') }}</a>
+                                <a href="{{ url('Add_Parent') }}">{{ trans('main_trans.List_Parents') }}</a>
                             </li>
                         </ul>
                     </li>
