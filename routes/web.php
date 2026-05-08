@@ -1,13 +1,17 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Section\SectionController;
+use App\Http\Controllers\Students\StudentController;
+use App\Http\Controllers\Teacher\TeacherController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
+
 
 require __DIR__ . '/auth.php';
 
@@ -54,10 +58,20 @@ Route::group([
         Route::get('/classes/{id}', [SectionController::class, 'getclasses'])->name('classes.get');
         //*========================={Parents}========================
         Route::view('Add_Parent', 'livewire.show_form');
-        //*========================={Classes}========================
-    });
-    //*========================={Sutdentes}========================
+        //*========================={Teachers}========================
+        Route::resource('teacher',TeacherController::class);
+        //*========================={Sutdentes}========================
+        Route::resource('students',StudentController::class);
+        Route::get('/Get_classrooms/{id}',[StudentController::class,'Get_classrooms']);
+        Route::get('/Get_Sections/{id}',[StudentController::class,'Get_Sections']);
+        Route::post('/Upload_attachment',[StudentController::class,'Upload_attachment'])->name('Upload_attachment');
+        Route::get('Download_attachment/{studentsname}/{filename}',[StudentController::class,'Download_attachment'])->name('Download_attachment');
+        Route::post('/Delete_attachment',[StudentController::class,'Delete_attachment'])->name('Delete_attachment');
 
+
+        });
+        
+        //*========================={Classes}========================
     //*========================={Sutdentes}========================
 
 });

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Classrooms;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreClassroom;
 use App\Models\Classroom;
 use App\Models\Grade;
 use Illuminate\Http\Request;
@@ -11,48 +10,16 @@ use Illuminate\Http\Request;
 
 class ClassroomController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     * @return 'My_Classes', 'Grades'
-     */
     public function index()
     {
-        // return "nnnn";
-        $My_Classes = Classroom::all();
+        $My_Classes = Classroom::paginate(10)->all();
         $Grades = Grade::all();
         return view('Pages.My_Classes.My_Classes', compact('My_Classes', 'Grades'));
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create() {}
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
 
     public function store(Request $request)
     {
         $List_Classes = $request->List_Classes;
-        // $names = collect($request->List_Classes)->pluck('Name');
-        // if ($names->duplicates()->isNotEmpty()) {
-        //     return back()->withErrors([
-        //         'Name' => 'يوجد أسماء فصول مكررة في نفس النموذج',
-        //     ]);
-        // }
-        //
-        // $this->validate($request,[
-        //     'Name_class_en'=> 'required',
-        //     'Name'=> 'required'
-        // ],[
-        //   'Name_class_en.required'=> trans('validation.required'),
-        //   'Name.required'=> trans('validation.required'),
-        // ]);
         try {
             // $validated = $request->validated();
             foreach ($List_Classes as $List_Class) {
@@ -70,27 +37,6 @@ class ClassroomController extends Controller
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id) {}
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id) {}
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function update(Request $request)
     {
         try {
@@ -106,15 +52,10 @@ class ClassroomController extends Controller
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
+
     public function destroy(Request $request)
     {
-        $Classrooms = Classroom::findOrFail($request->id)->delete();
+        Classroom::findOrFail($request->id)->delete();
         toastr()->error(trans('messages.Delete'));
         return redirect()->route('Classrooms.index');
     }

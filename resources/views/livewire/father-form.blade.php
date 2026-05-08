@@ -20,7 +20,7 @@
     }
 </style>
 
-<div class="row setup-content justify-content-center" id="step-1">
+<div class="row setup-content justify-content-center" >
     <div class="col-12">
         <div class="form-container">
             <br>
@@ -137,7 +137,7 @@
             <div class="row">
                 <div class="col-12 text-right">
                     @if($updateMode)
-                        <button class="btn btn-success px-4" wire:click="firstStepSubmit_edit" type="button">
+                        <button class="btn btn-success px-4 pull-right" wire:click="firstStepSubmit_edit" type="button">
                             {{ trans('Parent_trans.Next') }}
                         </button>
                     @else

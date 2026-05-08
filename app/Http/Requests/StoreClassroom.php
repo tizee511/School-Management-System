@@ -28,19 +28,17 @@ class StoreClassroom extends FormRequest
         'List_Classes.*.Name' => [
             'required',
             'string',
-            'max:255',
             Rule::unique('classrooms', 'Name_class->ar')
                 ->where(fn ($q) => $q->where('Grade_id', request('List_Classes.*.Grade_id'))),
         ],
         'List_Classes.*.Name_class_en' => [
             'required',
             'string',
-            'max:255',
             Rule::unique('classrooms', 'Name_class->en')
                 ->where(fn ($q) => $q->where('Grade_id', request('List_Classes.*.Grade_id'))),
         ],
 
-        'List_Classes.*.Grade_id' => 'required|exists:grades,id',
+        'List_Classes.*.Grade_id' => 'required| :grades,id',
     ];
     }
     public function messages(): array

@@ -38,7 +38,13 @@ class CreateForeignKeys extends Migration {
         Schema::table('parent_attachments', function (Blueprint $table) {
             $table->foreign('parent_id')->references('id')->on('my_parents');
         });
-	}
+        // --------------------------------------------------------------------------------
+        //The Relationship Between Table teachers & specializations,genders
+        Schema::table('teachers', function (Blueprint $table) {
+            $table->foreign('Specialization_id')->references('id')->on('specializations')->onDelete('cascade');     
+            $table->foreign('Gender_id')->references('id')->on('genders')->onDelete('cascade');
+        });
+    }
 
 	public function down()
 	{

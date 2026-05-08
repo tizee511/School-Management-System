@@ -72,10 +72,9 @@
                         </a>
                         <ul id="students-menu" class="collapse" data-parent="#sidebarnav">
                             {{-- {{ route('Students.create') }} --}}
-                            <li> <a href="#">{{ trans('main_trans.add_student') }}</a>
+                            <li> <a href="{{route('students.create') }}">{{ trans('main_trans.add_student') }}</a>
                             </li>
-                            {{-- {{ route('Students.index') }} --}}
-                            <li> <a href="#">{{ trans('main_trans.list_students') }}</a>
+                            <li> <a href="{{route('students.index') }}">{{ trans('main_trans.list_students') }}</a>
                             </li>
                             <li>
                                 {{-- {{ route('Promotion.index') }} --}}
@@ -97,7 +96,7 @@
                         <ul id="Teachers-menu" class="collapse" data-parent="#sidebarnav">
                             <li>
                                 {{-- {{ route('Teachers.index') }} --}}
-                                <a href="#">{{ trans('main_trans.List_Teachers') }}</a>
+                                <a href="{{ route('teacher.index') }}">{{ trans('main_trans.List_Teachers') }}</a>
                             </li>
                         </ul>
                     </li>

@@ -32,10 +32,11 @@ return [
     'Next' => 'Next',
     'Back' => 'Back',
     'Finish' => 'Finish',
-    'Back_show_table'=>' Back Show Table',
     'Choose' => 'Choose',
     'Attachments' => 'Attachments',
     'Processes' => 'Processes',
-
+    // ----------------------
+    'Back_show_table'=>' Back Show Table',
+    'Bake_Show_Table'=>' Back Show Table',
 
 ];

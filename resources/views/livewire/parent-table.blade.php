@@ -1,8 +1,9 @@
+
     <button class="btn btn-success btn-sm btn-lg pull-right" wire:click="showFormAdd" type="button">{{
         trans('Parent_trans.add_parent') }}</button><br><br>
     <div class="table-responsive">
         <table id="datatable" class="table table-hover table-sm table-bordered p-0" data-page-length="50"
-            style="text-align: center">
+            style="text-align: center;">
             <thead>
                 <tr class="table-success">
                     <th>#</th>

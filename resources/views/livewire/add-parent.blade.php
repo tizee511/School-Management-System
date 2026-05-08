@@ -6,25 +6,33 @@
                 font-weight: bold;
             }
         </style>
-
-    @if ($catchError)
-        <div class="alert alert-danger success-danger" >
-        <button type="button" class="close" data-dismiss="alert">x</button>
-        {{ $catchError }}
-        </div>
-    @endif
+        
     {{-- العرض الرئيسي لكومبوننت Livewire AddParent --}}
     @if (!empty($successMessage))
-        <div class="alert alert-success ">
-            <button type="button" class="close" data-dismiss="alert">x</button>
+        <div class="alert alert-success">
+            <button  type="button" class="close" data-dismiss="alert">x</button>
             {{ $successMessage }}
+        </div>
+    @endif
+      @if ($errors->any())
+    <div class="error">{{ $errors->first('Name') }}</div>
+    @endif
+
+    @if ($catchError)
+        <div class="alert alert-danger" >
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        {{ $catchError }}
         </div>
     @endif
 
     @if($show_table)
     @include('livewire.parent-table')
     @else
-
+    @if($currentStep==1)
+     <button style="background-color: blueviolet;" class="mb-3 btn-success btn-sm btn-lg pull-right" wire:click="BakeShowTable" type="button" >{{
+        trans('Parent_trans.Bake_Show_Table') }}
+        </button>
+    @endif
     <div class="stepwizard mb-4">
         <div class="stepwizard-row setup-panel d-flex justify-content-between align-items-center">
             <div class="stepwizard-step text-center flex-fill">
@@ -47,18 +55,18 @@
 
     @include('livewire.father-form')
     @include('livewire.mother-form')
-    <div class="row setup-content {{ $currentStep != 3 ? 'displayNone' : '' }}" id="Step-3">
+    <div class="row setup-content {{ $currentStep != 3 ? 'displayNone' : '' }}" >
         @if($currentStep != 3)
-        <div style="display: none" class="row setup-content" id="Step-3">
+        <div style="display: none" class="row setup-content">
             @endif
-            <div class="col-xs-12">
+            <div class="col-12">
                 <div class="col-md-12"><br>
                     <label style="color: red; font-weight: bold;">{{ trans('Parent_trans.Attachments') }}</label>
                     <div class="form-group">
                         <input type="file" wire:model="photos" accept="image/*" multiple>
                     </div>
                     <br>
-                    {{-- <input type="text" wire:model="Parent_id"> --}}
+                    <input type="hidden" wire:model="Parent_id">
 
                     <button class="btn btn-danger btn-sm nextBtn btn-lg pull-right " type="button"
                         style="margin-left: 6px;" wire:click="back(2)">{{ trans('Parent_trans.Back') }}</button>
@@ -68,11 +76,11 @@
                         type="button">{{ trans('Parent_trans.Finish') }}
                     </button>
                     @else
-                    <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="button"
+                    <button class="btn btn-success btn-sm ml-5 nextBtn btn-lg pull-right" type="button"
                         wire:click="submitForm">{{ trans('Parent_trans.Finish') }}</button>
 
                     <button class="ml-60 btn btn-danger btn-sm nextBtn btn-lg pull-right" type="button"
-                        wire:click="back(0)">{{ trans('Parent_trans.Back_show_table') }}</button>
+                        wire:click="BakeShowTable">{{ trans('Parent_trans.Back_show_table') }}</button>
                     @endif
                 </div>
             </div>

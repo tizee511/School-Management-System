@@ -18,7 +18,7 @@
 </style>
 
 <div  class="row setup-content justify-content-center" id="step-2">
-    <div class="col-xs-12">
+    <div class="col-12">
         <div class="col-md-12">
             <br>
             <div class="form-row">
