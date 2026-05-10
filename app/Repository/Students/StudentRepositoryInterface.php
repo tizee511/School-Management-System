@@ -3,6 +3,7 @@
 namespace App\Repository\Students;
 
 interface StudentRepositoryInterface{
+    
 
     // get all Students
     public function Get_Student();

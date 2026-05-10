@@ -21,11 +21,10 @@
                         <div class="card card-statistics h-100">
                             <div class="card-body">
                                 <a href="{{route('students.create')}}" class="btn btn-success btn-sm" role="button"
-                                   aria-pressed="true">{{trans('main_trans.add_student')}}</a><br><br>
+                                aria-pressed="true">{{trans('main_trans.add_student')}}</a><br><br>
                                 <div class="table-responsive">
-                                    <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
-                                           data-page-length="50"
-                                           style="text-align: center">
+                                    <table id="datatable" class="table  table-hover table-sm table-bordered p-0" data-page-length="50"
+                                        style="text-align: center">
                                         <thead>
                                         <tr>
                                             <th>#</th>
@@ -51,10 +50,11 @@
 
                                             <td>
                                                 <a href="{{route('students.edit',$student->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Student{{ $student->id }}" title="{{ trans('Grades_trans.Delete') }}"><i class="fa fa-trash"></i></button>
-                                                <a href="{{route('students.show',$student->id)}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true"><i class="fa fa-eye"></i></a>
-                                            </td>
-                                            </tr>
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Student{{ $student->id }}" title="{{ trans('Grades_trans.Delete') }}">
+                                                <i class="fa fa-trash"></i></button>
+                                                <a href="{{route('students.show',$student->id)}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true">
+                                                <i class="fa fa-eye"></i></a>
+                                            </td></tr>
                                         @include('Pages.Students.Delete')
                                         @endforeach
                                     </table>

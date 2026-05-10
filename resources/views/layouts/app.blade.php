@@ -18,12 +18,13 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         <!-- Scripts -->
-        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
          {{-- @livewireStyles --}}
     </head>
     <body class="font-sans antialiased">
      <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+
+        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -31,7 +32,6 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
@@ -62,7 +62,6 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -72,30 +71,32 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
 
+        @include('layouts.navigation')
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
 
-    {{-- ===========================new=========== --}}
-        {{-- <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
-
-            <!-- Page Content -->
+        <!-- Page Content -->
             <main>
                 @livewireScripts
                 {{ $slot }}
             </main>
         </div>
-    </body> --}}
+    </div>
+
+    {{-- ===========================new=========== --}}
+        <div class="min-h-screen bg-gray-100">
+            <!-- Page Heading -->
+            {{-- @isset($header)
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endisset --}}
+
+            
+    </body>
 </html>

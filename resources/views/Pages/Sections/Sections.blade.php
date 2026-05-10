@@ -60,11 +60,9 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <?php  $i = 0; ?>
                                   @foreach ($Grade->Sections as $list_Sections)
                                     <tr>
-                                      <?php    $i++; ?>
-                                      <td>{{ $i }}</td>
+                                      <td>{{ $loop->index+1}}</td>
                                       <td>{{ $list_Sections->Name_Section }}</td>
                                       <td>{{ $list_Sections->My_classs->Name_class }}</td>
                                       <td>
@@ -141,7 +139,10 @@
                                                   class="control-label">{{trans ('Sections_trans.Name_Class')}}</label>
                                                 <select name="Class_id" class="custom-select">
                                                   <option value="{{ $list_Sections->My_classs->id }}">
+
                                                     {{$list_Sections->My_classs->Name_class }}
+
+
                                                   </option>
                                                 </select>
                                               </div>

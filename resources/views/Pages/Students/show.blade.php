@@ -23,18 +23,18 @@
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active show" id="home-02-tab" data-toggle="tab" href="#home-02"
-                                       role="tab" aria-controls="home-02"
-                                       aria-selected="true">{{trans('Students_trans.Student_details')}}</a>
+                                    role="tab" aria-controls="home-02"
+                                    aria-selected="true">{{trans('Students_trans.Student_details')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="profile-02-tab" data-toggle="tab" href="#profile-02"
-                                       role="tab" aria-controls="profile-02"
-                                       aria-selected="false">{{trans('Students_trans.Attachments')}}</a>
+                                    role="tab" aria-controls="profile-02"
+                                    aria-selected="false">{{trans('Students_trans.Attachments')}}</a>
                                 </li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade active show" id="home-02" role="tabpanel"
-                                     aria-labelledby="home-02-tab">
+                                    aria-labelledby="home-02-tab">
                                     <table class="table table-striped table-hover" style="text-align:center">
                                         <tbody>
                                         <tr>
@@ -51,18 +51,13 @@
                                         <tr>
                                             <th scope="row">{{trans('Students_trans.Grade')}}</th>
                                             <td>{{ $Student->Grades->Name }}</td>
-
                                             <th scope="row">{{trans('Students_trans.classrooms')}}</th>
                                             <td>{{$Student->Classrooms->Name_class}}</td>
-
-
                                             <th scope="row">{{trans('Students_trans.section')}}</th>
                                             <td>{{$Student->Sections->Name_Section}}</td>
-
                                             <th scope="row">{{trans('Students_trans.Date_of_Birth')}}</th>
                                             <td>{{ $Student->Date_Birth}}</td>
                                         </tr>
-
                                         <tr>
                                             <th scope="row">{{trans('Students_trans.parent')}}</th>
                                             <td>{{ $Student->myparent->Name_Father}}</td>
@@ -77,12 +72,10 @@
                                     </table>
                                 </div>
 
-                                <div class="tab-pane fade" id="profile-02" role="tabpanel"
-                                     aria-labelledby="profile-02-tab">
+                                <div class="tab-pane fade" id="profile-02" role="tabpanel" aria-labelledby="profile-02-tab">
                                     <div class="card card-statistics">
                                         <div class="card-body">
-                                        {{-- {{route('Upload_attachment')}} --}}
-                                            <form method="post" action="{{route('Upload_attachment')}}" enctype="multipart/form-data">
+                                            <form  action="{{route('Upload_attachment')}}" method="post" enctype="multipart/form-data">                                             
                                                 {{ csrf_field() }}
                                                 <div class="col-md-3">
                                                     <div class="form-group">
@@ -96,13 +89,13 @@
                                                 </div>
                                                 <br><br>
                                                 <button type="submit" class="button button-border x-small">
-                                                       {{trans('Students_trans.submit')}}
+                                                    {{trans('Students_trans.submit')}}
                                                 </button>
                                             </form>
                                         </div>
                                         <br>
-                                        <table class="table center-aligned-table mb-0 table table-hover"
-                                               style="text-align:center">
+                                        <table class="table center-aligned-table mb-0  table-hover"
+                                            style="text-align:center">
                                             <thead>
                                             <tr class="table-secondary">
                                                 <th scope="col">#</th>
@@ -119,15 +112,14 @@
                                                     <td>{{$attachment->created_at->diffForHumans()}}</td>
                                                     <td colspan="2">
                                                         <a class="btn btn-outline-info btn-sm"
-                                                           href="{{url('Download_attachment')}}/{{ $attachment->imageable->Name }}/{{$attachment->filename}}"
-                                                           role="button"><i class="fa fa-download"></i>&nbsp; {{trans('Students_trans.Download')}}</a>
+                                                        href="{{url('Download_attachment')}}/{{ $attachment->imageable->Name }}/{{$attachment->filename}}"
+                                                        role="button"><i class="fa fa-download"></i>&nbsp; {{trans('Students_trans.Download')}}</a>
 
                                                         <button type="button" class="btn btn-outline-danger btn-sm"
                                                                 data-toggle="modal"
                                                                 data-target="#Delete_img{{ $attachment->id }}"
                                                                 title="{{ trans('Grades_trans.Delete') }}">{{trans('Students_trans.delete')}}
                                                         </button>
-
                                                     </td>
                                                 </tr>
                                                 @include('pages.Students.Delete_img')
@@ -139,11 +131,11 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-            <!-- row closed -->
+        </div>
+    </div>
+<!-- row closed -->
 @endsection
 @section('js')
 @endsection

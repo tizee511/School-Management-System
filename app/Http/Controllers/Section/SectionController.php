@@ -22,7 +22,7 @@ class SectionController extends Controller
         // return $teachers->Sections;
         // *-----------------------------
         // return "mmmmmmmmmmmmmmm";
-        $Grades = Grade::with(['Sections'])->get();
+        $Grades = Grade::with('Sections')->get();
         $list_Grades = Grade::all();
         $teachers = Teacher::all();
         return view('Pages.Sections.Sections',
@@ -30,39 +30,23 @@ class SectionController extends Controller
         ));
         // return $Grades;
     }
-
-    public function create()
-    {
-        //
-    }
-
     public function store(Request $request)
     {
         // return $request->teacher_id;
-    try {
-        $section = new Section();
-        $section->Name_Section =['ar'=>$request->Name_Section_Ar,'en'=> $request->Name_Section_En]; 
-        $section->Grade_id =$request->Grade_id; 
-        $section->Class_id =$request->Class_id; 
-        $section->Status =1; 
-        $section->save();
-        $section->Teachers()->attach($request->teacher_id);
-        toastr()->success(trans('messages.success'));
-        return redirect()->route('Sections.index');
-    }
-    catch (\Exception $e) {
-        return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-    }
-    }
-
-    public function show(Section $section)
-    {
-        //
-    }
-
-    public function edit(Section $section)
-    {
-        //
+        try {
+            $section = new Section();
+            $section->Name_Section =['ar'=>$request->Name_Section_Ar,'en'=> $request->Name_Section_En]; 
+            $section->Grade_id =$request->Grade_id; 
+            $section->Class_id =$request->Class_id; 
+            $section->Status =1; 
+            $section->save();
+            $section->Teachers()->attach($request->teacher_id);
+            toastr()->success(trans('messages.success'));
+            return redirect()->route('Sections.index');
+        }
+        catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
     public function update(Request $request)
@@ -97,7 +81,6 @@ class SectionController extends Controller
     public function getclasses($id)
     {
         $list_classes = Classroom::where("Grade_id", $id)->pluck("Name_class", "id");
-
         return $list_classes;
     }
 }

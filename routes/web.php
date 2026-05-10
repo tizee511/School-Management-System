@@ -5,6 +5,7 @@ use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Section\SectionController;
+use App\Http\Controllers\Students\promotions\PromotionController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Teacher\TeacherController;
 use Illuminate\Support\Facades\Auth;
@@ -13,14 +14,10 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
 
+
+
 require __DIR__ . '/auth.php';
 
-// Route::get('/', function () {
-
-//     // return Auth::check()
-//     //     ? redirect(LaravelLocalization::localizeUrl('/dashboard'))
-//     //     : redirect(LaravelLocalization::localizeUrl('/login'));
-// });
 Route::group(
     ['middleware' => ['guest']],
     function () {
@@ -29,6 +26,11 @@ Route::group(
         });
     }
 );
+Route::get('/', function () {
+    return Auth::check()
+        ? redirect(LaravelLocalization::localizeUrl('/dashboard'))
+        : redirect(LaravelLocalization::localizeUrl('/login'));
+});
 //* ==============================Translate all pages============================
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
@@ -67,7 +69,8 @@ Route::group([
         Route::post('/Upload_attachment',[StudentController::class,'Upload_attachment'])->name('Upload_attachment');
         Route::get('Download_attachment/{studentsname}/{filename}',[StudentController::class,'Download_attachment'])->name('Download_attachment');
         Route::post('/Delete_attachment',[StudentController::class,'Delete_attachment'])->name('Delete_attachment');
-
+        //*========================={Promotions Students}========================
+        Route::resource('promotions',PromotionController::class);
 
         });
         

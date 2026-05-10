@@ -12,6 +12,7 @@ use App\Models\Student;
 use App\Models\Type_Blood;
 use App\Repository\Students\StudentRepositoryInterface;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,15 +21,12 @@ class StudentRepository implements StudentRepositoryInterface {
         // Get All Students
         public function Get_Student()
         {
-
             $students = Student::all();
             return view('Pages.Students.index',compact('students'));
         }
-
           // Create Students
         public function Create_Student()
         {
-    
             $data['Grade'] = Grade::all();
             $data['parents'] = MyParent::all();
             $data['Genders'] = Gender::all();
@@ -52,7 +50,7 @@ class StudentRepository implements StudentRepositoryInterface {
         }
         // Store Student
         public function Store_Student($request){
-
+                DB::beginTransaction();
             try {
                 $students = new Student();
                 $students->Name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
@@ -83,16 +81,18 @@ class StudentRepository implements StudentRepositoryInterface {
                         $images->save();
                     }
                 }
+                DB::commit();
                 toastr()->success(trans('messages.success'));
                 return redirect()->route('students.index');
             }
-
             catch (Exception $e){
+                DB::rollBack();
                 return redirect()->back()->withErrors(['error' => $e->getMessage()]);
             }
 
         }
-        public function Show_Student($id){
+        public function Show_Student($id)
+        {
             $Student = Student::find($id);
             return view('Pages.Students.show',compact('Student'));
 
@@ -137,46 +137,46 @@ class StudentRepository implements StudentRepositoryInterface {
         // Delete Students
         public function Delete_Student($request)
         {
-
             Student::destroy($request->id);
             toastr()->error(trans('messages.Delete'));
             return redirect()->route('students.index');
         }
 
-         public function Upload_attachment($request)
-    {
-        foreach($request->file('photos') as $file)
+        public function Upload_attachment($request)
         {
-            $name = $file->getClientOriginalName();
-            $file->storeAs('attachments/students/'.$request->student_name, $file->getClientOriginalName(),'upload_attachments');
+            foreach($request->file('photos') as $file)
+            {
+                $name = $file->getClientOriginalName();
+                $file->storeAs('attachments/students/'.$request->student_name, $file->getClientOriginalName(),'upload_attachments');
 
-            // insert in image_table
-            $images= new image();
-            $images->filename=$name;
-            $images->imageable_id = $request->student_id;
-            $images->imageable_type = 'App\Models\Student';
-            $images->save();
+                // insert in image_table
+                $images= new image();
+                $images->filename =$name;
+                $images->imageable_id = $request->student_id;
+                $images->imageable_type = 'App\Models\Student';
+                $images->save();
+            }
+            toastr()->success(trans('messages.success'));
+            return redirect()->route('students.show',$request->student_id);
         }
-        toastr()->success(trans('messages.success'));
-        return redirect()->route('Students.show',$request->student_id);
-    }
-    public function Download_attachment($studentsname, $filename)
-    {
-        return response()->download(public_path('attachments/students/'.$studentsname.'/'.$filename));
-    }
+        public function Download_attachment($studentsname, $filename)
+        {
+            $path = 'attachments/students/'.$studentsname.'/'.$filename;
 
-      public function Delete_attachment($request)
-    {
-        // Delete img in server disk
-        Storage::disk('upload_attachments')->delete('attachments/students/'.$request->student_name.'/'.$request->filename);
+            if (!Storage::disk('upload_attachments')->exists($path)) {
+                abort(404, 'الملف غير موجود');
+            }
 
-        // Delete in data
-        image::where('id',$request->id)->where('filename',$request->filename)->delete();
-        toastr()->error(trans('messages.Delete'));
-        return redirect()->route('Students.show',$request->student_id);
-    }
+            return Storage::disk('upload_attachments')->download($path);        
+        }
+        public function Delete_attachment($request)
+        {
+            // Delete img in server disk
+            Storage::disk('upload_attachments')->delete('attachments/students/'.$request->student_name.'/'.$request->filename);
 
-
-
-
+            // Delete in data
+            image::where('id',$request->id)->where('filename',$request->filename)->delete();
+            toastr()->error(trans('messages.Delete'));
+            return redirect()->back();
+        }
 }

@@ -77,8 +77,7 @@
                             <li> <a href="{{route('students.index') }}">{{ trans('main_trans.list_students') }}</a>
                             </li>
                             <li>
-                                {{-- {{ route('Promotion.index') }} --}}
-                                <a href="#">{{ trans('main_trans.Students_Promotions') }}</a>
+                                <a href="{{ route('promotions.index') }}">{{ trans('main_trans.Students_Promotions') }}</a>
                             </li>
                         </ul>
                     </li>

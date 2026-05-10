@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="ar">
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <meta name="csrf-token" content="{{ csrf_token() }}">
-
  @include('layouts.head')
  @yield('css')
 </head>
@@ -28,7 +27,6 @@
    </div>
   </div>
  </section>
-
  @include('layouts.footer-scripts')
 </body>
 </html>

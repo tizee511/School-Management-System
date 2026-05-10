@@ -26,6 +26,7 @@
 
  <div class="form-group mb-3">
   <label for="email" class="form-label">{{ trans('auth_trans.Email') }}</label>
+
   <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus class="form-control form-control-lg" autocomplete="username" placeholder="{{ trans('auth_trans.Email_placeholder') }}">
   @error('email')
   <span class="text-danger">{{ $message }}</span>
