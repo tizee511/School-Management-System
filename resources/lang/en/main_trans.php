@@ -39,6 +39,7 @@ return [
     'Programname' => 'MoraSoft School Management Program',
     'add_student'=>'Add student',
     'Students_Promotions'=>'Students Promotions',
+    'Manager_Promotions'=>'’anager Students Promotions',
     'information_student'=>'Information Students',
     'Students_upgrade'=>'Students Upgrade',
     'Graduate_students'=>'Graduate Students',

@@ -99,7 +99,7 @@
                                @php
                                $current_year = date("Y");
                                @endphp
-                               @for($year=$current_year; $year<=$current_year +1 ;$year++) <option value="{{$year}}" @if(old('academic_year',$current_year>= $year)) selected @endif>{{ $year }}</option>
+                               @for($year=$current_year; $year<=$current_year +1 ;$year++) <option value="{{$year}}" @if(old('academic_year_new',$current_year>= $year)) selected @endif>{{ $year }}</option>
                                 @endfor
                               </select>
                              </div>

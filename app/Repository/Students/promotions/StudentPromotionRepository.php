@@ -16,7 +16,13 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface 
       // dd($Grades);
       return view('Pages.Students.promotions.index',compact('Grades'));
     }
-     public function Store_promotions($request)
+
+    public function create_promotions_students()
+    {
+        $promotions = promotion::all();
+        return view('Pages.Students.promotions.management',compact('promotions'));
+    }
+    public function Store_promotions($request)
     {
         DB::beginTransaction();
         try {
@@ -35,6 +41,8 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface 
                         'grade_id'=>$request->Grade_id_new,
                         'Classroom_id'=>$request->Classroom_id_new,
                         'section_id'=>$request->section_id_new,
+                        'academic_year'=>$request->academic_year_new,
+
                     ]);
 
                 // insert in to promotions
@@ -46,6 +54,8 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface 
                     'To_Grade'=>$request->Grade_id_new,
                     'To_Classroom'=>$request->Classroom_id_new,
                     'To_Section'=>$request->section_id_new,
+                    'academic_year'=>$request->academic_year,
+                    'academic_year_new'=>$request->academic_year_new,
                 ]);
             }
             DB::commit();
@@ -57,6 +67,53 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface 
         }
 
 
+    }
+
+    public function destroy_promotions($request)    
+    {
+        DB::beginTransaction();
+        try {
+            // التراجع عن الكل
+            if($request->page_id ==1){
+
+                $Promotions = Promotion::all();
+                foreach ($Promotions as $Promotion){
+                    //التحديث في جدول الطلاب
+                    $ids = explode(',',$Promotion->Student_id);
+                    student::whereIn('id', $ids)
+                    ->update([
+                        'grade_id'=>$Promotion->From_Grade,
+                        'Classroom_id'=>$Promotion->From_Classroom,
+                        'section_id'=> $Promotion->From_Section,
+                        'academic_year'=>$Promotion->academic_year,
+                    ]);
+
+                    //حذف جدول الترقيات
+                    Promotion::truncate();
+                }
+                DB::commit();
+                toastr()->error(trans('messages.Delete'));
+                return redirect()->back();
+            }else{
+                // التراجع عن ترقية معينة
+                $Promotion = Promotion::findorfail($request->id);
+                student::where('id', $Promotion->Student_id)
+                    ->update([
+                        'grade_id'=>$Promotion->From_Grade,
+                        'Classroom_id'=>$Promotion->From_Classroom,
+                        'section_id'=> $Promotion->From_Section,
+                        'academic_year'=>$Promotion->academic_year,
+                    ]);
+                Promotion::destroy($request->id);
+                DB::commit();
+                toastr()->error(trans('messages.Delete'));
+                return redirect()->back();
+            }
+        }
+        catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
 }

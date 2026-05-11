@@ -36,12 +36,13 @@ return [
     // *----------------------------------
 
     'Programname' => 'برنامج التعزي سوفت لادارة المدارس',
-    // //'Grades'=>'المراحل الدراسية',
+    //'Grades'=>'المراحل الدراسية',
     'Student_information'=>'معلومات الطلاب',
     'add_student'=>'اضافة طالب جديد',
     'Students_Promotions'=>'ترقية الطلاب',
     'add_Promotion'=>'اضافة ترقية جديدة',
     'list_Promotions'=>'قائمة الترقيات',
+    'Manager_Promotions'=>'إدارة الترقيات الطلاب',
     'Graduate_students'=>'الطلاب المتخرجين',
     'add_Graduate'=>'اضافة تخرج جديد',
     'list_Graduate'=>'قائمة التخرجات',
