@@ -26,7 +26,7 @@
     <div class="col-xl-4 col-lg-6 col-md-6">
         <div class="card bg-primary text-white mb-4">
             <div class="card-body">
-                <h5 class="card-title">{{ trans('dashboard_trans.Grades_title') }}</h5>
+                <h5 class="card-title">{{ trans('dashboard_trans.Grades_title') }}</h5>  
                 <p class="card-text">{{ trans('dashboard_trans.Grades_text') }}</p>
                 <a href="{{ route('Grades.index') }}" class="btn btn-light btn-sm">{{
                     trans('dashboard_trans.Grades_button') }}</a>

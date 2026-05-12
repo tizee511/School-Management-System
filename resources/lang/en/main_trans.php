@@ -38,10 +38,15 @@ return [
     'Main_title' => 'MoraSoft School Management Program',
     'Programname' => 'MoraSoft School Management Program',
     'add_student'=>'Add student',
+    'Student_information'=>'Student information',
     'Students_Promotions'=>'Students Promotions',
-    'Manager_Promotions'=>'’anager Students Promotions',
     'information_student'=>'Information Students',
+    'Students_Promotions'=>'Students Promotions',
+    'add_Promotion'=>'Add Promotion',
+    'list_Promotions'=>'list Promotions',
     'Students_upgrade'=>'Students Upgrade',
     'Graduate_students'=>'Graduate Students',
+    'add_Graduate'=>'Add Graduate',
+    'list_Graduate'=>'list Graduate',
     'Name_Programer' => 'NashwanQiad Soft All Rights Reserved'
 ];

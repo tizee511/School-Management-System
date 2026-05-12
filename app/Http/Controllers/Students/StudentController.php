@@ -64,6 +64,10 @@ class StudentController extends Controller
     {
         return $this->Student->Get_Sections($id);
     }
+    public function Graduated_student_one($id)
+    {
+        return $this->Student->Graduated_student_one($id);
+    }
     public function Upload_attachment(Request $request)
     {
         return $this->Student->Upload_attachment($request);
@@ -77,6 +81,7 @@ class StudentController extends Controller
         return $this->Student->Delete_attachment($request);
 
     }
+    
 
 
 }

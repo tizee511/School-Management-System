@@ -14,7 +14,7 @@
                     @method('DELETE')
                     <input type="hidden"  name="id"  value="{{$student->id}}">
                     <h5>{{trans('Students_trans.Deleted_Student_tilte')}}</h5>
-                    <input type="text" readonly value="{{$student->name}}" class="form-control">
+                    <input type="text" readonly value="{{$student->Name}}" class="form-control">
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Students_trans.Close')}}</button>

@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">تراجع طالب</h5>
+                <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">{{trans('Students_trans.Rollback_Student')}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -13,7 +13,7 @@
                     @csrf
                     @method('DELETE')
                     <input type="hidden" name="id" value="{{$promotion->id}}">
-                    <h5 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من عملية تراجع الطالب ؟ {{$promotion->student->Name}}</h5>
+                    <h5 style="font-family: 'Cairo', sans-serif;">{{trans('Students_trans.Sure_Rollback_Student')}} {{$promotion->student->Name}}</h5>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Students_trans.Close')}}</button>
                         <button  class="btn btn-danger">{{trans('Students_trans.submit')}}</button>

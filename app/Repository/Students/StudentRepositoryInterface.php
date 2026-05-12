@@ -23,6 +23,9 @@ interface StudentRepositoryInterface{
     // Get Sections
     public function Get_Sections($id);
 
+    // Graduated student one
+    public function Graduated_student_one($id);
+
     // Edit Students
     public function Edit_Student($id);
 

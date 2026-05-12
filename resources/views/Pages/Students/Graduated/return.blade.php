@@ -1,21 +1,22 @@
 <!-- Deleted inFormation Student -->
-<div class="modal fade" id="Delete_all" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Return_Student{{$student->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">{{trans('Students_trans.Rollback_all')}}</h5>
+                <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">{{trans('Students_trans.Return_Student')}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('promotions.destroy','test')}}" method="post">
-
+                <form action="{{route('Graduate.update','test')}}" method="post" autocomplete="off">
+                    @method('PUT')
                     @csrf
-                    @method('DELETE')
+                    <input type="hidden" name="id" value="{{$student->id}}">
 
-                    <input type="hidden" name="page_id" value="1">
-                    <h5 style="font-family: 'Cairo', sans-serif;">{{trans('Students_trans.Sure_Rollback_all')}}</h5>
+                    <h5 style="font-family: 'Cairo', sans-serif;">{{trans('Students_trans.Sure_Return_Student')}}</h5>
+                    <input type="text" readonly value="{{$student->Name}}" class="form-control">
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Students_trans.Close')}}</button>
                         <button  class="btn btn-danger">{{trans('Students_trans.submit')}}</button>

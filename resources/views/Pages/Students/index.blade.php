@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('css')
 @section('title')
-    {{trans('main_trans.list_students')}}
+    {{trans('main_trans.list_students')}} 
+
 @stop
 @endsection
 @section('page-header')
@@ -49,13 +50,18 @@
                                             <td>{{$student->Sections->Name_Section}}</td>
 
                                             <td>
-                                                <a href="{{route('students.edit',$student->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                                <a href="{{route('students.edit',$student->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true" aria-label="View 3 items in your shopping cart"><i class="fa fa-edit"></i></a>
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Student{{ $student->id }}" title="{{ trans('Grades_trans.Delete') }}">
                                                 <i class="fa fa-trash"></i></button>
-                                                <a href="{{route('students.show',$student->id)}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true">
+                                                <a href="{{route('students.show',$student->id)}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" aria-label="View 3 items in your shopping cart">
+
                                                 <i class="fa fa-eye"></i></a>
+                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#Graduate_Student{{ $student->id }}" title="تخرج الطالب">
+                                                <i class="fa fa-graduation-cap"></i></button>
+
                                             </td></tr>
                                         @include('Pages.Students.Delete')
+                                        @include('Pages.Students.graduate')
                                         @endforeach
                                     </table>
                                 </div>

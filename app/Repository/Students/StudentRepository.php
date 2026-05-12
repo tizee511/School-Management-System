@@ -35,7 +35,7 @@ class StudentRepository implements StudentRepositoryInterface {
             return view('Pages.Students.add',$data);
 
         }
-        //Get Classroomes
+        //Get Classroomes  
         public function Get_classrooms($id){
 
             $list_classes = Classroom::where("Grade_id", $id)->pluck("Name_class", "id");
@@ -47,6 +47,21 @@ class StudentRepository implements StudentRepositoryInterface {
 
             $list_sections = Section::where("Class_id", $id)->pluck("Name_Section", "id");
             return $list_sections;
+        }
+        // Graduated Single Student 
+        public function Graduated_student_one($id){
+
+            // soft delete from students table
+            $student = Student::withTrashed()->where("id", $id)->first();
+            if (!$student) {
+                return redirect()->back()->with('error', 'الطالب غير موجود');
+            }elseif($student->trashed()) {
+                return redirect()->back()->with('error', 'الطالب بالفعل متخرج');
+            }
+            // move from students table to graduated_students table
+            $student->delete();
+            toastr()->success(trans('messages.success'));
+            return redirect()->route('students.index');
         }
         // Store Student
         public function Store_Student($request){

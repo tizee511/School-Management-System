@@ -10,7 +10,7 @@
     {{-- العرض الرئيسي لكومبوننت Livewire AddParent --}}
     @if (!empty($successMessage))
         <div class="alert alert-success">
-            <button  type="button" class="close" data-dismiss="alert">x</button>
+            <button  type="button" class="close" data-bs-dismiss="alert">x</button>
             {{ $successMessage }}
         </div>
     @endif
@@ -20,7 +20,7 @@
 
     @if ($catchError)
         <div class="alert alert-danger" >
-        <button type="button" class="close" data-dismiss="alert">x</button>
+        <button type="button" class="close" data-bs-dismiss="alert">x</button>
         {{ $catchError }}
         </div>
     @endif

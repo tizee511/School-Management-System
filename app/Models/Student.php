@@ -12,9 +12,10 @@ use App\Models\Section;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\Translatable\HasTranslations;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 class Student extends Model
 {
+    use SoftDeletes;
     use HasTranslations;
     public $translatable = ['Name'];
     protected $table = 'students';

@@ -20,6 +20,7 @@ return [
     'Processes' => 'العمليات',
     'submit' => 'تاكيد',
     'Close' => 'اغلاق',
+    'Student_Edit'=>'تعديل بيانات الطالب',
     'Attachments' => 'المرفقات',
     'Student_details' => 'معلومات الطالب',
     'Deleted_Student' => 'حذف بيانات الطالب',
@@ -33,5 +34,20 @@ return [
     // ============================
     'Grade_Old'=> 'المرحلة الدراسية القديمة',
     'Grade_New'=> 'المرحلة الدراسية الجديدة',
+    'Return_Student' => 'ارجاع طالب',
+    'Sure_Return_Student' => 'هل انت متاكد من الغاء عملية التخرج ؟',
+    'Graduate_Student' => 'تخرج طالب',
+    'Sure_Graduate_Student' => 'هل انت متاكد من عملية تخرج الطالب ؟',
+    'Rollback_all' => 'تراجع الكل',
+    'Sure_Rollback_all' => 'هل انت متاكد من عملية تراجع كافة الطلاب ؟',
+    'Rollback_Student' => 'تراجع طالب',
+    'Sure_Rollback_Student' => 'هل انت متاكد من عملية تراجع الطالب ؟',
+    'previous_grade' => 'المرحلة الدراسية السابقة',
+    'previous_class' => 'الصف الدراسي السابق',
+    'previous_section' => 'القسم الدراسي السابق',
+    'current_grade' => 'المرحلة الدراسية الحالية',
+    'current_academic_year' => 'السنة الدراسية الحالية',
+    'current_class' => 'الصف الدراسي الحالي',
+    'current_section' => 'القسم الدراسي الحالي',
 
     ];

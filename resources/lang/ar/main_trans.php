@@ -42,7 +42,6 @@ return [
     'Students_Promotions'=>'ترقية الطلاب',
     'add_Promotion'=>'اضافة ترقية جديدة',
     'list_Promotions'=>'قائمة الترقيات',
-    'Manager_Promotions'=>'إدارة الترقيات الطلاب',
     'Graduate_students'=>'الطلاب المتخرجين',
     'add_Graduate'=>'اضافة تخرج جديد',
     'list_Graduate'=>'قائمة التخرجات',

@@ -6,14 +6,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Section\SectionController;
 use App\Http\Controllers\Students\promotions\PromotionController;
+use App\Http\Controllers\Students\Graduated\GraduatedController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Teacher\TeacherController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
-
-
 
 
 require __DIR__ . '/auth.php';
@@ -66,12 +64,14 @@ Route::group([
         Route::resource('students',StudentController::class);
         Route::get('/Get_classrooms/{id}',[StudentController::class,'Get_classrooms']);
         Route::get('/Get_Sections/{id}',[StudentController::class,'Get_Sections']);
+        Route::get('Graduated_student_one/{id}',[StudentController::class,'Graduated_student_one'])->name('Graduated_student_one');
         Route::post('/Upload_attachment',[StudentController::class,'Upload_attachment'])->name('Upload_attachment');
         Route::get('Download_attachment/{studentsname}/{filename}',[StudentController::class,'Download_attachment'])->name('Download_attachment');
         Route::post('/Delete_attachment',[StudentController::class,'Delete_attachment'])->name('Delete_attachment');
-        //*========================={Promotions Students}========================
-        Route::resource('promotions',PromotionController::class);
 
+        //*========================={Promotions Students}========================
+        Route::resource('promotions',PromotionController::class);   
+        Route::resource('Graduate',GraduatedController::class);        
         });
         
         //*========================={Classes}========================

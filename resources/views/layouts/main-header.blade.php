@@ -14,7 +14,7 @@
   <ul class="nav navbar-nav mr-auto">
     <li class="nav-item">
       <a id="button-toggle" class="button-toggle-nav inline-block ml-20 pull-left" href="javascript:void(0);"><i
-          class="zmdi zmdi-menu ti-align-right"></i></a>
+          class="fa fa-bars"></i></a>
     </li>
     <li class="nav-item">
       <div class="search">
@@ -50,12 +50,12 @@
     </div>
 
     <li class="nav-item fullscreen">
-      <a id="btnFullscreen" href="#" class="nav-link"><i class="ti-fullscreen"></i></a>
+      <a id="btnFullscreen" href="#" class="nav-link"><i class="fa fa-arrows-alt"></i></a>
     </li>
     <li class="nav-item dropdown ">
       <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
         aria-expanded="false">
-        <i class="ti-bell"></i>
+        <i class="fa fa-bell"></i>
         <span class="badge badge-danger notification-status"> </span>
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-big dropdown-notifications">
@@ -78,25 +78,25 @@
     </li>
     <li class="nav-item dropdown ">
       <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-        aria-expanded="true"> <i class=" ti-view-grid"></i> </a>
+        aria-expanded="true"> <i class="fa fa-th"></i> </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-big">
         <div class="dropdown-header">
           <strong>Quick Links</strong>
         </div>
         <div class="dropdown-divider"></div>
         <div class="nav-grid">
-          <a href="#" class="nav-grid-item"><i class="ti-files text-primary"></i>
+          <a href="#" class="nav-grid-item"><i class="fa fa-file-text-o text-primary"></i>
             <h5>New Task</h5>
           </a>
-          <a href="#" class="nav-grid-item"><i class="ti-check-box text-success"></i>
+          <a href="#" class="nav-grid-item"><i class="fa fa-check-square-o text-success"></i>
             <h5>Assign Task</h5>
           </a>
         </div>
         <div class="nav-grid">
-          <a href="#" class="nav-grid-item"><i class="ti-pencil-alt text-warning"></i>
+          <a href="#" class="nav-grid-item"><i class="fa fa-pencil text-warning"></i>
             <h5>Add Orders</h5>
           </a>
-          <a href="#" class="nav-grid-item"><i class="ti-truck text-danger "></i>
+          <a href="#" class="nav-grid-item"><i class="fa fa-truck text-danger "></i>
             <h5>New Orders</h5>
           </a>
         </div>
@@ -118,19 +118,19 @@
         </div>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="{{ url('/') }}"><i
-            class="text-secondary ti-reload"></i>{{ trans ('partials_trans.Activity') }}</a>
+            class="text-secondary fa fa-refresh"></i>{{ trans ('partials_trans.Activity') }}</a>
         <a class="dropdown-item" href="#"><i
-            class="text-success ti-email"></i>{{ trans ('partials_trans.Messages') }}</a>
-        <a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="text-warning ti-user"></i>{{ trans ('partials_trans.Profile') }}</a>
+            class="text-success fa fa-envelope"></i>{{ trans ('partials_trans.Messages') }}</a>
+        <a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="text-warning fa fa-user"></i>{{ trans ('partials_trans.Profile') }}</a>
 
-        <a class="dropdown-item" href="#"><i class="text-dark ti-layers-alt"></i>{{ trans ('partials_trans.Projects') }}
+        <a class="dropdown-item" href="#"><i class="text-dark fa fa-cubes"></i>{{ trans ('partials_trans.Projects') }}
           <span class="badge badge-info">6</span> </a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#"><i
-            class="text-info ti-settings"></i>{{ trans ('partials_trans.Settings') }}</a>
+            class="text-info fa fa-cog"></i>{{ trans ('partials_trans.Settings') }}</a>
         <a class="dropdown-item" href="{{ route ('logout') }}"
           onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
-            class="text-danger ti-unlock"></i>{{ trans ('partials_trans.Logoff') }}</a>
+            class="text-danger fa fa-sign-out"></i>{{ trans ('partials_trans.Logoff') }}</a>
         <form id="logout-form" action="{{ route ('logout') }}" method="POST" style="display: none;">
           @csrf
         </form>

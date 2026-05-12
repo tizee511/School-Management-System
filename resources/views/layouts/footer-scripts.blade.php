@@ -26,6 +26,9 @@
 <script src="{{ URL::asset ('assets/js/lobilist.js') }}"></script>
 <!-- custom -->
 <script src="{{ URL::asset ('assets/js/custom.js') }}"></script>
+{{-- Font Awesome --}}
+<script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+
 
 <script>
     $(document).ready(function () {

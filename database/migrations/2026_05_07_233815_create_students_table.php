@@ -25,6 +25,7 @@ return new class extends Migration
             $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->foreignId('parent_id')->references('id')->on('my_parents')->onDelete('cascade');
             $table->string('academic_year');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

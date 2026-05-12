@@ -135,7 +135,7 @@
 
             {{-- Button --}}
             <div class="row">
-                <div class="col-12 text-right">
+                <div class="col-12 pull-right">
                     @if($updateMode)
                         <button class="btn btn-success px-4 pull-right" wire:click="firstStepSubmit_edit" type="button">
                             {{ trans('Parent_trans.Next') }}

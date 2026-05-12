@@ -11,7 +11,7 @@
 <!--wizard -->
 <link href="{{ URL::asset('assets/css/wizard.css') }}" rel="stylesheet" id="bootstrap-css">
     {{-- @livewireStyles --}}
-
+    
 @yield('css')
 <!--- Style css -->
 <link href="{{ URL::asset('assets/css/style.css') }}" rel="stylesheet">
@@ -21,3 +21,10 @@
 @else
     <link href="{{ URL::asset('assets/css/rtl.css') }}" rel="stylesheet">
 @endif
+
+<style>
+    /* Unify Sidebar Icons Toggle for Font Awesome */
+    #sidebarnav a[aria-expanded="true"] .fa-plus:before {
+        content: "\f068"; /* fa-minus */
+    }
+</style>
