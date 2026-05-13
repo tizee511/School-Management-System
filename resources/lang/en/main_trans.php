@@ -18,6 +18,8 @@ return [
     'Add_Parent'=>'Add Parent',
     'List_Parents'=>'List Parents',
     'Accounts'=>'Accounts',
+    'Add_Fee'=>'Add Fee',
+    'List_Fess'=>'List Accounts',
     'Attendance'=>'Attendance',
     'Exams'=>'Exams',
     'library'=>'Library',
