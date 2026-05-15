@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
 @section('title')
     اضافة فاتورة جديدة
 @stop
@@ -36,11 +35,10 @@
                                     <div data-repeater-list="List_Fees">
                                         <div data-repeater-item>
                                             <div class="row">
-
                                                 <div class="col">
                                                     <label for="Name" class="mr-sm-2">اسم الطالب</label>
                                                     <select class="fancyselect" name="student_id" required>
-                                                            <option value="{{ $student->id }}">{{ $student->name }}</option>
+                                                            <option value="{{ $student->id }}">{{ $student->Name }}</option>
                                                     </select>
                                                 </div>
 
@@ -88,9 +86,8 @@
                                             <input class="button" data-repeater-create type="button" value="{{ trans('My_Classes_trans.add_row') }}"/>
                                         </div>
                                     </div><br>
-                                    <input type="hidden" name="Grade_id" value="{{$student->Grade_id}}">
+                                    <input type="hidden" name="Grade_id" value="{{$student->gender_id}}">
                                     <input type="hidden" name="Classroom_id" value="{{$student->Classroom_id}}">
-
                                     <button type="submit" class="btn btn-primary">تاكيد البيانات</button>
                                 </div>
                             </div>

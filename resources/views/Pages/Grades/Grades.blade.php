@@ -59,7 +59,7 @@
                                             class="fa fa-edit"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                                         data-target="#delete{{ $Grade->id }}"
-                                        title="{{ trans('Grades_trans.Delete') }}"><i class="fa fa-trash"></i></button>
+                                        title="{{ trans('Grades_trans.Delete') }}"><i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
 

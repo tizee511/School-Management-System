@@ -63,7 +63,7 @@
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                                                         data-target="#delete_Teacher{{ $Teacher->id }}"
                                                         title="{{ trans ('Grades_trans.Delete') }}">
-                                                        <i class="fa fa-trash"></i></button>
+                                                        <i class="fas fa-trash-alt"></i></button>
                                                 </td>
                                             </tr>
                                             <div class="modal fade" id="delete_Teacher{{$Teacher->id}}" tabindex="-1"

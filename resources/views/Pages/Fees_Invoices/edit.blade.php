@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
 @section('title')
     تعديل رسوم دراسية
 @stop
@@ -35,7 +34,7 @@
                         <div class="form-row">
                             <div class="form-group col">
                                 <label for="inputEmail4">اسم الطالب</label>
-                                <input type="text" value="{{$fee_invoices->student->name}}" readonly name="title_ar" class="form-control">
+                                <input type="text" value="{{$fee_invoices->student->Name}}" readonly name="title_ar" class="form-control">
                                 <input type="hidden" value="{{$fee_invoices->id}}" name="id" class="form-control">
                             </div>
 
@@ -78,6 +77,4 @@
     <!-- row closed -->
 @endsection
 @section('js')
-    @toastr_js
-    @toastr_render
 @endsection

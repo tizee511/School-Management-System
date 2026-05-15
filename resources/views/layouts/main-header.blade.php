@@ -50,12 +50,12 @@
     </div>
 
     <li class="nav-item fullscreen">
-      <a id="btnFullscreen" href="#" class="nav-link"><i class="fa fa-arrows-alt"></i></a>
+      <a id="btnFullscreen" href="#" class="nav-link"><i class="fas fa-arrows-alt"></i></a>
     </li>
     <li class="nav-item dropdown ">
       <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
         aria-expanded="false">
-        <i class="fa fa-bell"></i>
+        <i class="fas fa-bell"></i>
         <span class="badge badge-danger notification-status"> </span>
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-big dropdown-notifications">

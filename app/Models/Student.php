@@ -9,10 +9,12 @@ use App\Models\Image;
 use App\Models\MyParent;
 use App\Models\Nationalitie;
 use App\Models\Section;
+use App\Models\StudentAccount;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Translatable\HasTranslations;
+
 class Student extends Model
 {
     use SoftDeletes;
@@ -60,6 +62,12 @@ class Student extends Model
     public function myparent()
     {
         return $this->belongsTo(MyParent::class, 'parent_id');
+    }
+
+      // علاقة بين جدول سدادت الطلاب وجدول الطلاب لجلب اجمالي المدفوعات والمتبقي
+    public function student_account()
+    {
+        return $this->hasMany(StudentAccount::class, 'Student_id');
     }
     
 }

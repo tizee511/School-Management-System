@@ -623,8 +623,8 @@ POTENZA.ptrating = function () {
         });
         $('#hints').raty({hints: ['a', null, '', undefined, '*_*']});
         $('#star-off-and-star-on').raty({
-            starOff: 'fa fa-bell-o text-muted',
-            starOn: 'fa fa-bell text-custom'
+            starOff: 'fas fa-bell-o text-muted',
+            starOn: 'fas fa-bell text-custom'
         });
         $('#cancel').raty({
             cancel: true,
@@ -654,7 +654,7 @@ POTENZA.ptrating = function () {
                 {range: 2, on: 'fa fa-cloud-download', off: 'fa fa-circle-o'},
                 {range: 3, on: 'fa fa-cloud-upload', off: 'fa fa-circle-o'},
                 {range: 4, on: 'fa fa-circle', off: 'fa fa-circle-o'},
-                {range: 5, on: 'fa fa-cogs', off: 'fa fa-circle-o'}
+                {range: 5, on: 'fas fa-cogs', off: 'fa fa-circle-o'}
             ]
         });
         $('#size-md').raty({

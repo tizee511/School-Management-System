@@ -24,7 +24,6 @@
             </ul>
         </div>
         @endif
-
         <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
             {{ trans('My_Classes_trans.add_class') }}
         </button>
@@ -32,7 +31,6 @@
         <button type="button" class="button x-small" id="btn_delete_all">
             {{ trans('My_Classes_trans.delete_checkbox') }}
         </button>
-
         <br><br>
 
         <form action="{{ route('Filter_Classes') }}" method="POST">
@@ -60,7 +58,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     @if (isset($Search))
                         <?php $List_Classes = $Search; ?>
                     @else
@@ -77,14 +74,13 @@
                         <td>
                             <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                 data-target="#edit{{ $My_Class->id }}" title="{{ trans('Grades_trans.Edit') }}"><i
-                                    class="fa fa-edit"></i></button>
+                                    class="far fa-edit"></i></button>
                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                                 data-target="#delete{{ $My_Class->id }}" title="{{ trans('Grades_trans.Delete') }}"><i
-                                    class="fa fa-trash"></i>
+                                    class="far fa-trash-alt"></i>
                                 </button>
                         </td>
                     </tr>
-
                     <!-- edit_modal_Grade -->
                     <div class="modal fade" id="edit{{ $My_Class->id }}" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -154,12 +150,45 @@
                             </div>
                         </div>
                     </div>
+        
+                    <!-- delete_modal_Grade -->
+                    <div class="modal fade" id="delete{{ $My_Class->id }}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
+                                        {{ trans('My_Classes_trans.delete_class') }}
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{{ route('Classrooms.destroy', 'test') }}" method="post">
+                                        {{ method_field('Delete') }}
+                                        @csrf
+                                        {{ trans('My_Classes_trans.Warning_Grade') }}
+                                        <input id="id" type="hidden" name="id" class="form-control" value="{{ $My_Class->id }}">
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{
+                                                trans('My_Classes_trans.Close') }}
+                                            </button>
+                                            <button type="submit" class="btn btn-danger">{{ trans('My_Classes_trans.delete_row') }}
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+            </table>
         </div>
 
-
-        <!-- delete_modal_Grade -->
-        <div class="modal fade" id="delete{{ $My_Class->id }}" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- حذف مجموعة صفوف -->
+        <div class="modal fade" id="delete_all" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -170,147 +199,30 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <form action="{{ route('Classrooms.destroy', 'test') }}" method="post">
-                            {{ method_field('Delete') }}
-                            @csrf
+
+                    <form action="{{ route('delete_all') }}" method="POST">
+                        {{ csrf_field() }}
+                        <div class="modal-body">
                             {{ trans('My_Classes_trans.Warning_Grade') }}
-                            <input id="id" type="hidden" name="id" class="form-control" value="{{ $My_Class->id }}">
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{
-                                    trans('My_Classes_trans.Close') }}
-                                </button>
-                                <button type="submit" class="btn btn-danger">{{ trans('My_Classes_trans.delete_row') }}
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endforeach
-    </table>
-</div>
-</div>
-
-
-
-<!-- add_modal_class -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                    {{ trans('My_Classes_trans.add_class') }}
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-
-                <form class=" row mb-30" action="{{ route('Classrooms.store') }}" method="POST">
-                    @csrf
-                    <div class="card-body">
-                        <div class="repeater">
-                            <div data-repeater-list="List_Classes">
-                                <div data-repeater-item>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="Name" class="mr-sm-2">{{ trans('My_Classes_trans.Name_class') }}
-                                                :</label>
-                                            <input class="form-control" type="text" name="Name" />
-                                        </div>
-
-
-                                        <div class="col">
-                                            <label for="Name" class="mr-sm-2">{{ trans(key: 'My_Classes_trans.Name_class_en')
-                                                }}
-                                                :</label>
-                                            <input class="form-control" type="text" name="Name_class_en" />
-                                        </div>
-
-
-                                        <div class="col">
-                                            <label for="Name_en" class="mr-sm-2">{{ trans('My_Classes_trans.Name_Grade')
-                                                }}
-                                                :</label>
-
-                                            <div class="box">
-                                                <select class="fancyselect" name="Grade_id">
-                                                    @foreach ($Grades as $Grade)
-                                                    <option value="{{ $Grade->id }}">{{ $Grade->Name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <label for="Name_en" class="mr-sm-2">{{ trans('My_Classes_trans.Processes')
-                                                }}
-                                                :</label>
-                                            <input class="btn btn-danger btn-block" data-repeater-delete type="button"
-                                                value="{{ trans('My_Classes_trans.delete_row') }}" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-20">
-                                <div class="col-12">
-                                    <input class="button" data-repeater-create type="button"
-                                        value="{{ trans('My_Classes_trans.add_row') }}" />
-                                </div>
-
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{
-                                    trans('Grades_trans.Close') }}</button>
-                                <button type="submit" class="btn btn-success">{{ trans('Grades_trans.submit')
-                                    }}</button>
-                            </div>
+                            <input class="text" type="hidden" id="delete_all_id" name="delete_all_id" value=''>
                         </div>
-                    </div>
-                </form>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{
+                                trans('My_Classes_trans.Close') }}</button>
+                            <button type="submit" class="btn btn-danger">{{ trans('My_Classes_trans.Delete') }}</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+
+
+        <!-- add_modal_class -->
+        @include('Pages.My_Classes.Add_Classes')
+        {{-- @include('Pages.My_Classes.Delete_all') --}}
+
     </div>
-</div>
-
-
-<!-- حذف مجموعة صفوف -->
-<div class="modal fade" id="delete_all" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                    {{ trans('My_Classes_trans.delete_class') }}
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            <form action="{{ route('delete_all') }}" method="POST">
-                {{ csrf_field() }}
-                <div class="modal-body">
-                    {{ trans('My_Classes_trans.Warning_Grade') }}
-                    <input class="text" type="hidden" id="delete_all_id" name="delete_all_id" value=''>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{
-                        trans('My_Classes_trans.Close') }}</button>
-                    <button type="submit" class="btn btn-danger">{{ trans('My_Classes_trans.Delete') }}</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-
 </div>
 <!-- row closed -->
 @endsection

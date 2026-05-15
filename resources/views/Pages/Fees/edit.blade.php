@@ -82,7 +82,6 @@
                                 <label for="inputZip">نوع الرسوم</label>
                                 <select class="custom-select mr-sm-2" name="fee_id">
                                     <option value="{{ $fee->Fee_type }}">{{ $fee->title }}</option>
-
                                 </select>
                             </div>
                         </div>

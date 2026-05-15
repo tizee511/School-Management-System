@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
 @section('title')
     اضافة رسوم جديدة
 @stop
@@ -104,4 +103,5 @@
     <!-- row closed -->
 @endsection
 @section('js')
+
 @endsection

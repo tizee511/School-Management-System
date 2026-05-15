@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Section\SectionController;
 use App\Http\Controllers\Students\Fees\FeeController;
+use App\Http\Controllers\Students\FeesInvoices\FeesInvoicesController;
 use App\Http\Controllers\Students\Graduated\GraduatedController;
 use App\Http\Controllers\Students\promotions\PromotionController;
 use App\Http\Controllers\Students\StudentController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Teacher\TeacherController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 
 
 
@@ -78,6 +80,8 @@ Route::group([
         Route::resource('Graduate',GraduatedController::class);        
         // *----------------(Fees Students)----------------
         Route::resource ('fees', FeeController::class);
+        // *----------------(Fees_Invoice Students)----------------
+        Route::resource ('Fees_Invoices', FeesInvoicesController::class);
 
         });
         

@@ -15,6 +15,11 @@
 @yield('css')
 <!--- Style css -->
 <link href="{{ URL::asset('assets/css/style.css') }}" rel="stylesheet">
+
+<!-- Font Awesome 5 -->
+<link href="{{ URL::asset('assets/css/all.min.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('assets/css/v4-shims.min.css') }}" rel="stylesheet">
+
 <!--- Style css -->
 @if (App::getLocale() == 'en')
     <link href="{{ URL::asset('assets/css/ltr.css') }}" rel="stylesheet">
