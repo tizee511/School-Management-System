@@ -1,13 +1,13 @@
 @extends('layouts.master')
 @section('css')
 @section('title')
-    الفواتير الدراسية
+    سندات الصرف
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-   الفواتير الدراسية
+   سندات الصرف
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -21,36 +21,32 @@
                         <div class="card card-statistics h-100">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="datatable" class="table table-hover table-sm table-bordered p-0" data-page-length="50" style="text-align: center">
+                                    <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
+                                        data-page-length="50" style="text-align: center">
                                         <thead>
                                         <tr class="alert-success">
                                             <th>#</th>
                                             <th>الاسم</th>
-                                            <th>نوع الرسوم</th>
                                             <th>المبلغ</th>
-                                            <th>المرحلة الدراسية</th>
-                                            <th>الصف الدراسي</th>
                                             <th>البيان</th>
                                             <th>العمليات</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                      @foreach($Fee_invoices as $Fee_invoice)
+                                        @foreach($payment_students as $payment_student)
                                             <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{$Fee_invoice->student->Name}}</td>
-
-                                            <td>{{$Fee_invoice->fee->title}}</td>
-                                            <td>{{ number_format($Fee_invoice->amount, 2) }}</td>
-                                            <td>{{$Fee_invoice->grade->Name}}</td>
-                                            <td>{{$Fee_invoice->classroom->Name_class}}</td>
-                                            <td>{{$Fee_invoice->description}}</td>
+                                            <td>{{$payment_student->student->Name}}</td>
+                                            <td>{{ number_format($payment_student->amount, 2) }}</td>
+                                            <td>{{$payment_student->description}}</td>
                                                 <td>
-                                                    <a href="{{route('Fees_Invoices.edit',$Fee_invoice->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Fee_invoice{{$Fee_invoice->id}}" ><i class="fas fa-trash-alt"></i></button>
+                                                    <a href="{{route('Payment_students.edit',$payment_student->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true">
+                                                    <i class="fas fa-edit"></i></a>
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$payment_student->id}}" >
+                                                    <i class="fas fa-trash-alt"></i></button>
                                                 </td>
                                             </tr>
-                                        @include('Pages.Fees_Invoices.Delete')
+                                        @include('Pages.Payment.Delete')
                                         @endforeach
                                     </table>
                                 </div>

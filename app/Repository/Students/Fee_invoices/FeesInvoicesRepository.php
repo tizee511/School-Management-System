@@ -14,7 +14,6 @@ class FeesInvoicesRepository implements FeesInvoicesRepositoryInterface
     public function index ()
         {
         $Fee_invoices = Fees_Invoice::all ();
-        // dd($Fee_invoices);
         $Grades       = Grade::all ();
         return view ('Pages.Fees_Invoices.index', compact ('Fee_invoices', 'Grades'));
         }

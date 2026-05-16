@@ -5,15 +5,23 @@ use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Section\SectionController;
+use App\Http\Controllers\Students\Attendance\AttendanceController;
 use App\Http\Controllers\Students\Fees\FeeController;
 use App\Http\Controllers\Students\FeesInvoices\FeesInvoicesController;
 use App\Http\Controllers\Students\Graduated\GraduatedController;
+use App\Http\Controllers\Students\Payment\PaymentController;
+use App\Http\Controllers\Students\Processing\ProcessingFeeController;
 use App\Http\Controllers\Students\promotions\PromotionController;
+use App\Http\Controllers\Students\Receipts\ReceiptStudentsController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Teacher\TeacherController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
+
+
+
 
 
 
@@ -82,7 +90,15 @@ Route::group([
         Route::resource ('fees', FeeController::class);
         // *----------------(Fees_Invoice Students)----------------
         Route::resource ('Fees_Invoices', FeesInvoicesController::class);
-
+        // *----------------(Receipts_Students)----------------
+        Route::resource ('receipt_students', ReceiptStudentsController::class);
+        // *----------------(Processing_Fees_Students)-------------------------
+        Route::resource('processing_fees', ProcessingFeeController::class);
+        // *----------------(Payment_Students)-------------------------
+        Route::resource('Payment_students', PaymentController::class);
+        // *----------------(Attendance_Students)-------------------------
+        Route::resource('Attendance_students', AttendanceController::class);
+        
         });
         
         //*========================={Classes}========================

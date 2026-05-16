@@ -20,8 +20,6 @@ class FeesInvoicesController extends Controller
         return $this->Fees_Invoices->index();
     }
 
-
-
     public function store(Request $request)
     {
         return $this->Fees_Invoices->store($request);

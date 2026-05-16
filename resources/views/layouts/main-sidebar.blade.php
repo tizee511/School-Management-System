@@ -148,6 +148,9 @@
                         <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{ route('fees.create') }}">{{ trans('main_trans.Add_Fee') }}</a> </li>
                             <li> <a href="{{ route('Fees_Invoices.index') }}">{{ trans('main_trans.List_Fess') }}</a> </li>
+                            <li> <a href="{{ route('receipt_students.index') }}">{{ trans('main_trans.List_Receipts') }}</a> </li>
+                            <li> <a href="{{ route('processing_fees.index') }}">{{ trans('main_trans.List_Processing_Fees') }}</a> </li>
+                            <li> <a href="{{ route('Payment_students.index') }}">{{ trans('main_trans.List_Payments') }}</a> </li>
                         </ul>
                     </li>
 
@@ -160,7 +163,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Attendance-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
+                            <li> <a href="{{ route('Attendance_students.index') }}">{{ trans('main_trans.List_Attendance') }}</a> </li>
                             <li> <a href="themify-icons.html">Themify icons</a> </li>
                             <li> <a href="weather-icon.html">Weather icons</a> </li>
                         </ul>

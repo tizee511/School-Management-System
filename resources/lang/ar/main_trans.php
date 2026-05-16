@@ -21,7 +21,12 @@ return [
     'Accounts'=>'الحسابات',
     'Add_Fee'=>' إضافة رسوم جديد',
     'List_Fess'=>'قائمة الفواتير ',
+    'List_Receipts'=>' سندات القبض',
+    'List_Processing_Fees'=>'إسبعاد الرسوم',
+    'List_Payments'=>'سندات الصرف',
     'Attendance'=>'الحضور والغياب',
+    'List_Attendance'=>'قائمة الحضور والغياب',
+    
     'Exams'=>'الامتحانات',
     'library'=>'المكتبة',
     'Onlineclasses'=>'حصص اونلاين',

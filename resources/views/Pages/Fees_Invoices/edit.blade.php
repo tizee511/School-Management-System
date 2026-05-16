@@ -48,12 +48,11 @@
 
 
                         <div class="form-row">
-
                             <div class="form-group col">
                                 <label for="inputZip">نوع الرسوم</label>
                                 <select class="custom-select mr-sm-2" name="fee_id">
                                     @foreach($fees as $fee)
-                                        <option value="{{$fee->id}}" {{$fee->id == $fee_invoices->fee_id ? 'selected':"" }}>{{$fee->title}}</option>
+                                        <option value="{{$fee->id}}" {{$fee->id == $fee_invoices->Fee_id ? 'selected':"" }}>{{$fee->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
