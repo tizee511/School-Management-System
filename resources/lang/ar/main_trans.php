@@ -26,7 +26,8 @@ return [
     'List_Payments'=>'سندات الصرف',
     'Attendance'=>'الحضور والغياب',
     'List_Attendance'=>'قائمة الحضور والغياب',
-    
+    'Subjects'=>'المواد الدراسية',
+    'List_Subjects'=>'قائمة المواد الدراسية',
     'Exams'=>'الامتحانات',
     'library'=>'المكتبة',
     'Onlineclasses'=>'حصص اونلاين',

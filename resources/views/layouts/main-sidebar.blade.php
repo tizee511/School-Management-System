@@ -64,8 +64,8 @@
 
                     <!-- students-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu"><i class="fas fa-user-graduate"></i>
-
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu">
+                        <i class="fas fa-user-graduate"></i>
                         {{trans('main_trans.students')}}
                             <div class="pull-right"><i class="fa fa-plus"></i></div>
                             <div class="clearfix"></div>
@@ -115,7 +115,6 @@
                         </a>
                         <ul id="Teachers-menu" class="collapse" data-parent="#sidebarnav">
                             <li>
-                                {{-- {{ route('Teachers.index') }} --}}
                                 <a href="{{ route('teacher.index') }}">{{ trans('main_trans.List_Teachers') }}</a>
                             </li>
                         </ul>
@@ -164,8 +163,19 @@
                         </a>
                         <ul id="Attendance-icon" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{ route('Attendance_students.index') }}">{{ trans('main_trans.List_Attendance') }}</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
+                        </ul>
+                    </li>
+
+                    <!-- Subjects-->
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Subjects-icon">
+                            <div class="pull-left"><i class="fas fa-book"></i><span class="right-nav-text">{{
+                                    trans('main_trans.Subjects') }}</span></div>
+                            <div class="pull-right"><i class="fa fa-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="Subjects-icon" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{ route('subjects.index') }}">{{ trans('main_trans.List_Subjects') }}</a> </li>
                         </ul>
                     </li>
 

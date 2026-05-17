@@ -56,9 +56,7 @@ class Student extends Model
         return $this->belongsTo(Nationalitie::class, 'nationalitie_id');
     }
 
-
     // علاقة بين الطلاب والاباء لجلب اسم الاب في جدول الاباء
-
     public function myparent()
     {
         return $this->belongsTo(MyParent::class, 'parent_id');

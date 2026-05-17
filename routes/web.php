@@ -14,7 +14,9 @@ use App\Http\Controllers\Students\Processing\ProcessingFeeController;
 use App\Http\Controllers\Students\promotions\PromotionController;
 use App\Http\Controllers\Students\Receipts\ReceiptStudentsController;
 use App\Http\Controllers\Students\StudentController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\Teacher\TeacherController;
+use App\Models\Subject;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -98,10 +100,12 @@ Route::group([
         Route::resource('Payment_students', PaymentController::class);
         // *----------------(Attendance_Students)-------------------------
         Route::resource('Attendance_students', AttendanceController::class);
+        //*========================={Subjects}========================
+        Route::resource('subjects',SubjectController::class);
+
         
         });
         
-        //*========================={Classes}========================
     //*========================={Sutdentes}========================
 
 });

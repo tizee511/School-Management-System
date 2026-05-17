@@ -25,6 +25,8 @@ return [
     'List_Payments'=>'List Payments',
     'Attendance'=>'Attendance',
     'List_Attendance'=>'List Attendance',
+    'Subjects'=>'Subjects',
+    'List_Subjects'=>'List Subjects',
     'Exams'=>'Exams',
     'library'=>'Library',
     'Onlineclasses'=>'Online classes',

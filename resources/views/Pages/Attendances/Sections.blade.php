@@ -40,7 +40,6 @@
                         <div class="accordion gray plus-icon round">
 
                             @foreach ($Grades as $Grade)
-
                                 <div class="acd-group">
                                     <a href="#" class="acd-heading">{{ $Grade->Name }}</a>
                                     <div class="acd-des">
@@ -68,6 +67,7 @@
                                                                 <tbody>
                                                                 <?php $i = 0; ?>
                                                                 @foreach ($Grade->Sections as $list_Sections)
+
                                                                     <tr>
                                                                         <?php $i++; ?>
                                                                         <td>{{ $i }}</td>
@@ -76,7 +76,6 @@
                                                                         <td>
                                                                             <label class="badge badge-{{$list_Sections->Status == 1 ? 'success':'danger'}}">{{$list_Sections->Status == 1 ? 'نشط':'غير نشط'}}</label>
                                                                         </td>
-
                                                                         <td>
                                                                             <a href="{{route('Attendance_students.show',$list_Sections->id)}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true">قائمة الطلاب</a>
                                                                         </td>

@@ -67,19 +67,20 @@
                     <td>{{ $student->Sections->Name_Section }}</td>
                     <td>
 
-                        @if(isset($student->attendance()->where('attendance_date',date('Y-m-d'))->first()->student_id))
+                        @if(isset($student->Attendance()->where('attendance_date',date('Y-m-d'))->first()->Student_id))
+
 
 
                             <label class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
                                 <input name="attendences[{{ $student->id }}]" disabled
-                                       {{ $student->attendance()->first()->attendence_status == 1 ? 'checked' : '' }}
+                                       {{ $student->attendance()->first()->attendance_status == 1 ? 'checked' : '' }}
                                        class="leading-tight" type="radio" value="presence">
                                 <span class="text-success">حضور</span>
                             </label>
 
                             <label class="ml-4 block text-gray-500 font-semibold">
                                 <input name="attendences[{{ $student->id }}]" disabled
-                                       {{ $student->attendance()->first()->attendence_status == 0 ? 'checked' : '' }}
+                                       {{ $student->attendance()->first()->attendance_status == 0 ? 'checked' : '' }}
                                        class="leading-tight" type="radio" value="absent">
                                 <span class="text-danger">غياب</span>
                             </label>
@@ -99,11 +100,12 @@
                             </label>
 
                         @endif
-
                         <input type="hidden" name="student_id[]" value="{{ $student->id }}">
-                        <input type="hidden" name="grade_id" value="{{ $student->Grade_id }}">
+                        <input type="hidden" name="grade_id" value="{{ $student->grade_id }}">
                         <input type="hidden" name="classroom_id" value="{{ $student->Classroom_id }}">
-                        <input type="hidden" name="cection_id" value="{{ $student->section_id }}">
+                        <input type="hidden" name="section_id" value="{{ $student->section_id }}">
+
+
 
                     </td>
                 </tr>

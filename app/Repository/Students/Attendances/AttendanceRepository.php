@@ -28,6 +28,7 @@ class AttendanceRepository implements AttendanceRepositoryInterface
 
     public function store($request)
     {
+        // dd($request);
         try {
             foreach ($request->attendences as $studentid => $attendence) {
 
