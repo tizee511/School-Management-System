@@ -54,10 +54,11 @@
                             </div>
 
                             <div class="form-group col">
-                                <label for="inputZip">الصف الدراسي</label>
-                                <select class="custom-select mr-sm-2" name="Classroom_id">
-                                    <option value="{{$Subjects->Classroom_id}}">{{$Subjects->classrooms->Name_class}}</option>
-                                </select>
+                                <label for="inputState">الصف الدراسي</label>
+                                <select name="Class_id" class="custom-select">
+                                 <option value="{{ $subject->Classrooms->id }}">{{ $subject->Classrooms->Name_class }}
+                                 </option>
+                                    </select>
                             </div>
 
                             <div class="form-group col">
@@ -80,4 +81,26 @@
     <!-- row closed -->
 @endsection
 @section('js')
+<script>
+        $(document).ready(function () {
+            $('select[name="Grade_id"]').on('change', function () {
+                var Grade_id = $(this).val();
+                if (Grade_id) {
+                    $.ajax({
+                        url: "{{ URL::to('classes') }}/" + Grade_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            $('select[name="Class_id"]').empty();
+                            $.each(data, function (key, value) {
+                                $('select[name="Class_id"]').append('<option value="' + key + '">' + value + '</option>');
+                            });
+                        },
+                    });
+                } else {
+                    console.log('AJAX load did not work');
+                }
+            });
+        });
+    </script>
 @endsection

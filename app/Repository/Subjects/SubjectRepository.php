@@ -12,19 +12,19 @@ class SubjectRepository implements SubjectRepositoryInterface
 
     public function getAllSubjects ()
         {
-        $Subjects = Subject::all ();
-        return view ('Pages.Subjects.index', ['Subjects' => $Subjects]);
+            $Subjects = Subject::all ();
+            return view ('Pages.Subjects.index', ['Subjects' => $Subjects]);
         }
     public function Create_Subjects ()
-        {
+    {
         $Subject  = Subject::all ();
         $Gardes   = Grade::all ();
         $Teachers = Teacher::all ();
         return view ('Pages.Subjects.add', compact ('Subject', 'Gardes', 'Teachers'));
-        }
+    }
 
     public function StoreSubjects ($request)
-        {
+    {
         // return $request;
         try
             {
@@ -41,7 +41,7 @@ class SubjectRepository implements SubjectRepositoryInterface
             {
             return redirect ()->back ()->with (['error' => $e->getMessage ()]);
             }
-        }
+    }
     public function editSubjects ($id)
         {
         $Subjects = Subject::findOrFail ($id);

@@ -59,6 +59,7 @@ class AttendanceRepository implements AttendanceRepositoryInterface
     public function update($request)
     {
         // TODO: Implement update() method.
+        
     }
 
     public function destroy($request)

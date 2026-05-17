@@ -12,6 +12,7 @@ use App\Http\Controllers\Students\Graduated\GraduatedController;
 use App\Http\Controllers\Students\Payment\PaymentController;
 use App\Http\Controllers\Students\Processing\ProcessingFeeController;
 use App\Http\Controllers\Students\promotions\PromotionController;
+use App\Http\Controllers\Students\Quizzes\QuizzeController;
 use App\Http\Controllers\Students\Receipts\ReceiptStudentsController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\SubjectController;
@@ -20,12 +21,6 @@ use App\Models\Subject;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
-
-
-
-
-
 
 
 require __DIR__ . '/auth.php';
@@ -82,7 +77,6 @@ Route::group([
         Route::post('/Upload_attachment',[StudentController::class,'Upload_attachment'])->name('Upload_attachment');
         Route::get('Download_attachment/{studentsname}/{filename}',[StudentController::class,'Download_attachment'])->name('Download_attachment');
         Route::post('/Delete_attachment',[StudentController::class,'Delete_attachment'])->name('Delete_attachment');
-
         //*========================={Students}========================
         // *----------------(Promotions Students)----------------
         Route::resource('promotions',PromotionController::class);  
@@ -102,10 +96,14 @@ Route::group([
         Route::resource('Attendance_students', AttendanceController::class);
         //*========================={Subjects}========================
         Route::resource('subjects',SubjectController::class);
+        //*========================={Quizzes}==============
+        Route::resource('quizzes',QuizzeController::class);
+       
+        
+
 
         
         });
         
-    //*========================={Sutdentes}========================
 
 });

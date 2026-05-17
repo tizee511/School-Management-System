@@ -1,9 +1,14 @@
+<style>
+li{
+    font-weight: bold;
+}
+</style>
 <div class="container-fluid">
     <div class="row">
-        <!-- Left Sidebar start-->
+        <!-- Left Sidebar start -->
         <div class="side-menu-fixed">
-            <div class="scrollbar side-menu-bg" style="overflow: scroll">
-                <ul class="nav navbar-nav side-menu" id="sidebarnav">
+            <div class="scrollbar side-menu-bg" style="">
+                <ul class="nav navbar-nav side-menu" data-widget="treeview" id="sidebarnav" >
                     <!-- menu item Dashboard-->
                     <li>
                         <a href="{{ url('/') }}">
@@ -22,7 +27,8 @@
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Grades-menu">
                             <div class="pull-left"><i class="fa fa-university"></i><span class="right-nav-text">{{
                                     trans('main_trans.Grades') }}</span></div>
-                            <div class="pull-right"><i class="fa fa-plus"></i></div>
+                            <div class="pull-right"><i class="fas fa-angle-left right bx-5"></i></div>
+
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Grades-menu" class="collapse" data-parent="#sidebarnav">
@@ -55,7 +61,6 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="sections-menu" class="collapse" data-parent="#sidebarnav">
-                            {{-- {{ route('Sections.index') }} --}}
                             <li><a href="{{ route('Sections.index') }}">{{ trans('main_trans.List_sections') }}</a>
                             </li>
                         </ul>
@@ -179,21 +184,21 @@
                         </ul>
                     </li>
 
-                    <!-- Exams-->
+                    <!-- Quizzes-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Exams-icon">
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Quizzes-icon">
                             <div class="pull-left"><i class="fas fa-book"></i><span class="right-nav-text">{{
-                                    trans('main_trans.Exams') }}</span></div>
-                            <div class="pull-right"><i class="fa fa-plus"></i></div>
+                                    trans('main_trans.Quizzes') }}</span></div>
+                            <div class="pull-right"><i class="fas fa-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
+                        <ul id="Quizzes-icon" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{ route('quizzes.index') }}">{{ trans('main_trans.List_Quizzes') }}</a> </li>
+
+                            {{-- <li> <a href="{{ route('quizzes.create') }}">{{ trans('main_trans.add_q') }}</a></li> --}}
                         </ul>
                     </li>
-
+ٍ
 
                     <!-- library-->
                     <li>
