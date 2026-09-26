@@ -30,6 +30,8 @@ return [
     'Quizzes'=>'Quizzes',
     'List_Quizzes'=>'List Quizzes',
     'library'=>'Library',
+    'List_Books'=>'List Books',
+    'Add_Book'=>'Add Book',
     'Onlineclasses'=>'Online classes',
     'Settings'=>'Settings',
     'Users'=>'Users',

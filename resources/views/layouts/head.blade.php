@@ -11,8 +11,8 @@
 <!--wizard -->
 <link href="{{ URL::asset('assets/css/wizard.css') }}" rel="stylesheet" id="bootstrap-css">
     {{-- @livewireStyles --}}
-    
-@yield('css')
+ @yield('css')   
+
 <!--- Style css -->
 <link href="{{ URL::asset('assets/css/style.css') }}" rel="stylesheet">
 
@@ -33,3 +33,4 @@
         content: "\f068"; /* fa-minus */
     }
 </style>
+@yield('css')

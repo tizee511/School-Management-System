@@ -13,9 +13,7 @@
             font-family: 'Cairo', sans-serif;
         }
     </style>
-    @include('layouts.head')
 </head>
-
 <body>
     <div class="wrapper">
         <!--==========(preloader)==========-->
@@ -24,6 +22,7 @@
         </div>
         <!--=========(preloader)======== -->
         @include('layouts.main-header')
+
         @include('layouts.main-sidebar')
         <!--=========(Main content)=======-->
         <!-- main-content -->
@@ -43,7 +42,6 @@
                 </div>
             </div>
             @yield('content')
-            <!--================(wrapper)=================-->
             <!--================(footer)=================-->
             @include('layouts.footer')
         </div><!-- main content wrapper end-->

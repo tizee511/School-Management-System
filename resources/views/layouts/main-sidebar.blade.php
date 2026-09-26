@@ -33,7 +33,6 @@ li{
                         </a>
                         <ul id="Grades-menu" class="collapse" data-parent="#sidebarnav">
                             <li><a href="{{ route('Grades.index') }}">{{ trans('main_trans.Grades_list') }}</a></li>
-
                         </ul>
                     </li>
 
@@ -176,7 +175,7 @@ li{
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Subjects-icon">
                             <div class="pull-left"><i class="fas fa-book"></i><span class="right-nav-text">{{
                                     trans('main_trans.Subjects') }}</span></div>
-                            <div class="pull-right"><i class="fa fa-plus"></i></div>
+                            <div class="pull-right"><i class="fas fa-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Subjects-icon" class="collapse" data-parent="#sidebarnav">
@@ -187,32 +186,31 @@ li{
                     <!-- Quizzes-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Quizzes-icon">
-                            <div class="pull-left"><i class="fas fa-book"></i><span class="right-nav-text">{{
-                                    trans('main_trans.Quizzes') }}</span></div>
+                            <div class="pull-left"><i class="fas fa-book"></i><span class="right-nav-text">{{trans('main_trans.Quizzes')}}</span>
+                            
+                                    </div>
                             <div class="pull-right"><i class="fas fa-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Quizzes-icon" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{ route('quizzes.index') }}">{{ trans('main_trans.List_Quizzes') }}</a> </li>
-
-                            {{-- <li> <a href="{{ route('quizzes.create') }}">{{ trans('main_trans.add_q') }}</a></li> --}}
+                            <li> <a href="{{ route('Questions.index') }}"> قائمة الاسئلة </a></li>
                         </ul>
                     </li>
-ٍ
 
                     <!-- library-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#library-icon">
                             <div class="pull-left"><i class="fas fa-book"></i><span class="right-nav-text">{{
                                     trans('main_trans.library') }}</span></div>
-                            <div class="pull-right"><i class="fa fa-plus"></i></div>
+                            <div class="pull-right"><i class="fas fa-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="library-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
-                        </ul>
+                            <li> <a href="{{ route('library.index') }}">{{ trans('main_trans.List_Books') }}</a> </li>
+
+                            <li> <a href="{{ route('library.create') }}">{{ trans('main_trans.Add_Book') }}</a> </li>
+                        </ul>9
                     </li>
 
 
@@ -225,27 +223,17 @@ li{
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Onlineclasses-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
+                        <li> <a href="{{ route('online_classes.index') }}">حصص اونلاين مع زوم</a> </li>  
                         </ul>
                     </li>
 
 
                     <!-- Settings-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Settings-icon">
-                            <div class="pull-left"><i class="fas fa-cogs"></i><span class="right-nav-text">{{
-                                    trans('main_trans.Settings') }}</span></div>
-                            <div class="pull-right"><i class="fa fa-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="Settings-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
-                        </ul>
+                            <a href="{{route('settings.index')}}"><i class="fas fa-cogs"></i><span class="right-nav-text">{{trans('main_trans.Settings')}} </span></a>
+
                     </li>
+
 
 
                     <!-- Users-->

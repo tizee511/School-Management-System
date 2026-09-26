@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
 @section('title')
     اضافة سؤال جديد
 @stop
@@ -30,14 +29,14 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{ route('questions.store') }}" method="post" autocomplete="off">
+                            <form action="{{ route('Questions.store') }}" method="post" autocomplete="off">
                                 @csrf
                                 <div class="form-row">
 
                                     <div class="col">
                                         <label for="title">اسم السؤال</label>
                                         <input type="text" name="title" id="input-name"
-                                               class="form-control form-control-alternative" autofocus>
+                                            class="form-control form-control-alternative" autofocus>
                                     </div>
                                 </div>
                                 <br>
@@ -46,7 +45,7 @@
                                     <div class="col">
                                         <label for="title">الاجابات</label>
                                         <textarea name="answers" class="form-control" id="exampleFormControlTextarea1"
-                                                  rows="4"></textarea>
+                                                rows="4"></textarea>
                                     </div>
                                 </div>
                                 <br>
@@ -55,7 +54,7 @@
                                     <div class="col">
                                         <label for="title">الاجابة الصحيحة</label>
                                         <input type="text" name="right_answer" id="input-name"
-                                               class="form-control form-control-alternative" autofocus>
+                                            class="form-control form-control-alternative" autofocus>
                                     </div>
                                 </div>
                                 <br>
@@ -68,7 +67,7 @@
                                             <select class="custom-select mr-sm-2" name="quizze_id">
                                                 <option selected disabled>حدد اسم الاختبار...</option>
                                                 @foreach($quizzes as $quizze)
-                                                    <option value="{{ $quizze->id }}">{{ $quizze->name }}</option>
+                                                    <option value="{{ $quizze->id }}">{{ $quizze->Name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -98,6 +97,4 @@
     <!-- row closed -->
 @endsection
 @section('js')
-    @toastr_js
-    @toastr_render
 @endsection

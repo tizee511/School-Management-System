@@ -3,7 +3,7 @@
 <!-- plugins-jquery -->
 <script src="{{ URL::asset ('assets/js/plugins-jquery.js') }}"></script>
 <!-- plugin_path -->
-<script type="text/javascript"> var plugin_path = '{{ asset ("assets/js")}}/'; </script>
+<script type="text/javascript"> var plugin_path = 'assets/js/'; </script>
 <!-- chart -->
 <script src="{{ URL::asset ('assets/js/chart-init.js') }}"></script>
 <!-- calendar -->
@@ -16,10 +16,10 @@
 <script src="{{ URL::asset ('assets/js/datepicker.js') }}"></script>
 <!-- sweetalert2 -->
 <script src="{{ URL::asset ('assets/js/sweetalert2.js') }}"></script>
-<!-- toastr -->
 @yield('js')
+<!-- toastr -->
 {{-- @livewireScripts --}}
-<script src="{{ URL::asset ('assets/js/toastr.js') }}"></script>
+<script src="{{ URL::asset ('assets/js/toastr/toastr.js') }}"></script>
 <!-- validation -->
 <script src="{{ URL::asset ('assets/js/validation.js') }}"></script>
 <!-- lobilist -->
@@ -28,8 +28,7 @@
 <script src="{{ URL::asset ('assets/js/custom.js') }}"></script>
 {{-- Font Awesome --}}
 <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
-
-
+@yield('js')
 <script>
     $(document).ready(function () {
         $('#datatable').DataTable();

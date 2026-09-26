@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
 @section('title')
     قائمة الاسئلة
 @stop
@@ -13,6 +12,15 @@
 <!-- breadcrumb -->
 @endsection
 @section('content')
+ <style>
+  #add {
+   padding: 1.25rem 1.5rem;
+   font-size: 0.875rem;
+   line-height: 0.5;
+   border-radius: 1.2rem;
+   font-weight: bold;
+  }
+  </style>
     <!-- row -->
     <div class="row">
         <div class="col-md-12 mb-30">
@@ -21,12 +29,12 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
-                                <a href="{{route('questions.create')}}" class="btn btn-success btn-sm" role="button"
+                                <a id="add" href="{{route('Questions.create')}}" class="btn btn-success btn-sm" role="button"
                                    aria-pressed="true">اضافة سؤال جديد</a><br><br>
                                 <div class="table-responsive">
-                                    <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
+                                    <table id="datatable" class="table table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
-                                           style="text-align: center">
+                                           style=" text-align: center;">
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -42,22 +50,21 @@
                                         @foreach($questions as $question)
                                             <tr>
                                                 <td>{{ $loop->iteration}}</td>
-                                                <td>{{$question->title}}</td>
-                                                <td>{{$question->answers}}</td>
-                                                <td>{{$question->right_answer}}</td>
-                                                <td>{{$question->score}}</td>
-                                                <td>{{$question->quizze->name}}</td>
+                                                <td>{{$question->Title}}</td>
+                                                <td>{{$question->Answers}}</td>
+                                                <td>{{$question->Right_answer}}</td>
+                                                <td>{{$question->Score}}</td>
+                                                <td>{{$question->Quizzes->Name}}</td>
                                                 <td>
-                                                    <a href="{{route('questions.edit',$question->id)}}"
-                                                       class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
-                                                            class="fa fa-edit"></i></a>
+                                                    <a href="{{route('Questions.edit',$question->id)}}"
+                                                    class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
+                                                            class="fas fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm"
                                                             data-toggle="modal"
-                                                            data-target="#delete_exam{{ $question->id }}" title="حذف"><i
-                                                            class="fa fa-trash"></i></button>
+                                                            data-target="#delete_question{{ $question->id }}" title="حذف"><i
+                                                            class="fas fa-trash-alt"></i></button>
                                                 </td>
                                             </tr>
-
                                         @include('pages.Questions.destroy')
                                         @endforeach
                                     </table>
@@ -72,6 +79,4 @@
     <!-- row closed -->
 @endsection
 @section('js')
-    @toastr_js
-    @toastr_render
 @endsection

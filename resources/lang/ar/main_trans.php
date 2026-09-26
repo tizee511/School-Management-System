@@ -31,6 +31,8 @@ return [
     'Quizzes'=>'الاختبارات',
     'List_Quizzes'=>'قائمة الاختبارات',
     'library'=>'المكتبة',
+    'List_Books'=>'قائمة الكتب',
+    'Add_Book'=>'اضافة كتاب جديد',
     'Onlineclasses'=>'حصص اونلاين',
     'Settings'=>'الاعدادات',
     'Users'=>'المستخدمين',

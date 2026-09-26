@@ -3,8 +3,10 @@
 use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Library\LibraryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Section\SectionController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\Students\Attendance\AttendanceController;
 use App\Http\Controllers\Students\Fees\FeeController;
 use App\Http\Controllers\Students\FeesInvoices\FeesInvoicesController;
@@ -12,19 +14,25 @@ use App\Http\Controllers\Students\Graduated\GraduatedController;
 use App\Http\Controllers\Students\Payment\PaymentController;
 use App\Http\Controllers\Students\Processing\ProcessingFeeController;
 use App\Http\Controllers\Students\promotions\PromotionController;
+use App\Http\Controllers\Students\Question\QuestionController;
 use App\Http\Controllers\Students\Quizzes\QuizzeController;
 use App\Http\Controllers\Students\Receipts\ReceiptStudentsController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\Teacher\TeacherController;
+use App\Http\Controllers\ZoomMeetingController;
 use App\Models\Subject;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
-require __DIR__ . '/auth.php';
 
+
+
+
+require __DIR__ . '/auth.php';
+Route::view('empty','empty');
 Route::group(
     ['middleware' => ['guest']],
     function () {
@@ -34,6 +42,7 @@ Route::group(
     }
 );
 Route::get('/', function () {
+    
     return Auth::check()
         ? redirect(LaravelLocalization::localizeUrl('/dashboard'))
         : redirect(LaravelLocalization::localizeUrl('/login'));
@@ -98,8 +107,23 @@ Route::group([
         Route::resource('subjects',SubjectController::class);
         //*========================={Quizzes}==============
         Route::resource('quizzes',QuizzeController::class);
-       
+        // *----------------------(Questions)-------------------
+        Route::resource('Questions',QuestionController::class);
+        //*========================={Library}==============
+        Route::get ('download_file/{filename}', 'LibraryController@downloadAttachment')->name ('downloadAttachment');
+        // *----------------------(Questions)-------------------
+        Route::resource('library',LibraryController::class);
+        //*========================={Setting}==============
+        Route::resource('settings', SettingController::class);
+
+
+
         
+        Route::get('online_classes', [ZoomMeetingController::class, 'index'])->name('online_classes.index');
+        Route::get('online_classes/create', [ZoomMeetingController::class, 'create'])->name('online_classes.create');
+        Route::get('online_classes/indirectCreate', [ZoomMeetingController::class, 'indirectCreate'])->name('indirect.create');
+        Route::post('online_classes/store', [ZoomMeetingController::class, 'store'])->name('online_classes.store');
+        Route::post('online_classes/destroy', [ZoomMeetingController::class, 'destroy'])->name('online_classes.destroy');
 
 
         
