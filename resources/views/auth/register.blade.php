@@ -29,24 +29,24 @@
  </div>
 
  <div class="form-group mb-3">
-  <label for="email" class="form-label">{{ trans('auth_trans.Email') }}</label>
-  <input id="email" type="email" name="email" value="{{ old('email') }}" required class="form-control form-control-lg" autocomplete="username" placeholder="{{ trans('auth_trans.Email_placeholder') }}">
+  <label for="email" class="form-label">{{ trans('auth_trans.email') }}</label>
+  <input id="email" type="email" name="email" value="{{ old('email') }}" required class="form-control form-control-lg" autocomplete="username" placeholder="{{ trans('auth_trans.email_placeholder') }}">
   @error('email')
   <span class="text-danger">{{ $message }}</span>
   @enderror
  </div>
 
  <div class="form-group mb-3">
-  <label for="password" class="form-label">{{ trans('auth_trans.Password') }}</label>
-  <input id="password" type="password" name="password" required class="form-control form-control-lg" autocomplete="new-password" placeholder="{{ trans('auth_trans.Password_placeholder') }}">
+  <label for="password" class="form-label">{{ trans('auth_trans.password') }}</label>
+  <input id="password" type="password" name="password" required class="form-control form-control-lg" autocomplete="new-password" placeholder="{{ trans('auth_trans.password_placeholder') }}">
   @error('password')
   <span class="text-danger">{{ $message }}</span>
   @enderror
  </div>
 
  <div class="form-group mb-4">
-  <label for="password_confirmation" class="form-label">{{ trans('auth_trans.Confirm_Password') }}</label>
-  <input id="password_confirmation" type="password" name="password_confirmation" required class="form-control form-control-lg" autocomplete="new-password" placeholder="{{ trans('auth_trans.Password_placeholder') }}">
+  <label for="password_confirmation" class="form-label">{{ trans('auth_trans.Confirm_password') }}</label>
+  <input id="password_confirmation" type="password" name="password_confirmation" required class="form-control form-control-lg" autocomplete="new-password" placeholder="{{ trans('auth_trans.password_placeholder') }}">
   @error('password_confirmation')
   <span class="text-danger">{{ $message }}</span>
   @enderror

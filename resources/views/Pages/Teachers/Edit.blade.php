@@ -33,19 +33,19 @@
                                 @csrf
                                 <div class="form-row">
                                     <div class="col">
-                                        <label for="title">{{trans ('Teacher_trans.Email')}}</label>
+                                        <label for="title">{{trans ('Teacher_trans.email')}}</label>
                                         <input type="hidden" value="{{$Teachers->id}}" name="id">
                                         
-                                        <input type="email" name="Email" value="{{$Teachers->Email}}" class="form-control">
-                                        @error('Email')
+                                        <input type="email" name="email" value="{{$Teachers->email}}" class="form-control">
+                                        @error('email')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="col">
-                                        <label for="title">{{trans ('Teacher_trans.Password')}}</label>
-                                        <input type="password" name="Password" value="{{!empty($Teachers->Password)? '' : $Teachers->Password}}"
+                                        <label for="title">{{trans ('Teacher_trans.password')}}</label>
+                                        <input type="password" name="password" value="{{!empty($Teachers->password)? '' : $Teachers->password}}"
                                             class="form-control">
-                                        @error('Password')
+                                        @error('password')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>

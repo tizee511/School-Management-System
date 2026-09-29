@@ -33,14 +33,14 @@
                         @csrf
                         <div class="form-row">
                             <div class="form-group col">
-                                <label for="inputEmail4">اسم الطالب</label>
+                                <label for="inputemail4">اسم الطالب</label>
                                 <input type="text" value="{{$fee_invoices->student->Name}}" readonly name="title_ar" class="form-control">
                                 <input type="hidden" value="{{$fee_invoices->id}}" name="id" class="form-control">
                             </div>
 
 
                             <div class="form-group col">
-                                <label for="inputEmail4">المبلغ</label>
+                                <label for="inputemail4">المبلغ</label>
                                 <input type="number" value="{{$fee_invoices->amount}}" name="amount" class="form-control">
                             </div>
 

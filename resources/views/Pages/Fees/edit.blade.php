@@ -31,19 +31,19 @@
                         @csrf
                         <div class="form-row">
                             <div class="form-group col">
-                                <label for="inputEmail4">الاسم باللغة العربية</label>
+                                <label for="inputemail4">الاسم باللغة العربية</label>
                                 <input type="text" value="{{$fee->getTranslation('title','ar')}}" name="title_ar" class="form-control">
                                 <input type="hidden" value="{{$fee->id}}" name="id" class="form-control">
                             </div>
 
                             <div class="form-group col">
-                                <label for="inputEmail4">الاسم باللغة الانجليزية</label>
+                                <label for="inputemail4">الاسم باللغة الانجليزية</label>
                                 <input type="text" value="{{$fee->getTranslation('title','en')}}" name="title_en" class="form-control">
                             </div>
 
 
                             <div class="form-group col">
-                                <label for="inputEmail4">المبلغ</label>
+                                <label for="inputemail4">المبلغ</label>
                                 <input type="number" value="{{$fee->amount}}" name="amount" class="form-control">
                             </div>
 

@@ -43,11 +43,11 @@ class StudentSeeder extends Seeder
 
         foreach ($students_data as $index => $name) {
             $section = $sections->random();
-            
+        
             Student::create([
                 'Name' => $name,
-                'Email_stud' => 'student' . ($index + 1) . '@example.com',
-                'password_stud' => Hash::make('12345678'),
+                'email' => 'student' . ($index + 1) . '@example.com',
+                'password' => Hash::make('12345678'),
                 'gender_id' => $genders->random()->id,
                 'nationalitie_id' => $nationalities->random()->id,
                 'blood_id' => $blood_types->random()->id,

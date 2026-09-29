@@ -28,7 +28,7 @@ class AddParent extends Component
 
     public $currentStep = 1,
     // * Father Inputs
-    $Email,$Password,$Name_Father,$Name_Father_en,$National_ID_Father,$Passport_ID_Father,$Phone_Father,$Job_Father,$Job_Father_en,$Nationality_Father_id,$Blood_Type_Father_id,$Address_Father,$Religion_Father_id,
+    $email,$password,$Name_Father,$Name_Father_en,$National_ID_Father,$Passport_ID_Father,$Phone_Father,$Job_Father,$Job_Father_en,$Nationality_Father_id,$Blood_Type_Father_id,$Address_Father,$Religion_Father_id,
     // * Mother Inputs
     $Name_Mother,$Name_Mother_en,$National_ID_Mother,$Passport_ID_Mother,$Phone_Mother,$Job_Mother,$Job_Mother_en,$Nationality_Mother_id,$Blood_Type_Mother_id,$Address_Mother,$Religion_Mother_id;
 
@@ -36,9 +36,9 @@ class AddParent extends Component
     public function updated($propertyName)
     {
         // $this->validateOnly($propertyName, $this->validationRules());
-        //    'Email' => ['required', 'Email', Rule::unique('my_parents', 'Email')->ignore($this->Parent_id)],
+        //    'email' => ['required', 'email', Rule::unique('my_parents', 'email')->ignore($this->Parent_id)],
         $this->validateOnly($propertyName,[
-            'Email' => 'required|Email',
+            'email' => 'required|email',
             'National_ID_Father' => 'required|string|min:10|max:10|regex:/[0-9]{9}/',
             'Passport_ID_Father' => 'min:10|max:10',
             'Phone_Father' => 'min:9|max:13|regex:/^([0-9\s\-\+\(\)]*)$/',
@@ -82,8 +82,8 @@ class AddParent extends Component
         // $this->validate($this->rulesStepOne());
 
         $this->validate([
-            'Email' => 'required|unique:my_parents,Email,'.$this->id,
-            'Password' => 'required|min:6|max:8',
+            'email' => 'required|unique:my_parents,email,'.$this->id,
+            'password' => 'required|min:6|max:8',
             'Name_Father' => 'required|string',
             'Name_Father_en' => 'required|string|regex:/[A-Za-z]/',
             'Job_Father' => 'required',
@@ -124,8 +124,8 @@ class AddParent extends Component
         try {
             $My_parent = new MyParent();
             // Father_INPUTS
-            $My_parent->Email = $this->Email;
-            $My_parent->Password = Hash::make($this->Password);
+            $My_parent->email = $this->email;
+            $My_parent->password = Hash::make($this->password);
             $My_parent->Name_Father = ['en' => $this->Name_Father_en, 'ar' => $this->Name_Father];
             $My_parent->National_ID_Father = $this->National_ID_Father;
             $My_parent->Passport_ID_Father = $this->Passport_ID_Father;
@@ -180,8 +180,8 @@ class AddParent extends Component
     $My_Parent = MyParent::where('id',$id)->first();
         // $this->currentStep = 1;
         $this->Parent_id = $id;
-        $this->Email = $My_Parent->Email;
-        $this->Password = '';
+        $this->email = $My_Parent->email;
+        $this->password = '';
         $this->Name_Father = $My_Parent->getTranslation('Name_Father', 'ar');
         $this->Name_Father_en = $My_Parent->getTranslation('Name_Father', 'en');
         $this->Job_Father = $My_Parent->getTranslation('Job_Father', 'ar');;
@@ -228,8 +228,8 @@ class AddParent extends Component
             $parent = MyParent::findOrFail($this->Parent_id);
             $parent->update([
             // Father_INPUTS
-            'Email' => $this->Email,
-            'Password' => Hash::make($this->Password),
+            'email' => $this->email,
+            'password' => Hash::make($this->password),
             'Name_Father' => ['en' =>  $this->Name_Father_en, 'ar' =>  $this->Name_Father],
             'National_ID_Father' => $this->National_ID_Father,
             'Passport_ID_Father' => $this->Passport_ID_Father,
@@ -292,8 +292,8 @@ class AddParent extends Component
     // protected function rulesStepOne()
     // {
     //     return [
-    //         'Email' => ['required', 'email', Rule::unique('my_parents', 'Email')->ignore($this->Parent_id)],
-    //         'Password' => $this->updateMode ? [] : ['required'],
+    //         'email' => ['required', 'email', Rule::unique('my_parents', 'email')->ignore($this->Parent_id)],
+    //         'password' => $this->updateMode ? [] : ['required'],
     //         'Name_Father' => 'required',
     //         'Name_Father_en' => 'required',
     //         'Job_Father' => 'required',
@@ -339,8 +339,8 @@ class AddParent extends Component
 
     protected function clearForm()
     {
-        $this->Email = '';
-        $this->Password = '';
+        $this->email = '';
+        $this->password = '';
         $this->Name_Father = '';
         $this->Job_Father = '';
         $this->Job_Father_en = '';

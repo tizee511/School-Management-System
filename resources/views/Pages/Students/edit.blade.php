@@ -55,7 +55,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>{{trans('Students_trans.email')}} : </label>
-                                    <input type="email" value="{{ $Students->Email_stud}}" name="email" class="form-control">
+                                    <input type="email" value="{{ $Students->email}}" name="email" class="form-control">
                                 </div>
                             </div>
 
@@ -63,7 +63,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>{{trans('Students_trans.password')}} :</label>
-                                    <input value="{{!empty($Students->password_stud)? '': $Students->password_stud }}" type="password" name="password_stud" class="form-control">
+                                    <input value="{{!empty($Students->password)? '': $Students->password }}" type="password" name="password" class="form-control">
 
                                 </div>
                             </div>

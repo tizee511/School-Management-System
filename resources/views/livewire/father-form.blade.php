@@ -25,18 +25,18 @@
         <div class="form-container">
             <br>
 
-            {{-- Email + Password --}}
+            {{-- email + password --}}
             <div class="row">
                 <div class="col-md-6 col-12 mb-3">
-                    <label>{{ trans('Parent_trans.Email') }}</label>
-                    <input type="email" wire:model.live.throttle.15ms="Email" class="form-control">
-                    @error('Email') <div class="alert alert-danger mt-2">{{ $message }}</div> @enderror
+                    <label>{{ trans('Parent_trans.email') }}</label>
+                    <input type="email" wire:model.live.throttle.15ms="email" class="form-control">
+                    @error('email') <div class="alert alert-danger mt-2">{{ $message }}</div> @enderror
                 </div>
 
                 <div class="col-md-6 col-12 mb-3">
-                    <label>{{ trans('Parent_trans.Password') }}</label>
-                    <input type="password" wire:model.live.throttle.15ms="Password" class="form-control">
-                    @error('Password') <div class="alert alert-danger mt-2">{{ $message }}</div> @enderror
+                    <label>{{ trans('Parent_trans.password') }}</label>
+                    <input type="password" wire:model.live.throttle.15ms="password" class="form-control">
+                    @error('password') <div class="alert alert-danger mt-2">{{ $message }}</div> @enderror
                 </div>
             </div>
 

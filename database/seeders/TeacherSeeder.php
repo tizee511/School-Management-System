@@ -26,8 +26,8 @@ class TeacherSeeder extends Seeder
         $teachers = [
             [
                 'Name' => ['en' => 'Ahmed Mohamed', 'ar' => 'أحمد محمد'],
-                'Email' => 'ahmed@example.com',
-                'Password' => Hash::make('12345678'),
+                'email' => 'ahmed@example.com',
+                'password' => Hash::make('12345678'),
                 'Specialization_id' => $specializations->first()->id, // Just take first if name matching is tricky
                 'Gender_id' => $genders->where('Name_gend', 'Male')->first()->id ?? $genders->first()->id,
                 'Joining_Date' => date('Y-m-d'),
@@ -35,8 +35,8 @@ class TeacherSeeder extends Seeder
             ],
             [
                 'Name' => ['en' => 'Mona Ali', 'ar' => 'منى علي'],
-                'Email' => 'mona@example.com',
-                'Password' => Hash::make('12345678'),
+                'email' => 'mona@example.com',
+                'password' => Hash::make('12345678'),
                 'Specialization_id' => $specializations->last()->id,
                 'Gender_id' => $genders->where('Name_gend', 'Female')->first()->id ?? $genders->last()->id,
                 'Joining_Date' => date('Y-m-d'),
@@ -47,8 +47,8 @@ class TeacherSeeder extends Seeder
         foreach ($teachers as $t) {
             $teacher = Teacher::create([
                 'Name' => $t['Name'],
-                'Email' => $t['Email'],
-                'Password' => $t['Password'],
+                'email' => $t['email'],
+                'password' => $t['password'],
                 'Specialization_id' => $t['Specialization_id'],
                 'Gender_id' => $t['Gender_id'],
                 'Joining_Date' => $t['Joining_Date'],

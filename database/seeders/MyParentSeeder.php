@@ -24,8 +24,8 @@ class MyParentSeeder extends Seeder
         $religions = Religionist::all();
 
         MyParent::create([
-            'Email' => 'parent@example.com',
-            'Password' => Hash::make('12345678'),
+            'email' => 'parent@example.com',
+            'password' => Hash::make('12345678'),
 
             // معلومات الأب
             'Name_Father' => ['en' => 'Mohamed Ali', 'ar' => 'محمد علي'],

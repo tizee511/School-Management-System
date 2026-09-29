@@ -6,7 +6,7 @@ return [
     'name' => 'Name',
     'name_ar' => 'name_ar',
     'name_en' => 'name_en',
-    'email' => 'Email',
+    'email' => 'email',
     'password' => 'password',
     'gender' => 'Gender',
     'Nationality' => 'Nationality',

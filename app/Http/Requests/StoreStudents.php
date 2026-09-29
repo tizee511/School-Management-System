@@ -23,8 +23,8 @@ class StoreStudents extends FormRequest
     protected function onCreated(){
         
         return [
-            'email'=>'required|email|unique:students,Email_stud',
-            'password_stud'=>'required|min:6|max:12',
+            'email'=>'required|email|unique:students,email',
+            'password'=>'required|min:6|max:12',
             'Name_ar' => 'required|alpha|different:Name_en',
             'Name_en' => 'required|alpha|different:Name_ar',
             'gender_id'=>'required',
@@ -43,8 +43,8 @@ class StoreStudents extends FormRequest
 
     protected function onUpdate(){
         return [
-        'email'=>'required|email|unique:students,Email_stud,'.$this->id,
-            'password_stud'=>'required|min:6|max:12',
+        'email'=>'required|email|unique:students,email,'.$this->id,
+            'password'=>'required|min:6|max:12',
             'Name_ar' => 'required|alpha|different:Name_en',
             'Name_en' => 'required|alpha|different:Name_ar',
             'Date_Birth'=>'required|date|date_format:Y-m-d',
@@ -72,9 +72,9 @@ class StoreStudents extends FormRequest
             'email.email' => trans('validation.email'),
             'email.unique' => trans('validation.unique'),
 
-            'password_stud.required' => trans('validation.required'),
-            'password_stud.min' => trans('validation.min'),
-            'password_stud.max' => trans('validation.max'),
+            'password.required' => trans('validation.required'),
+            'password.min' => trans('validation.min'),
+            'password.max' => trans('validation.max'),
 
             'Name_ar.required' => trans('validation.required'),
             'Name_ar.alpha' => trans('validation.alpha'),

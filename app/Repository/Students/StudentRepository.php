@@ -32,8 +32,8 @@ class StudentRepository implements StudentRepositoryInterface {
             $data['Genders'] = Gender::all();
             $data['nationals'] = Nationalitie::all();
             $data['bloods'] = Type_Blood::all();
-            return view('Pages.Students.add',$data);
 
+            return view('Pages.Students.add',$data);
         }
         //Get Classroomes  
         public function Get_classrooms($id){
@@ -65,12 +65,13 @@ class StudentRepository implements StudentRepositoryInterface {
         }
         // Store Student
         public function Store_Student($request){
+            // return $request;
                 DB::beginTransaction();
             try {
                 $students = new Student();
                 $students->Name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
-                $students->Email_stud = $request->email;
-                $students->password_stud = Hash::make($request->password_stud);
+                $students->email = $request->email;
+                $students->password = Hash::make($request->password);
                 $students->gender_id = $request->gender_id;
                 $students->nationalitie_id = $request->nationalitie_id;
                 $students->blood_id = $request->blood_id;
@@ -130,8 +131,8 @@ class StudentRepository implements StudentRepositoryInterface {
             try {
                 $Edit_Students = Student::findorfail($request->id);
                 $Edit_Students->Name = ['ar' => $request->Name_ar, 'en' => $request->Name_en];
-                $Edit_Students->Email_stud = $request->email;
-                $Edit_Students->password_stud = Hash::make($request->password_stud);
+                $Edit_Students->email = $request->email;
+                $Edit_Students->password = Hash::make($request->password);
                 $Edit_Students->gender_id = $request->gender_id;
                 $Edit_Students->nationalitie_id = $request->nationalitie_id;
                 $Edit_Students->blood_id = $request->blood_id;
@@ -162,7 +163,7 @@ class StudentRepository implements StudentRepositoryInterface {
             foreach($request->file('photos') as $file)
             {
                 $name = $file->getClientOriginalName();
-                $file->storeAs('attachments/students/'.$request->student_name, $file->getClientOriginalName(),'upload_attachments');
+                $file->storeAs('attachments/students/'.$request->student_name, $name,'upload_attachments');
 
                 // insert in image_table
                 $images= new image();

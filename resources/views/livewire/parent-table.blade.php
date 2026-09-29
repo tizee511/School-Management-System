@@ -7,7 +7,7 @@
             <thead>
                 <tr class="table-success">
                     <th>#</th>
-                    <th>{{ trans('Parent_trans.Email') }}</th>
+                    <th>{{ trans('Parent_trans.email') }}</th>
                     <th>{{ trans('Parent_trans.Name_Father') }}</th>
                     <th>{{ trans('Parent_trans.National_ID_Father') }}</th>
                     <th>{{ trans('Parent_trans.Passport_ID_Father') }}</th>
@@ -22,7 +22,7 @@
                 <tr>
                     @php $i++; @endphp
                     <td>{{ $i }}</td>
-                    <td>{{ $my_parent->Email }}</td>
+                    <td>{{ $my_parent->email }}</td>
                     <td>{{ $my_parent->Name_Father }}</td>
                     <td>{{ $my_parent->National_ID_Father }}</td>
                     <td>{{ $my_parent->Passport_ID_Father }}</td>

@@ -37,7 +37,7 @@ class StoreFeesRequest extends FormRequest
             /*
             'title_ar.required' => trans('validation.required'),
             'title_en.required' => trans('validation.unique'),
-            'Password.required' => trans('validation.required'),
+            'password.required' => trans('validation.required'),
             'amount.required' => trans('validation.required'),
             'amount.numeric' => trans('validation.numeric'),
             'Grade_id.required' => trans('validation.required'),

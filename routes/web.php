@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\HomeController;
@@ -26,13 +28,24 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
+// require __DIR__ . '/auth.php';
+Route::get ('/', [HomeController::class, 'index'])
+    ->name ('selection');
 
-
-
-
-
-require __DIR__ . '/auth.php';
 Route::view('empty','empty');
+
+Route::middleware('guest')->group(function () {
+    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+    Route::post('/register', [RegisteredUserController::class, 'store']);
+    Route::get('/login', [HomeController::class, 'index'])->name('login');
+    Route::get('/login/{type}', [LoginController::class, 'loginForm'])->name('login.show');
+    Route::post('/login', [LoginController::class, 'login'])->name('login.authenticate');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/logout/{type}', [LoginController::class, 'logout'])->name('logout');
+    });
+    
 Route::group(
     ['middleware' => ['guest']],
     function () {
@@ -58,7 +71,7 @@ Route::group([
             : redirect()->route('login');
     });
     //*========================={Dashboard}========================
-    Route::get('/dashboard', [HomeController::class, 'index'])
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])
         ->name('dashboard');
     //*========================={Profile}========================
     Route::middleware('auth')->group(function () {
@@ -79,7 +92,7 @@ Route::group([
         //*========================={Teachers}========================
         Route::resource('teacher',TeacherController::class);
         //*========================={Sutdentes}========================
-        Route::resource('students',StudentController::class);
+        Route::resource('/students',StudentController::class);
         Route::get('/Get_classrooms/{id}',[StudentController::class,'Get_classrooms']);
         Route::get('/Get_Sections/{id}',[StudentController::class,'Get_Sections']);
         Route::get('Graduated_student_one/{id}',[StudentController::class,'Graduated_student_one'])->name('Graduated_student_one');
@@ -116,17 +129,12 @@ Route::group([
         //*========================={Setting}==============
         Route::resource('settings', SettingController::class);
 
-
-
-        
         Route::get('online_classes', [ZoomMeetingController::class, 'index'])->name('online_classes.index');
         Route::get('online_classes/create', [ZoomMeetingController::class, 'create'])->name('online_classes.create');
         Route::get('online_classes/indirectCreate', [ZoomMeetingController::class, 'indirectCreate'])->name('indirect.create');
         Route::post('online_classes/store', [ZoomMeetingController::class, 'store'])->name('online_classes.store');
         Route::post('online_classes/destroy', [ZoomMeetingController::class, 'destroy'])->name('online_classes.destroy');
 
-
-        
         });
         
 

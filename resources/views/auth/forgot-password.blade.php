@@ -1,6 +1,6 @@
 <x-guest-layout>
  <div class="mb-4 text-sm text-gray-600">
-  {{ trans('auth_trans.Forgot_password') }} {{ trans('auth_trans.Reset_Password_Message') }}
+  {{ trans('auth_trans.Forgot_password') }} {{ trans('auth_trans.Reset_password_Message') }}
  </div>
 
  <!-- Session Status -->
@@ -9,16 +9,16 @@
  <form method="POST" action="{{ route('password.email') }}">
   @csrf
 
-  <!-- Email Address -->
+  <!-- email Address -->
   <div>
-   <x-input-label for="email" :value="trans('auth_trans.Email')" />
-   <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus placeholder="{{ trans('auth_trans.Email_placeholder') }}" />
+   <x-input-label for="email" :value="trans('auth_trans.email')" />
+   <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus placeholder="{{ trans('auth_trans.email_placeholder') }}" />
    <x-input-error :messages="$errors->get('email')" class="mt-2" />
   </div>
 
   <div class="flex items-center justify-end mt-4">
    <x-primary-button>
-    {{ trans('auth_trans.Email_Password_Reset_Link') }}
+    {{ trans('auth_trans.email_password_Reset_Link') }}
    </x-primary-button>
   </div>
  </form>

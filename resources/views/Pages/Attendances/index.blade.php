@@ -58,7 +58,7 @@
                 <tr>
                     <td>{{ $loop->index + 1 }}</td>
                     <td>{{ $student->Name }}</td>
-                    <td>{{ $student->Email_stud }}</td>
+                    <td>{{ $student->email }}</td>
                     <td>{{ $student->gender->Name_gend }}</td>
                     <td>{{ $student->Grades->Name }}</td>
 

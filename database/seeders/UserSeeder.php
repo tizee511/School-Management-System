@@ -21,10 +21,12 @@ class UserSeeder extends Seeder
     //     ]);
     // *==================================
         DB::table('users')->delete();
+        
         User::create([
             'name'=> 'tizee',
             'email' => 'tizee511@gmail.com',
             'password'=>'12345678'
         ]);
+
     }
 }

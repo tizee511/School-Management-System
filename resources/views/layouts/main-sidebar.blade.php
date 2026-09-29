@@ -210,7 +210,7 @@ li{
                             <li> <a href="{{ route('library.index') }}">{{ trans('main_trans.List_Books') }}</a> </li>
 
                             <li> <a href="{{ route('library.create') }}">{{ trans('main_trans.Add_Book') }}</a> </li>
-                        </ul>9
+                        </ul>
                     </li>
 
 

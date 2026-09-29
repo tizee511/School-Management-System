@@ -32,17 +32,17 @@
       <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
         @if (App::getLocale () == 'ar')
-          {{ LaravelLocalization::getCurrentLocaleName () }}
+          {{ \LaravelLocalization::getCurrentLocaleName () }}
           <img src="{{ URL::asset ('assets/images/flags/YE.png') }}" alt="">
         @else
-          {{ LaravelLocalization::getCurrentLocaleName () }}
+          {{ \LaravelLocalization::getCurrentLocaleName () }}
           <img src="{{ URL::asset ('assets/images/flags/US.png') }}" alt="">
         @endif
       </button>
       <div class="dropdown-menu">
-        @foreach (LaravelLocalization::getSupportedLocales () as $localeCode => $properties)
+        @foreach (\LaravelLocalization::getSupportedLocales () as $localeCode => $properties)
           <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
-            href="{{ LaravelLocalization::getLocalizedURL ($localeCode, null, [], true) }}">
+            href="{{ \LaravelLocalization::getLocalizedURL ($localeCode, null, [], true) }}">
             {{ $properties['native'] }}
           </a>
         @endforeach
@@ -128,12 +128,30 @@
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#"><i
             class="text-info fa fa-cog"></i>{{ trans ('partials_trans.Settings') }}</a>
-        <a class="dropdown-item" href="{{ route ('logout') }}"
+
+        {{-- <a class="dropdown-item" href="{{ route ('logout') }}"
+        
           onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
             class="text-danger fa fa-sign-out"></i>{{ trans ('partials_trans.Logoff') }}</a>
         <form id="logout-form" action="{{ route ('logout') }}" method="POST" style="display: none;">
           @csrf
-        </form>
+        </form> --}}
+         @if(auth('student')->check())
+         <form method="GET" action="{{ route('logout','student') }}">
+          @elseif(auth('teacher')->check())
+          <form method="GET" action="{{ route('logout','teacher') }}">
+           @elseif(auth('parent')->check())
+           <form method="GET" action="{{ route('logout','parent') }}">
+            @else
+            <form method="GET" action="{{ route('logout','web') }}">
+             @endif
+
+             @csrf
+             <button type="submit" class="dropdown-item"><i class="bx bx-log-out"></i>{{ trans ('partials_trans.Logoff') }} </button>
+
+
+            </form>
+
       </div>
     </li>
   </ul>

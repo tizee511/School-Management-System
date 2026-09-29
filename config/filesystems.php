@@ -41,6 +41,7 @@ return [
         'parent_attachments' => [
             'driver' => 'local',
             'root' => storage_path('app/parent_attachments'),
+            'visibility' => 'public',
             'serve' => true,
             'throw' => false,
             'report' => false,
@@ -51,7 +52,7 @@ return [
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
-            'throw' => false,
+            'throw' => true,
             'report' => false,
         ],
 
@@ -60,7 +61,7 @@ return [
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
-            'throw' => false,
+            'throw' => true,
             'report' => false,
         ],
 

@@ -30,12 +30,12 @@
                         @csrf
                         <div class="form-row">
                             <div class="form-group col">
-                                <label for="inputEmail4">الاسم باللغة العربية</label>
+                                <label for="inputemail4">الاسم باللغة العربية</label>
                                 <input type="text" value="{{ old('Name_ar') }}" name="Name_ar" class="form-control">
                             </div>
 
                             <div class="form-group col">
-                                <label for="inputEmail4">الاسم باللغة الانجليزية</label>
+                                <label for="inputemail4">الاسم باللغة الانجليزية</label>
                                 <input type="text" value="{{ old('Name_en') }}" name="Name_en" class="form-control">
                             </div>
                         </div>

@@ -41,7 +41,7 @@
                                             <th scope="row">{{trans('Students_trans.name')}}</th>
                                             <td>{{ $Student->Name }}</td>
                                             <th scope="row">{{trans('Students_trans.email')}}</th>
-                                            <td>{{$Student->Email_stud}}</td>
+                                            <td>{{$Student->email}}</td>
                                             <th scope="row">{{trans('Students_trans.gender')}}</th>
                                             <td>{{$Student->gender->Name_gend}}</td>
                                             <th scope="row">{{trans('Students_trans.Nationality')}}</th>

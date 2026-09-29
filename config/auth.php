@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\MyParent;
+use App\Models\Student;
+use App\Models\Teacher;
+
 return [
 
     /*
@@ -40,8 +44,24 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'student' => [
+            'driver' => 'session',
+            'provider' => 'students',
+            ],
+
+        'parent' => [
+            'driver' => 'session',
+            'provider' => 'my_parents',
+        ],
+
+        'teacher' => [
+            'driver' => 'session',
+            'provider' => 'teachers',
+        ]
     ],
 
+            
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -64,6 +84,18 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
+        'students' => [
+            'driver' => 'eloquent',
+            'model' =>  Student::class,
+        ],
+        'my_parents' => [
+            'driver' => 'eloquent',
+            'model' =>  MyParent::class,
+        ],
+        'teachers' => [
+            'driver' => 'eloquent',
+            'model' => Teacher::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
@@ -73,7 +105,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Resetting Passwords
+    | Resetting passwords
     |--------------------------------------------------------------------------
     |
     | These configuration options specify the behavior of Laravel's password
@@ -101,7 +133,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Password Confirmation Timeout
+    | password Confirmation Timeout
     |--------------------------------------------------------------------------
     |
     | Here you may define the amount of seconds before a password confirmation

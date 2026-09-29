@@ -15,7 +15,7 @@
 
    <div>
     <x-primary-button>
-     {{ trans('auth_trans.Resend_Verification_Email') }}
+     {{ trans('auth_trans.Resend_Verification_email') }}
     </x-primary-button>
    </div>
   </form>

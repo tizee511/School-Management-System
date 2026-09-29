@@ -24,7 +24,7 @@ class SettingSeeder extends Seeder
             ['Key' => 'phone', 'Value' => '784392285'],
             ['Key' => 'address', 'Value' => 'اليمن'],
             ['Key' => 'school_email', 'Value' => 'nashwangaid@atizee.com'],
-            ['Key' => 'logo', 'Value' => 'assets/images/1704992327666.jpg'],
+            ['Key' => 'logo', 'Value' => ''],
         ];
 
         DB::table('settings')->insert($data);

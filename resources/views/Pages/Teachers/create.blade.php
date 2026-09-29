@@ -33,18 +33,18 @@
                                 @csrf
                                 <div class="form-row">
                                     <div class="col">
-                                        <label for="title">{{trans('Teacher_trans.Email')}}</label>
-                                        <input type="email" name="Email" class="form-control" value="{{ old('Email') }}">
+                                        <label for="title">{{trans('Teacher_trans.email')}}</label>
+                                        <input type="email" name="email" class="form-control" value="{{ old('email') }}">
 
-                                        @error('Email')
+                                        @error('email')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="col">
-                                        <label for="title">{{trans('Teacher_trans.Password')}}</label>
-                                        <input type="password" name="Password" class="form-control" value="{{ old('Password') }}">
+                                        <label for="title">{{trans('Teacher_trans.password')}}</label>
+                                        <input type="password" name="password" class="form-control" value="{{ old('password') }}">
 
-                                        @error('Password')
+                                        @error('password')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>

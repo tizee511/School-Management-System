@@ -22,8 +22,8 @@ class StoreTeachers extends FormRequest
     protected function onCreated(){
         
         return [
-            'Email'=>'required|unique:teachers,Email,',
-            'Password'=>'required|min:6|max:12',
+            'email'=>'required|unique:teachers,email,',
+            'password'=>'required|min:6|max:12',
             'Name_ar' => 'required|alpha|different:Name_en',
             'Name_en' => 'required|alpha|different:Name_ar',
             'Specialization_id'=>'required',
@@ -36,8 +36,8 @@ class StoreTeachers extends FormRequest
     }
     protected function onUpdate(){
         return [
-            'Email'=>'required|unique:teachers,Email,'.$this->id,
-            'Password'=>'required|min:6|max:12',
+            'email'=>'required|unique:teachers,email,'.$this->id,
+            'password'=>'required|min:6|max:12',
             'Name_ar' => 'required|alpha|different:Name_en',
             'Name_en' => 'required|alpha|different:Name_ar',
             'Specialization_id'=>'required',
@@ -57,9 +57,9 @@ class StoreTeachers extends FormRequest
     public function messages(): array
     {
         return [
-            'Email.required' => trans('validation.required'),
-            'Email.unique' => trans('validation.unique'),
-            'Password.required' => trans('validation.required'),
+            'email.required' => trans('validation.required'),
+            'email.unique' => trans('validation.unique'),
+            'password.required' => trans('validation.required'),
             'Name_ar.required' => trans('validation.required'),
             'Name_en.required' => trans('validation.required'),
             'Specialization_id.required' => trans('validation.required'),

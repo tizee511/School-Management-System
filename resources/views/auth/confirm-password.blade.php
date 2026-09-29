@@ -1,14 +1,14 @@
 <x-guest-layout>
  <div class="mb-4 text-sm text-gray-600">
-  {{ trans('auth_trans.Confirm_Password_Message') }}
+  {{ trans('auth_trans.Confirm_password_Message') }}
  </div>
 
  <form method="POST" action="{{ route('password.confirm') }}">
   @csrf
 
-  <!-- Password -->
+  <!-- password -->
   <div>
-   <x-input-label for="password" :value="trans('auth_trans.Password')" />
+   <x-input-label for="password" :value="trans('auth_trans.password')" />
 
    <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
 
