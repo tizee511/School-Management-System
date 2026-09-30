@@ -86,15 +86,15 @@ return [
         ],
         'students' => [
             'driver' => 'eloquent',
-            'model' =>  Student::class,
+            'model' => env('AUTH_MODEL', Student::class),
         ],
         'my_parents' => [
             'driver' => 'eloquent',
-            'model' =>  MyParent::class,
+            'model' =>  env('AUTH_MODEL', MyParent::class),
         ],
         'teachers' => [
             'driver' => 'eloquent',
-            'model' => Teacher::class,
+            'model' => env('AUTH_MODEL',Teacher::class),
         ]
 
         // 'users' => [

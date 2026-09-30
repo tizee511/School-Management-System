@@ -1,10 +1,10 @@
 @extends('layouts.auth')
 
 @section('title', trans ('auth_trans.Login'))
-{{-- @section('authBackground', 'assets/images/login-bg.jpg') --}}
-{{-- @section('authInnerBackground', 'assets/images/login-inner-bg.jpg') --}}
-{{-- @section('formTitle', trans ('auth_trans.Welcome_Back')) --}}
-{{-- @section('formSubtitle', trans ('auth_trans.Please_sign_in')) --}}
+@section('authBackground', 'assets/images/login-bg.jpg')
+@section('authInnerBackground', 'assets/images/login-inner-bg.jpg')
+@section('formTitle', trans ('auth_trans.Welcome_Back'))
+@section('formSubtitle', trans ('auth_trans.Please_sign_in'))
 
 @section('content')
     @if (session ('status'))
@@ -30,13 +30,17 @@
      <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول ادمن</h3>
      @endif
 
-    <form method="POST" action="{{ route ('login.authenticate') }}"
+    <form method="POST" action="{{ route ('logIN') }}"
+
         onsubmit="document.getElementById('login-preloader').style.display='flex';">
         @csrf
+        
+
+
+        {{-- <input type="hidden" name="type" value="{{ $type }}"> --}}
 
         <div class="form-group mb-3">
             <label for="email" class="form-label">{{ trans ('auth_trans.email') }}</label>
-
             <input id="email" type="email" name="email" value="{{ old ('email') }}" required autofocus
                 class="form-control form-control-lg" autocomplete="username"
                 placeholder="{{ trans ('auth_trans.email_placeholder') }}">
@@ -73,10 +77,10 @@
         <button type="submit" class="btn btn-primary btn-lg w-100 py-2">{{ trans ('auth_trans.Login') }}</button>
     </form>
 
-    {{-- <div class="text-center mt-4">
+    <div class="text-center mt-4">
         <span class="text-muted">{{ trans ('auth_trans.Dont_have_an_account') }}</span>
-        <a href="{{ route ('register') }}" class="text-primary">{{ trans ('auth_trans.Register') }}</a>
-    </div> --}}
+        <a href="#" class="text-primary">{{ trans ('auth_trans.Register') }}</a>
+    </div>
 
     <div id="login-preloader"
         style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.9);z-index:99999;align-items:center;justify-content:center;">

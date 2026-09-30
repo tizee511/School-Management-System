@@ -32,20 +32,23 @@
       <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
         @if (App::getLocale () == 'ar')
-          {{ \LaravelLocalization::getCurrentLocaleName () }}
+          {{LaravelLocalization::getCurrentLocaleName () }}
+
           <img src="{{ URL::asset ('assets/images/flags/YE.png') }}" alt="">
         @else
-          {{ \LaravelLocalization::getCurrentLocaleName () }}
+          {{LaravelLocalization::getCurrentLocaleName () }}
+
           <img src="{{ URL::asset ('assets/images/flags/US.png') }}" alt="">
         @endif
       </button>
       <div class="dropdown-menu">
-        @foreach (\LaravelLocalization::getSupportedLocales () as $localeCode => $properties)
-          <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
-            href="{{ \LaravelLocalization::getLocalizedURL ($localeCode, null, [], true) }}">
-            {{ $properties['native'] }}
-          </a>
+        @foreach(LaravelLocalization::getSupportedLocales()  as $localeCode => $properties)
+         <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+          href="{{LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+          {{ $properties['native'] }}
+         </a>
         @endforeach
+
       </div>
     </div>
 
@@ -111,8 +114,8 @@
         <div class="dropdown-header">
           <div class="media">
             <div class="media-body">
-              <h5 class="mt-0 mb-0">{{ Auth::user ()->name }}</h5>
-              <span>{{ Auth::user ()->email }}</span>
+              <h5 class="mt-0 mb-0">{{ auth()->user()->name }}</h5>
+              <span>{{ auth()->user()->email }}</span>
             </div>
           </div>
         </div>
@@ -130,27 +133,28 @@
             class="text-info fa fa-cog"></i>{{ trans ('partials_trans.Settings') }}</a>
 
         {{-- <a class="dropdown-item" href="{{ route ('logout') }}"
-        
           onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
-            class="text-danger fa fa-sign-out"></i>{{ trans ('partials_trans.Logoff') }}</a>
-        <form id="logout-form" action="{{ route ('logout') }}" method="POST" style="display: none;">
+            class="text-danger fa fa-sign-out"></i>{{ trans ('partials_trans.Logoff') }}</a> --}}
+
+        {{-- <form id="logout-form" action="{{ route ('logout') }}" method="POST" style="display: none;">
           @csrf
         </form> --}}
          @if(auth('student')->check())
-         <form method="GET" action="{{ route('logout','student') }}">
+         <form id="logout-form" method="GET" action="{{ route('logout','student') }}">
           @elseif(auth('teacher')->check())
-          <form method="GET" action="{{ route('logout','teacher') }}">
+          <form id="logout-form" method="GET" action="{{ route('logout','teacher') }}">
            @elseif(auth('parent')->check())
-           <form method="GET" action="{{ route('logout','parent') }}">
+           <form id="logout-form" method="GET" action="{{ route('logout','parent') }}">
             @else
-            <form method="GET" action="{{ route('logout','web') }}">
+            <form id="logout-form" method="GET" action="{{ route('logout','web') }}">
              @endif
-
              @csrf
-             <button type="submit" class="dropdown-item"><i class="bx bx-log-out"></i>{{ trans ('partials_trans.Logoff') }} </button>
+              <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="text-danger fa fa-sign-out"></i>{{ trans ('partials_trans.Logoff') }}</a>
+
+             {{-- <button type="submit" class="dropdown-item"><i class="bx bx-log-out"></i>{{ trans ('partials_trans.Logoff') }} </button> --}}
 
 
-            </form>
+            {{-- </form> --}}
 
       </div>
     </li>

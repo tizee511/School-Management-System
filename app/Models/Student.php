@@ -10,12 +10,12 @@ use App\Models\MyParent;
 use App\Models\Nationalitie;
 use App\Models\Section;
 use App\Models\StudentAccount;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
 
-class Student extends Model
+class Student extends Authenticatable
 {
     use SoftDeletes;
     use HasTranslations;

@@ -4,13 +4,13 @@ namespace App\Http\Middleware;
 
 use App\Providers\AppServiceProvider;
 use Closure;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class RedirectIfAuthenticated
 {
     
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): Response
     {
         if (auth ('web')->check ())
             {

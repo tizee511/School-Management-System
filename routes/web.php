@@ -23,58 +23,62 @@ use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\Teacher\TeacherController;
 use App\Http\Controllers\ZoomMeetingController;
-use App\Models\Subject;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 // require __DIR__ . '/auth.php';
-Route::get ('/', [HomeController::class, 'index'])
-    ->name ('selection');
+Route::get ('/', [HomeController::class, 'index'])->name ('selection');
 
-Route::view('empty','empty');
-
-Route::middleware('guest')->group(function () {
-    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
-    Route::post('/register', [RegisteredUserController::class, 'store']);
-    Route::get('/login', [HomeController::class, 'index'])->name('login');
-    Route::get('/login/{type}', [LoginController::class, 'loginForm'])->name('login.show');
-    Route::post('/login', [LoginController::class, 'login'])->name('login.authenticate');
-});
-
-Route::middleware('auth')->group(function () {
-    Route::get('/logout/{type}', [LoginController::class, 'logout'])->name('logout');
-    });
+// Route::group( 'Auth',function () {
+//     Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+//     Route::post('/register', [RegisteredUserController::class, 'store']);
+//     // Route::get('/login/{type}', [LoginController::class, 'loginForm'])->name('login.show');
+//     // Route::post('/login', [LoginController::class, 'login'])->name('login');
     
-Route::group(
-    ['middleware' => ['guest']],
-    function () {
-        Route::get('/', function () {
-            return view('auth.login');
+//     });
+    // Route::get ('/register', [RegisteredUserController::class, 'create'])->name ('register');
+    // Route::get ('/register', [RegisteredUserController::class, 'store']);
+    Route::group(['Auth'],function () {
+        
+        Route::get ('/login/{type}', [LoginController::class, 'loginForm'])->middleware ('guest')->name ('login.show');
+        
+        Route::post ('/login', [LoginController::class, 'login'])->name('logIN');
+        
+        Route::get('/logout/{type}', [LoginController::class, 'logout'])->name('logout');
         });
-    }
-);
-Route::get('/', function () {
+        
+               
+        
+
+// Route::group(
+//     ['middleware' => ['guest']],
+//     function () {
+//         Route::get('/', function () {
+//             return view('auth.login');
+//         });
+//     }
+// );
+// Route::get('/dashboard', function () {
     
-    return Auth::check()
-        ? redirect(LaravelLocalization::localizeUrl('/dashboard'))
-        : redirect(LaravelLocalization::localizeUrl('/login'));
-});
+//     return Auth::check()
+//         ? redirect(LaravelLocalization::localizeUrl('/dashboard'))
+//         : redirect(LaravelLocalization::localizeUrl('/login'));
+// });
 //* ==============================Translate all pages============================
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
 ], function () {
-    Route::get('/', function () {
-        return Auth::check()
-            ? redirect()->route('dashboard')
-            : redirect()->route('login');
-    });
+    // Route::get('/', function () {
+    //     return Auth::check()
+    //         ? redirect()->route('dashboard')
+    //         : redirect()->route('login');
+    // });
     //*========================={Dashboard}========================
     Route::get('/dashboard', [HomeController::class, 'dashboard'])
         ->name('dashboard');
     //*========================={Profile}========================
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth'])->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

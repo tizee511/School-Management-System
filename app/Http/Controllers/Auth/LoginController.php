@@ -14,25 +14,30 @@ class LoginController extends Controller
 
     protected $redirectTo = '/';
     public function __construct ()
-        {
+    {
         $this->middleware ('guest')->except ('logout');
         // $this->middleware('auth')->only('logout');
-        }
+    }
 
     public function loginForm ($type)
         {
+
         return view ('auth.login', compact ('type'));
         }
 
     public function login (Request $request)
         {
-            // return $request;
+           
 
         if (Auth::guard ($this->chekGuard ($request))->attempt (['email' => $request->email, 'password' => $request->password]))
             {
-            return $this->redirect ($request);
+               return $this->redirect ($request);
             }
+        else
+            {
+                return back ()->withInput ()->withErrors (['email' => 'These credentials do not match our records.']);
 
+        }
         }
 
     public function logout (Request $request, $type)
@@ -44,7 +49,7 @@ class LoginController extends Controller
 
         $request->session ()->regenerateToken ();
 
-        return redirect ('/login');
+        return redirect ('/');
         }
 
     

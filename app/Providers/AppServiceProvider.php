@@ -2,17 +2,14 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider as  ServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    protected $namespace = 'App\Http\Controllers';
+   
 
-    public const HOME    = '/dashboard';
+    public const HOME    = '/';
     public const STUDENT = '/student/dashboard';
     public const TEACHER = 'dashboard';
     public const PARENT  = '/dashboard';

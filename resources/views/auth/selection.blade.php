@@ -28,12 +28,10 @@
 <body>
 
     <div class="wrapper">
-
         <section class="height-100vh d-flex align-items-center page-section-ptb login"
                  style="background-image: url('{{ asset('assets/images/sativa.png')}}');">
             <div class="container">
                 <div class="row justify-content-center no-gutters vertical-align">
-
                     <div style="border-radius: 15px;" class="col-lg-8 col-md-8 bg-white">
                         <div class="login-fancy pb-40 clearfix">
                             <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">حدد طريقة الدخول</h3>
@@ -44,12 +42,17 @@
                                 <a class="btn btn-default col-lg-3" title="ولي امر" href="{{route('login.show','parent')}}">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/parent.png')}}">
                                 </a>
+
                                 <a class="btn btn-default col-lg-3" title="معلم" href="{{route('login.show','teacher')}}">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/teacher.png')}}">
                                 </a>
+
+
                                 <a class="btn btn-default col-lg-3" title="ادمن" href="{{route('login.show','admin')}}">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/admin.png')}}">
                                 </a>
+
+
                             </div>
 
                         </div>
