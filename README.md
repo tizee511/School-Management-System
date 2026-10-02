@@ -1,66 +1,354 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# نظام إدارة المدارس
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+نظام ويب متكامل وقابل للتوسع لإدارة العمليات الأكاديمية والإدارية داخل المدارس، مبني باستخدام **Laravel** و**Blade** و**Livewire**. يهدف المشروع إلى تنظيم بيانات الطلاب والمعلمين والفصول والحضور والدرجات والرسوم والمدفوعات ضمن لوحة تحكم موحدة وسهلة الاستخدام.
 
-## About Laravel
+> **School Management System** — A scalable school administration platform built with Laravel, Blade, and Livewire.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## نبذة عن المشروع
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+يقدم النظام حلًا عمليًا للمدارس التي تحتاج إلى رقمنة عملياتها اليومية وتقليل الاعتماد على الملفات الورقية والجداول المتفرقة. تم تصميم المشروع ببنية قابلة للتوسع بحيث يبدأ بنسخة MVP عملية، ثم يتطور تدريجيًا ليشمل التقارير المتقدمة والإشعارات ورفع الملفات ودعم أكثر من مدرسة.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## أهداف المشروع
 
-## Learning Laravel
+- توحيد بيانات المدرسة في نظام مركزي وآمن.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- تبسيط إدارة الطلاب والفصول والمعلمين.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- تسجيل الحضور والغياب بطريقة يومية ومنظمة.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- إدارة درجات الطلاب وعرض نتائجهم بسهولة.
 
-## Laravel Sponsors
+- تنظيم الرسوم الدراسية والمدفوعات.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- توفير صلاحيات مناسبة لكل نوع من المستخدمين.
 
-### Premium Partners
+- بناء أساس تقني قابل للتوسع مستقبلًا.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## المميزات الرئيسية
 
-## Contributing
+### إدارة البيانات الأكاديمية
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- إدارة المراحل الدراسية والفصول.
 
-## Code of Conduct
+- إضافة وتعديل وحذف بيانات الطلاب.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- ربط الطالب بالفصل الدراسي وولي الأمر.
 
-## Security Vulnerabilities
+- إدارة المعلمين والمواد الدراسية.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- ربط المعلمين بالمواد والفصول التي يدرسونها.
 
-## License
+### الحضور والغياب
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- تسجيل الحضور والغياب والتأخر يوميًا.
+
+- عرض سجل حضور الطالب.
+
+- البحث والتصفية حسب التاريخ والفصل والطالب.
+
+- تجهيز تقارير أساسية عن نسب الحضور والغياب.
+
+### الدرجات والنتائج
+
+- إدخال درجات الطلاب حسب المادة والفصل الدراسي.
+
+- تعديل الدرجات والتحقق من صحة القيم المدخلة.
+
+- عرض نتائج الطالب بطريقة منظمة.
+
+- إعداد تقارير أولية عن الأداء الأكاديمي.
+
+### الرسوم والمدفوعات
+
+- إنشاء الرسوم الدراسية وربطها بالطلاب أو الفصول.
+
+- تسجيل المدفوعات ومتابعة المبالغ المستحقة.
+
+- عرض ملخص مالي لكل طالب.
+
+- تجهيز البنية اللازمة لدعم الدفع الإلكتروني مستقبلًا.
+
+### المستخدمون والصلاحيات
+
+- **مدير النظام:** وصول كامل إلى إعدادات النظام والبيانات والتقارير.
+
+- **الإدارة المدرسية:** إدارة الطلاب والفصول والمعلمين والعمليات اليومية حسب الصلاحيات.
+
+- **المعلمون:** تسجيل الحضور وإدخال الدرجات وإدارة المواد والفصول المخصصة لهم.
+
+- **الطلاب وأولياء الأمور:** متابعة الحضور والدرجات والإشعارات عند تفعيل بواباتهم.
+
+## نطاق النسخة الأولى MVP
+
+تركز النسخة الأولى على الوظائف الأساسية القابلة للاستخدام داخل مدرسة حقيقية:
+
+- إدارة الطلاب.
+
+- إدارة المراحل والفصول.
+
+- إدارة المعلمين والمواد.
+
+- تسجيل الحضور اليومي.
+
+- إدخال الدرجات.
+
+- التقارير الأساسية.
+
+- إدارة أولية للرسوم والمدفوعات.
+
+- نظام تسجيل دخول وصلاحيات.
+
+## خارطة الطريق
+
+### المرحلة الأولى — MVP
+
+- إعداد المشروع وقاعدة البيانات.
+
+- بناء الموديلات والعلاقات الأساسية.
+
+- تطوير CRUD للطلاب والفصول والمعلمين والمواد.
+
+- تطوير واجهة الحضور والدرجات.
+
+- إضافة التقارير الأساسية والاختبارات.
+
+### المرحلة الثانية — التوسع الإداري
+
+- بوابة الطلاب وأولياء الأمور.
+
+- تقارير PDF وExcel.
+
+- تحسين إدارة الرسوم والمدفوعات.
+
+- إشعارات الغياب وتحديث الدرجات والرسوم.
+
+- تحسين لوحة التحكم والإحصائيات.
+
+### المرحلة الثالثة — الميزات المتقدمة
+
+- إدارة النشاطات المدرسية.
+
+- رفع ملفات الواجبات والتقارير والامتحانات.
+
+- إنشاء الجداول الدراسية تلقائيًا.
+
+- إشعارات متقدمة عبر البريد أو قنوات أخرى.
+
+- دعم أكثر من مدرسة داخل النظام نفسه.
+
+- توفير REST API وتطبيق للهواتف المحمولة.
+
+## التقنيات المستخدمة
+
+- **Laravel** — إطار العمل الأساسي.
+
+- **PHP** — لغة البرمجة.
+
+- **Blade** — بناء واجهات الخادم.
+
+- **Livewire** — إنشاء المكونات التفاعلية دون الحاجة إلى بناء SPA كامل.
+
+- **Eloquent ORM** — التعامل مع قاعدة البيانات والعلاقات.
+
+- **MySQL** — قاعدة البيانات المقترحة.
+
+- **Tailwind CSS** — تنسيق الواجهات.
+
+- **Laravel Fortify أو Breeze** — المصادقة حسب احتياج المشروع.
+
+- **Laravel Notifications** — الإشعارات.
+
+- **DomPDF** — إنشاء ملفات PDF.
+
+- **Laravel Excel** — تصدير واستيراد ملفات Excel.
+
+- **PHPUnit / Pest** — الاختبارات البرمجية.
+
+## الكيانات الأساسية
+
+- `User`
+
+- `AcademicStage`
+
+- `Classroom`
+
+- `Student`
+
+- `Parent`
+
+- `Teacher`
+
+- `Subject`
+
+- `Attendance`
+
+- `Grade`
+
+- `Fee`
+
+- `Payment`
+
+### العلاقات الأساسية
+
+- المرحلة الدراسية تحتوي على عدة فصول.
+
+- الفصل الدراسي يحتوي على عدة طلاب.
+
+- الطالب مرتبط بفصل دراسي وولي أمر واحد على الأقل.
+
+- المعلم يمكنه تدريس عدة مواد في عدة فصول.
+
+- الحضور مرتبط بالطالب والفصل والتاريخ.
+
+- الدرجات مرتبطة بالطالب والمادة والفصل الدراسي.
+
+- الرسوم والمدفوعات مرتبطة بالطلاب والفصول.
+
+## المتطلبات
+
+قبل تشغيل نسخة Laravel من المشروع، تأكد من توفر:
+
+- PHP 8.2 أو أحدث.
+
+- Composer.
+
+- Node.js وnpm أو pnpm.
+
+- MySQL 8.0 أو أحدث.
+
+- امتداد PHP الخاص بقاعدة البيانات المستخدمة.
+
+- خادم محلي مثل Laravel Herd أو XAMPP أو Docker.
+
+## التثبيت والتشغيل
+
+> الأوامر التالية مخصصة لنسخة Laravel من النظام عند توفر شفرة التطبيق.
+
+```bash
+# استنساخ المشروع
+git clone https://github.com/USERNAME/school-management-system.git
+cd school-management-system
+
+# تثبيت حزم PHP
+composer install
+
+# إنشاء ملف الإعدادات
+cp .env.example .env
+php artisan key:generate
+
+# إعداد بيانات قاعدة البيانات داخل ملف .env
+# ثم تشغيل الترحيلات والبيانات التجريبية
+php artisan migrate --seed
+
+# تثبيت حزم الواجهة
+npm install
+
+# تشغيل Vite في نافذة مستقلة
+npm run dev
+
+# تشغيل خادم Laravel
+php artisan serve
+```
+
+بعد ذلك يمكن فتح النظام على:
+
+```
+http://127.0.0.1:8000
+```
+
+## إعداد قاعدة البيانات
+
+حدّث القيم التالية في ملف `.env` بما يتوافق مع إعداداتك المحلية:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=school_management
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+لا ترفع ملف `.env` إلى GitHub. استخدم `.env.example` لتوثيق أسماء المتغيرات المطلوبة فقط.
+
+## الاختبارات
+
+لتشغيل الاختبارات:
+
+```bash
+php artisan test
+```
+
+ولتشغيل اختبار محدد:
+
+```bash
+php artisan test --filter=StudentTest
+```
+
+ينبغي أن تغطي الاختبارات على الأقل:
+
+- إنشاء وتحديث الطلاب.
+
+- صلاحيات المستخدمين.
+
+- تسجيل الحضور ومنع التكرار في اليوم نفسه.
+
+- إدخال الدرجات والتحقق من القيم.
+
+- احتساب المدفوعات والمبالغ المتبقية.
+
+## مبادئ الأمان
+
+- استخدام سياسات Laravel Policies للتحكم في الوصول إلى البيانات.
+
+- تطبيق التحقق من المدخلات باستخدام Form Requests أو قواعد Livewire.
+
+- حماية المسارات باستخدام Middleware والصلاحيات المناسبة.
+
+- عدم تخزين كلمات المرور أو البيانات الحساسة كنص واضح.
+
+- حماية رفع الملفات والتحقق من النوع والحجم والامتداد.
+
+- تفعيل النسخ الاحتياطي الدوري لقاعدة البيانات.
+
+- عدم مشاركة مفاتيح API أو بيانات الدفع داخل المستودع.
+
+## أسلوب المساهمة
+
+المساهمات مرحب بها لتحسين المشروع. يُرجى اتباع الخطوات التالية:
+
+1. أنشئ Fork للمستودع.
+
+1. أنشئ فرعًا جديدًا للميزة أو الإصلاح:
+
+   ```bash
+   git checkout -b feature/improve-attendance
+   ```
+
+1. نفّذ التغييرات وأضف الاختبارات المناسبة.
+
+1. تأكد من نجاح الاختبارات والتنسيق البرمجي.
+
+1. أرسل Pull Request مع وصف واضح للتغييرات.
+
+## اتفاقية الالتزام البرمجي
+
+يفضل استخدام رسائل Commit واضحة، مثل:
+
+```
+feat: add daily attendance management
+fix: prevent duplicate attendance records
+refactor: improve student validation
+```
+
+## الترخيص
+
+يمكن نشر المشروع تحت ترخيص **MIT** بعد إضافة ملف `LICENSE` الرسمي إلى المستودع، أو استبدال ذلك بالترخيص الذي يناسب سياسة المشروع والجهة المالكة له.
+
+## حالة المشروع
+
+المشروع في مرحلة التطوير النشط، ويبدأ بنطاق MVP يركز على الوظائف الأساسية لإدارة المدرسة، مع تصميم معماري يسمح بإضافة الميزات المستقبلية تدريجيًا.
+
+## تواصل
+
+للاقتراحات أو الإبلاغ عن مشكلة، استخدم قسم **Issues** داخل المستودع، أو افتح **Pull Request** عند تقديم تحسين برمجي.
