@@ -2,10 +2,13 @@
 <nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <!-- logo -->
   <div class="text-left navbar-brand-wrapper">
-    <a class="navbar-brand brand-logo" href="{{ url ('/') }}"><img src="{{ URL::asset('assets/images/logo-dark.png') }}"
+    <a class="navbar-brand brand-logo" href="{{ route ('dashboard') }}"><img src="{{ URL::asset('assets/images/logo-dark.png') }}"
+
+
 
         alt=""></a>
-    <a class="navbar-brand brand-logo-mini" href="{{ url ('/') }}">
+    <a class="navbar-brand brand-logo-mini" href="{{ route ('dashboard') }}">
+
 
       <img src="{{ URL::asset ('assets/images/logo-icon-light.png') }}" alt="not found">
     </a>
@@ -106,7 +109,8 @@
       </div>
     </li>
     <li class="nav-item dropdown mr-30">
-      <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="{{ url('/') }}" role="button" aria-haspopup="true"
+      <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="{{route('dashboard') }}" role="button" aria-haspopup="true"
+
         aria-expanded="false">
         <img src="{{ URL::asset ('assets/images/1704992327666.jpg') }}" alt="avatar">
       </a>
@@ -120,7 +124,8 @@
           </div>
         </div>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="{{ url('/') }}"><i
+        <a class="dropdown-item" href="{{ route('dashboard') }}"><i
+
             class="text-secondary fa fa-refresh"></i>{{ trans ('partials_trans.Activity') }}</a>
         <a class="dropdown-item" href="#"><i
             class="text-success fa fa-envelope"></i>{{ trans ('partials_trans.Messages') }}</a>
@@ -140,25 +145,27 @@
           @csrf
         </form> --}}
          @if(auth('student')->check())
-         <form id="logout-form" method="GET" action="{{ route('logout','student') }}">
+         <form id="logout-form" method="get" action="{{ route('logout','student') }}">
           @elseif(auth('teacher')->check())
-          <form id="logout-form" method="GET" action="{{ route('logout','teacher') }}">
+          <form id="logout-form" method="get" action="{{ route('logout','teacher') }}">
            @elseif(auth('parent')->check())
-           <form id="logout-form" method="GET" action="{{ route('logout','parent') }}">
+           <form id="logout-form" method="get" action="{{ route('logout','parent') }}">
             @else
-            <form id="logout-form" method="GET" action="{{ route('logout','web') }}">
+            <form id="logout-form" method="get" action="{{ route('logout','web') }}">
              @endif
-             @csrf
+             <button type="submit" class="dropdown-item">
               <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="text-danger fa fa-sign-out"></i>{{ trans ('partials_trans.Logoff') }}</a>
 
-             {{-- <button type="submit" class="dropdown-item"><i class="bx bx-log-out"></i>{{ trans ('partials_trans.Logoff') }} </button> --}}
+             {{-- <i class="bx bx-log-out"></i>
+             {{ trans ('partials_trans.Logoff') }} --}}
+             </button> 
 
-
-            {{-- </form> --}}
+            </form>
 
       </div>
     </li>
   </ul>
 </nav>
+
 
 <!--=================(header End)================-->

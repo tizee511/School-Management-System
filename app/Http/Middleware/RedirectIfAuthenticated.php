@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 class RedirectIfAuthenticated
 {
     
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
         if (auth ('web')->check ())
             {

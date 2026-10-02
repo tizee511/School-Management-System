@@ -23,32 +23,30 @@ use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\Teacher\TeacherController;
 use App\Http\Controllers\ZoomMeetingController;
+use App\Livewire\Calendar;
 use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
+
 
 // require __DIR__ . '/auth.php';
 Route::get ('/', [HomeController::class, 'index'])->name ('selection');
 
-// Route::group( 'Auth',function () {
-//     Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
-//     Route::post('/register', [RegisteredUserController::class, 'store']);
-//     // Route::get('/login/{type}', [LoginController::class, 'loginForm'])->name('login.show');
-//     // Route::post('/login', [LoginController::class, 'login'])->name('login');
-    
-//     });
     // Route::get ('/register', [RegisteredUserController::class, 'create'])->name ('register');
     // Route::get ('/register', [RegisteredUserController::class, 'store']);
-    Route::group(['Auth'],function () {
+    // Route::middleware('auth')->group(function (){
         
-        Route::get ('/login/{type}', [LoginController::class, 'loginForm'])->middleware ('guest')->name ('login.show');
-        
-        Route::post ('/login', [LoginController::class, 'login'])->name('logIN');
-        
-        Route::get('/logout/{type}', [LoginController::class, 'logout'])->name('logout');
+    // });
+    Route::group(['namespace'=> 'auth'],function () {
+        Route::get ('login/{type}', [LoginController::class, 'loginForm'])->middleware ('guest')->name ('login.show');
+        Route::post ('/login', [LoginController::class, 'loginapp'])->name('login.app');
+        Route::get('/logout/{type}', [LoginController::class, 'logout']) ->name('logout');
         });
         
                
-        
+        // D:\xampp\htdocs\School-Management-System\vendor\laravel\framework\src\Illuminate\Routing\UrlGenerator.php :517
+
 
 // Route::group(
 //     ['middleware' => ['guest']],
@@ -58,7 +56,7 @@ Route::get ('/', [HomeController::class, 'index'])->name ('selection');
 //         });
 //     }
 // );
-// Route::get('/dashboard', function () {
+// Route::get('/', function () {
     
 //     return Auth::check()
 //         ? redirect(LaravelLocalization::localizeUrl('/dashboard'))
@@ -67,18 +65,17 @@ Route::get ('/', [HomeController::class, 'index'])->name ('selection');
 //* ==============================Translate all pages============================
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath','auth']
 ], function () {
-    // Route::get('/', function () {
-    //     return Auth::check()
-    //         ? redirect()->route('dashboard')
-    //         : redirect()->route('login');
-    // });
+    Route::post('/', function () {
+        return Auth::check()
+            ? redirect()->route('dashboard')
+            : redirect()->route('login.app');
+    });
     //*========================={Dashboard}========================
     Route::get('/dashboard', [HomeController::class, 'dashboard'])
         ->name('dashboard');
     //*========================={Profile}========================
-    Route::middleware(['auth'])->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -96,7 +93,7 @@ Route::group([
         //*========================={Teachers}========================
         Route::resource('teacher',TeacherController::class);
         //*========================={Sutdentes}========================
-        Route::resource('/students',StudentController::class);
+        Route::resource('students',StudentController::class);
         Route::get('/Get_classrooms/{id}',[StudentController::class,'Get_classrooms']);
         Route::get('/Get_Sections/{id}',[StudentController::class,'Get_Sections']);
         Route::get('Graduated_student_one/{id}',[StudentController::class,'Graduated_student_one'])->name('Graduated_student_one');
@@ -139,7 +136,11 @@ Route::group([
         Route::post('online_classes/store', [ZoomMeetingController::class, 'store'])->name('online_classes.store');
         Route::post('online_classes/destroy', [ZoomMeetingController::class, 'destroy'])->name('online_classes.destroy');
 
-        });
+    //*========================={livwire calendar}==============
+    // Livewire::component ('calendar', Calendar::class);// 
+
+
+    // });
         
 
 });

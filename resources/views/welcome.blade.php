@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Welcome to the School Management System</h1>
-    {{-- <p>Please <a href="{{ route('login') }}">login</a> or <a href="{{ route('register') }}">register</a>.</p> --}}
+    <p>Please <a href="{{ route('login.app') }}">login</a> or <a href="{{ route('register') }}">register</a>.</p>
 </body>
 
 </html>

@@ -56,7 +56,7 @@
 
  <div class="text-center mt-4">
   <span class="text-muted">{{ trans('auth_trans.Already_registered') }}</span>
-  <a href="{{ route('login') }}" class="text-primary">{{ trans('auth_trans.Login') }}</a>
+  <a href="#" class="text-primary">{{ trans('auth_trans.Login') }}</a>
  </div>
 </form>
 @endsection

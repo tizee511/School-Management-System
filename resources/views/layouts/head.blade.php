@@ -20,6 +20,9 @@
 <link href="{{ URL::asset('assets/css/all.min.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('assets/css/v4-shims.min.css') }}" rel="stylesheet">
 
+ <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.1/main.min.css' rel='stylesheet' />
+
+
 <!--- Style css -->
 @if (App::getLocale() == 'en')
     <link href="{{ URL::asset('assets/css/ltr.css') }}" rel="stylesheet">
@@ -27,10 +30,11 @@
     <link href="{{ URL::asset('assets/css/rtl.css') }}" rel="stylesheet">
 @endif
 
+
 <style>
     /* Unify Sidebar Icons Toggle for Font Awesome */
     #sidebarnav a[aria-expanded="true"] .fa-plus:before {
         content: "\f068"; /* fa-minus */
     }
 </style>
-@yield('css')
+{{-- @yield('css') --}}

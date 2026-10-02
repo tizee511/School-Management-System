@@ -12,7 +12,7 @@ class LoginController extends Controller
     // use AuthenticatesUsers;
     use AuthTrait;
 
-    protected $redirectTo = '/';
+    // protected $redirectTo = '/dashboard';
     public function __construct ()
     {
         $this->middleware ('guest')->except ('logout');
@@ -21,11 +21,12 @@ class LoginController extends Controller
 
     public function loginForm ($type)
         {
+            // return $type;
 
         return view ('auth.login', compact ('type'));
         }
 
-    public function login (Request $request)
+    public function loginapp (Request $request)
         {
            
 

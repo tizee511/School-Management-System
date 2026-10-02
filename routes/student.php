@@ -16,7 +16,12 @@ Route::group (
     Route::get ('/student/dashboard', function ()
     {
       return view ('Pages.Students.dashboard');
+
     });
+
+      
+      // Route::resource ('student_exams', 'ExamsController');
+      // Route::resource ('profile-student', 'ProfileController');
 
     }
 );

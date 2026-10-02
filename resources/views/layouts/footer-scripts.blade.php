@@ -16,8 +16,9 @@
 <script src="{{ URL::asset ('assets/js/datepicker.js') }}"></script>
 <!-- sweetalert2 -->
 <script src="{{ URL::asset ('assets/js/sweetalert2.js') }}"></script>
-@yield('js')
 <!-- toastr -->
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.1/main.min.js'></script>
+
 {{-- @livewireScripts --}}
 <script src="{{ URL::asset ('assets/js/toastr/toastr.js') }}"></script>
 <!-- validation -->
@@ -154,5 +155,4 @@
             }
         });
     });
-
 </script>

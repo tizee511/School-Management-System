@@ -46,9 +46,8 @@
                                 <a class="btn btn-default col-lg-3" title="معلم" href="{{route('login.show','teacher')}}">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/teacher.png')}}">
                                 </a>
+                                <a class="btn btn-default col-lg-3" title="ادمن" href="{{route('login.show','web')}}">
 
-
-                                <a class="btn btn-default col-lg-3" title="ادمن" href="{{route('login.show','admin')}}">
                                     <img alt="user-img" width="100px;" src="{{URL::asset('assets/images/admin.png')}}">
                                 </a>
 

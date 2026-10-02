@@ -30,15 +30,10 @@
      <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول ادمن</h3>
      @endif
 
-    <form method="POST" action="{{ route ('logIN') }}"
-
-        onsubmit="document.getElementById('login-preloader').style.display='flex';">
+    <form method="post" action="{{ route ('login.app') }}">
         @csrf
-        
-
-
-        {{-- <input type="hidden" name="type" value="{{ $type }}"> --}}
-
+        {{-- @method('post') --}}
+    
         <div class="form-group mb-3">
             <label for="email" class="form-label">{{ trans ('auth_trans.email') }}</label>
             <input id="email" type="email" name="email" value="{{ old ('email') }}" required autofocus

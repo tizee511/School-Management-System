@@ -9,9 +9,9 @@ class AppServiceProvider extends ServiceProvider
 {
    
 
-    public const HOME    = '/';
+    public const HOME    = '/dashboard';
     public const STUDENT = '/student/dashboard';
-    public const TEACHER = 'dashboard';
+    public const TEACHER = '/teacher/dashboard';
     public const PARENT  = '/dashboard';
     public function register(): void
     {
