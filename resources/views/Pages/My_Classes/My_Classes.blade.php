@@ -1,17 +1,10 @@
 @extends('layouts.master')
-@section('css')
-
 @section('title')
 {{ trans('My_Classes_trans.title_page') }}
 @stop
-@endsection
-
-@section('page-header')
 @section('PageTitle')
 {{ trans('My_Classes_trans.title_page') }}
-@stop
 @endsection
-
 @section('content')
 <div class="row">
     <div class="col-12 mb-3">

@@ -15,13 +15,13 @@ trait AuthTrait
             {
             $guardName = 'student';
             }
-        elseif ($request->type == 'parent')
-            {
-            $guardName = 'parent';
-            }
         elseif ($request->type == 'teacher')
             {
             $guardName = 'teacher';
+            }
+        elseif ($request->type == 'parent')
+            {
+            $guardName = 'parent';
             }
         else
             {
@@ -37,14 +37,15 @@ trait AuthTrait
             {
             return redirect ()->intended (AppServiceProvider::STUDENT);
             }
-        elseif ($request->type == 'parent')
-            {
-            return redirect ()->intended (AppServiceProvider::PARENT);
-            }
         elseif ($request->type == 'teacher')
             {
             return redirect ()->intended (AppServiceProvider::TEACHER);
             }
+        elseif ($request->type == 'parent')
+            {
+            return redirect ()->intended (AppServiceProvider::PARENT);
+            }
+        
         else
             {
             return redirect ()->intended (AppServiceProvider::HOME);

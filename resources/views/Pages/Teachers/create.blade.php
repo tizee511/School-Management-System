@@ -29,7 +29,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('teacher.store')}}" method="post">
+                            <form action="{{route('teachers.store')}}" method="post">
                                 @csrf
                                 <div class="form-row">
                                     <div class="col">

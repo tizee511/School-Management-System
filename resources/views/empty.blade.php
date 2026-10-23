@@ -1,4 +1,9 @@
 @extends('layouts.master')
+
+@section('title')
+empty
+@stop
+
 @section('css')
 <!-- Font Awesome -->
 <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
@@ -10,11 +15,18 @@
 <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
-@section('title')
-    empty
-    @stop
 @endsection
+
+@section('PageTitle1')
+{{--  --}}
+@stop
+
+@section('PageTitle')
+{{ trans('main_trans.Grades') }}
+<!-- breadcrumb -->
+@endsection
+
+
 @section('page-header')
     <!-- breadcrumb -->
     <div class="page-title">

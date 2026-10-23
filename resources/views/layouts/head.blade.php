@@ -7,20 +7,21 @@
 <!-- Font -->
 <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">
+<!-- Font Awesome 5 -->
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<!-- Font Awesome 5 -->
+<link href="{{ URL::asset('assets/css/all.min.css') }}" rel="stylesheet">
+{{-- <link href="{{ URL::asset('assets/css/v4-shims.min.css') }}" rel="stylesheet"> --}}
+
 
 <!--wizard -->
 <link href="{{ URL::asset('assets/css/wizard.css') }}" rel="stylesheet" id="bootstrap-css">
-    {{-- @livewireStyles --}}
- @yield('css')   
-
+    
+@yield('css')
 <!--- Style css -->
 <link href="{{ URL::asset('assets/css/style.css') }}" rel="stylesheet">
 
-<!-- Font Awesome 5 -->
-<link href="{{ URL::asset('assets/css/all.min.css') }}" rel="stylesheet">
-<link href="{{ URL::asset('assets/css/v4-shims.min.css') }}" rel="stylesheet">
-
- <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.1/main.min.css' rel='stylesheet' />
 
 
 <!--- Style css -->
@@ -37,4 +38,7 @@
         content: "\f068"; /* fa-minus */
     }
 </style>
-{{-- @yield('css') --}}
+
+
+
+

@@ -24,8 +24,8 @@ class StoreTeachers extends FormRequest
         return [
             'email'=>'required|unique:teachers,email,',
             'password'=>'required|min:6|max:12',
-            'Name_ar' => 'required|alpha|different:Name_en',
-            'Name_en' => 'required|alpha|different:Name_ar',
+            'Name_ar' => 'required|different:Name_en',
+            'Name_en' => 'required|different:Name_ar',
             'Specialization_id'=>'required',
             'Gender_id'=>'required',
             'Joining_Date'=>'required|date|date_format:Y-m-d',
@@ -38,8 +38,8 @@ class StoreTeachers extends FormRequest
         return [
             'email'=>'required|unique:teachers,email,'.$this->id,
             'password'=>'required|min:6|max:12',
-            'Name_ar' => 'required|alpha|different:Name_en',
-            'Name_en' => 'required|alpha|different:Name_ar',
+            'Name_ar' => 'required|different:Name_en',
+            'Name_en' => 'required|different:Name_ar',
             'Specialization_id'=>'required',
             'Gender_id'=>'required',
             'Joining_Date'=>'required|date|date_format:Y-m-d',

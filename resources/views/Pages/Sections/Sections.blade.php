@@ -1,16 +1,12 @@
 @extends('layouts.master')
-@section('css')
 @section('title')
   {{ trans ('Sections_trans.title_page') }}
   @stop
-@endsection
-@section('page-header')
 <!-- breadcrumb -->
 @section('PageTitle')
   {{ trans ('Sections_trans.title_page') }}
-  @stop
-  <!-- breadcrumb -->
 @endsection
+  <!-- breadcrumb -->
 @section('content')
   <!-- row -->
   <div class="row">
@@ -230,7 +226,6 @@
                                 </tbody>
                               </table>
                             </div>
-
                           </div>
                         </div>
                       </div>

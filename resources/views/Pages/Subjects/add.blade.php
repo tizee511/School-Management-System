@@ -1,10 +1,9 @@
 @extends('layouts.master')
-@section('css')
 @section('title')
     اضافة مادة دراسية جديدة
 @stop
+@section('css')
 @endsection
-@section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
     اضافة مادة دراسية جديدة
@@ -44,7 +43,7 @@
                             <div class="form-group col">
                                 <label for="inputState">المرحلة الدراسية</label>
                                 <select class="custom-select mr-sm-2" name="Grade_id">
-                                    <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
+                                    <option selected disabled>{{trans('Parent_trans.Choose')}} </option>
                                     @foreach($Gardes as $Grade)
                                         <option value="{{ $Grade->id }}">{{ $Grade->Name }}</option>
                                     @endforeach

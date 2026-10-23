@@ -30,7 +30,6 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
 
-// require __DIR__ . '/auth.php';
 Route::get ('/', [HomeController::class, 'index'])->name ('selection');
 
     // Route::get ('/register', [RegisteredUserController::class, 'create'])->name ('register');
@@ -43,9 +42,9 @@ Route::get ('/', [HomeController::class, 'index'])->name ('selection');
         Route::post ('/login', [LoginController::class, 'loginapp'])->name('login.app');
         Route::get('/logout/{type}', [LoginController::class, 'logout']) ->name('logout');
         });
-        
-               
-        // D:\xampp\htdocs\School-Management-System\vendor\laravel\framework\src\Illuminate\Routing\UrlGenerator.php :517
+
+
+// D:\xampp\htdocs\School-Management-System\vendor\laravel\framework\src\Illuminate\Routing\UrlGenerator.php :517
 
 
 // Route::group(
@@ -91,7 +90,7 @@ Route::group([
         //*========================={Parents}========================
         Route::view('Add_Parent', 'livewire.show_form');
         //*========================={Teachers}========================
-        Route::resource('teacher',TeacherController::class);
+        Route::resource('teachers',TeacherController::class);
         //*========================={Sutdentes}========================
         Route::resource('students',StudentController::class);
         Route::get('/Get_classrooms/{id}',[StudentController::class,'Get_classrooms']);
@@ -129,7 +128,6 @@ Route::group([
         Route::resource('library',LibraryController::class);
         //*========================={Setting}==============
         Route::resource('settings', SettingController::class);
-
         Route::get('online_classes', [ZoomMeetingController::class, 'index'])->name('online_classes.index');
         Route::get('online_classes/create', [ZoomMeetingController::class, 'create'])->name('online_classes.create');
         Route::get('online_classes/indirectCreate', [ZoomMeetingController::class, 'indirectCreate'])->name('indirect.create');
@@ -144,3 +142,7 @@ Route::group([
         
 
 });
+
+
+// require __DIR__ . '/auth.php';
+

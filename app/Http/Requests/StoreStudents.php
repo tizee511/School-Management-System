@@ -25,8 +25,8 @@ class StoreStudents extends FormRequest
         return [
             'email'=>'required|email|unique:students,email',
             'password'=>'required|min:6|max:12',
-            'Name_ar' => 'required|alpha|different:Name_en',
-            'Name_en' => 'required|alpha|different:Name_ar',
+            'Name_ar' => 'required|different:Name_en',
+            'Name_en' => 'required|different:Name_ar',
             'gender_id'=>'required',
             'Date_Birth'=>'required|date|date_format:Y-m-d',
             'nationalitie_id' => 'required',
@@ -45,8 +45,8 @@ class StoreStudents extends FormRequest
         return [
         'email'=>'required|email|unique:students,email,'.$this->id,
             'password'=>'required|min:6|max:12',
-            'Name_ar' => 'required|alpha|different:Name_en',
-            'Name_en' => 'required|alpha|different:Name_ar',
+            'Name_ar' => 'required|different:Name_en',
+            'Name_en' => 'required|different:Name_ar',
             'Date_Birth'=>'required|date|date_format:Y-m-d',
             'gender_id'=>'required',
             'nationalitie_id' => 'required',

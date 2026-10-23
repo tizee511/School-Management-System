@@ -38,13 +38,13 @@ class Quizze extends Model
     {
         return $this->belongsTo(Section::class, 'Section_id');
     }
-    // public function questions()
-    // {
-    //     return $this->hasMany(Question::class, 'Quiz_id');
+    public function questions()
+    {
+        return $this->hasMany(Question::class, 'Quizze_id');
 
-    // }
-    // public function students()
-    // {
-            
-    //     }
+    }
+    public function degree ()
+    {
+        return $this->hasMany ('App\Models\Degree');
+    }
     }

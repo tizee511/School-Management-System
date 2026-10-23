@@ -1,5 +1,17 @@
 
-<div class="scrollbar side-menu-bg" style="overflow: scroll">
+<style>
+ span {
+  font: 1.2em sans-serif;
+  font-weight: bold;
+ }
+
+ ul li {
+  font-weight: bold;
+ }
+
+</style>
+<div class="scrollbar side-menu-bg">
+
     <ul class="nav navbar-nav side-menu" id="sidebarnav">
         <!-- menu item Dashboard-->
         <li>
@@ -17,8 +29,9 @@
 
         <!-- الامتحانات-->
         <li>
-        {{-- {{route('settings.index')}} --}}
-            <a href="#"><i class="fas fa-book-open"></i><span
+        {{--  --}}
+
+            <a href="{{route('student_exams.index')}}"><i class="fas fa-book-open"></i><span
                     class="right-nav-text">الامتحانات</span></a>
         </li>
 

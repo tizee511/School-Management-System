@@ -1,19 +1,15 @@
 @extends('layouts.master')
-@section('css')
 @section('title')
 {{ trans('Grades_trans.title_page') }}
 @stop
+@section('css')
 @endsection
-@section('page-header')
-<!-- breadcrumb -->
 @section('PageTitle')
 {{ trans('main_trans.Grades') }}
-@stop
-<!-- breadcrumb -->
 @endsection
 @section('content')
 <!-- row -->
-<div class="row">
+<div class="row mt-24">
     @if ($errors->any())
     <div class="error">{{ $errors->first('Name') }}</div>
     @endif
@@ -210,6 +206,9 @@
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
 </div>
 <!-- row closed -->
 @endsection

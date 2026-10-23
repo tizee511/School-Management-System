@@ -30,7 +30,7 @@
                     <div class="card card-statistics h-100">
                         <br>
                         <div class="card-body">
-                            <a href="{{route ('teacher.create')}}" class="btn btn-success btn-sm" role="button"
+                            <a href="{{route ('teachers.create')}}" class="btn btn-success btn-sm" role="button"
                                 aria-pressed="true">
                                 {{ trans ('Teacher_trans.Add_Teacher') }}</a><br><br>
                             <div class="table-responsive">
@@ -57,7 +57,7 @@
                                                 <td>{{$Teacher->specializations->Name_spec}}</td>
                                                 <td>
                                                 
-                                                    <a href="{{route ('teacher.edit', $Teacher->id)}}"
+                                                    <a href="{{route ('teachers.edit', $Teacher->id)}}"
                                                         class="btn btn-info btn-sm" role="button" aria-pressed="true"> 
                                                         <i class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
@@ -69,7 +69,7 @@
                                             <div class="modal fade" id="delete_Teacher{{$Teacher->id}}" tabindex="-1"
                                                 role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
-                                                    <form action="{{route ('teacher.destroy', 'test')}}" method="post">
+                                                    <form action="{{route ('teachers.destroy', 'test')}}" method="post">
                                                         {{method_field ('delete')}}
                                                         {{csrf_field ()}}
                                                         <div class="modal-content">

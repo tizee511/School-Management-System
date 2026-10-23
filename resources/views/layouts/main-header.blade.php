@@ -1,15 +1,10 @@
-{{--==================(header start)===============--}}
-<nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+<nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row mb-50">
   <!-- logo -->
   <div class="text-left navbar-brand-wrapper">
-    <a class="navbar-brand brand-logo" href="{{ route ('dashboard') }}"><img src="{{ URL::asset('assets/images/logo-dark.png') }}"
-
-
-
+    <a class="navbar-brand brand-logo" href="{{ url('dashboard') }}">
+    <img src="{{ URL::asset('assets/images/logo-dark.png') }}"
         alt=""></a>
-    <a class="navbar-brand brand-logo-mini" href="{{ route ('dashboard') }}">
-
-
+    <a class="navbar-brand brand-logo-mini" href="{{ url('dashboard') }}">
       <img src="{{ URL::asset ('assets/images/logo-icon-light.png') }}" alt="not found">
     </a>
   </div>
@@ -36,11 +31,9 @@
         aria-expanded="false">
         @if (App::getLocale () == 'ar')
           {{LaravelLocalization::getCurrentLocaleName () }}
-
           <img src="{{ URL::asset ('assets/images/flags/YE.png') }}" alt="">
         @else
           {{LaravelLocalization::getCurrentLocaleName () }}
-
           <img src="{{ URL::asset ('assets/images/flags/US.png') }}" alt="">
         @endif
       </button>
@@ -110,7 +103,6 @@
     </li>
     <li class="nav-item dropdown mr-30">
       <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="{{route('dashboard') }}" role="button" aria-haspopup="true"
-
         aria-expanded="false">
         <img src="{{ URL::asset ('assets/images/1704992327666.jpg') }}" alt="avatar">
       </a>
@@ -118,32 +110,33 @@
         <div class="dropdown-header">
           <div class="media">
             <div class="media-body">
-              <h5 class="mt-0 mb-0">{{ auth()->user()->name }}</h5>
+              <h1 class="mt-0 mb-2 text-center ">{{ auth()->user()->name }}</h1>
               <span>{{ auth()->user()->email }}</span>
             </div>
           </div>
         </div>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="{{ route('dashboard') }}"><i
-
-            class="text-secondary fa fa-refresh"></i>{{ trans ('partials_trans.Activity') }}</a>
-        <a class="dropdown-item" href="#"><i
-            class="text-success fa fa-envelope"></i>{{ trans ('partials_trans.Messages') }}</a>
-        <a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="text-warning fa fa-user"></i>{{ trans ('partials_trans.Profile') }}</a>
-
-        <a class="dropdown-item" href="#"><i class="text-dark fa fa-cubes"></i>{{ trans ('partials_trans.Projects') }}
-          <span class="badge badge-info">6</span> </a>
+        <a class="dropdown-item" href="{{ route('dashboard') }}">
+          <i class="text-secondary fa fa-refresh"></i>
+              {{ trans ('partials_trans.Activity') }}  
+        </a>
+        <a class="dropdown-item" href="#">
+          <i class="text-success fa fa-envelope"></i>
+              {{ trans ('partials_trans.Messages') }}
+        </a>
+        <a class="dropdown-item" href="{{ route('profile.edit') }}">
+            <i class="text-warning fa fa-user"></i>
+            {{ trans ('partials_trans.Profile') }}
+        </a>
+        <a class="dropdown-item" href="#"><i class="text-dark fa fa-cubes"></i>
+            {{ trans ('partials_trans.Projects') }}
+            <span class="badge badge-info">6</span>
+        </a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#"><i
-            class="text-info fa fa-cog"></i>{{ trans ('partials_trans.Settings') }}</a>
-
-        {{-- <a class="dropdown-item" href="{{ route ('logout') }}"
-          onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
-            class="text-danger fa fa-sign-out"></i>{{ trans ('partials_trans.Logoff') }}</a> --}}
-
-        {{-- <form id="logout-form" action="{{ route ('logout') }}" method="POST" style="display: none;">
-          @csrf
-        </form> --}}
+        <a class="dropdown-item " href="#"><i
+            class="text-info fa fa-cog"></i>
+            {{ trans ('partials_trans.Settings') }}
+        </a>
          @if(auth('student')->check())
          <form id="logout-form" method="get" action="{{ route('logout','student') }}">
           @elseif(auth('teacher')->check())
@@ -153,19 +146,20 @@
             @else
             <form id="logout-form" method="get" action="{{ route('logout','web') }}">
              @endif
-             <button type="submit" class="dropdown-item">
-              <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="text-danger fa fa-sign-out"></i>{{ trans ('partials_trans.Logoff') }}</a>
+             <button type="submit" style="
+    margin-right: -20px; 
+" class="dropdown-item mt-0">
 
-             {{-- <i class="bx bx-log-out"></i>
-             {{ trans ('partials_trans.Logoff') }} --}}
+              <a class="dropdown-item mt-0 pt-0" href="#" onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();"><i class="text-danger fa fa-sign-out"></i>{{ trans ('partials_trans.Logoff') }}</a>
              </button> 
-
             </form>
-
+            </div>
       </div>
     </li>
   </ul>
 </nav>
+
 
 
 <!--=================(header End)================-->

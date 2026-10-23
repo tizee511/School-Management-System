@@ -30,7 +30,7 @@ class SubjectRepository implements SubjectRepositoryInterface
             {
             $Subjects               = new Subject();
             $Subjects->Name         = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
-            $Subjects->Classroom_id = $request->Classroom_id;
+            $Subjects->Classroom_id = $request->Class_id;
             $Subjects->Grade_id     = $request->Grade_id;
             $Subjects->Teacher_id   = $request->Teacher_id;
             $Subjects->save ();
@@ -56,7 +56,7 @@ class SubjectRepository implements SubjectRepositoryInterface
             {
             $Subjects               = Subject::findOrFail ($request->id);
             $Subjects->Name         = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
-            $Subjects->Classroom_id = $request->Classroom_id;
+            $Subjects->Classroom_id = $request->Class_id;
             $Subjects->Grade_id     = $request->Grade_id;
             $Subjects->Teacher_id   = $request->Teacher_id;
             $Subjects->save ();

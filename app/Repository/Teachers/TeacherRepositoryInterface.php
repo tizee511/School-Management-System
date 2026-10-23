@@ -10,15 +10,7 @@ interface TeacherRepositoryInterface{
     // Create Teachers
         public function Create_Teachers();
 
-    // -------------------------
-    //     public function Getspecialization();
-
-    // Get Gender
-    // public function GetGender();
-    // Get Gender
-    // public function GetSection();
-
-    // StoreTeachers
+   
     public function StoreTeachers($request);
 
     // StoreTeachers

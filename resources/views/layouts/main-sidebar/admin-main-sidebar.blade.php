@@ -1,3 +1,14 @@
+<style>
+span
+{
+  font: 1.2em sans-serif;  
+  font-weight: bold;
+}
+ul li  {
+      font-weight: bold;
+}
+
+</style>
 <div class="scrollbar side-menu-bg" style="overflow: scroll">
     <ul class="nav navbar-nav side-menu" id="sidebarnav">
         <!-- menu item Dashboard-->
@@ -56,16 +67,18 @@
 
         <!-- students-->
         <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu"><i class="fas fa-user-graduate"></i>{{trans('main_trans.students')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu"><i class="fas fa-user-graduate"></i><span class="right-nav-text">{{trans('main_trans.students')}}</span>
+              <div class="pull-right"><i class="ti-plus"></i></div>
+              <div class="clearfix"></div></a>
+
             <ul id="students-menu" class="collapse">
                 <li>
-                    <a href="javascript:void(0);" data-toggle="collapse" data-target="#Student_information">{{trans('main_trans.Student_information')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
+                    <a href="javascript:void(0);" data-toggle="collapse" data-target="#Student_information">{{trans('main_trans.Student_information')}}<div class=" pull-right"><i class="ti-plus"></i></div>
+                     <div class="clearfix"></div>
+                    </a>
                     <ul id="Student_information" class="collapse">
                         <li> <a href="{{route('students.create')}}">{{trans('main_trans.add_student')}}</a></li>
-
-
                         <li> <a href="{{route('students.index')}}">{{trans('main_trans.list_students')}}</a></li>
-
                     </ul>
                 </li>
 
@@ -98,7 +111,8 @@
                 <div class="clearfix"></div>
             </a>
             <ul id="Teachers-menu" class="collapse" data-parent="#sidebarnav">
-                <li> <a href="{{route('teacher.index')}}">{{trans('main_trans.List_Teachers')}}</a> </li>
+                <li> <a href="{{route('teachers.index')}}">{{trans('main_trans.List_Teachers')}}</a> </li>
+
 
             </ul>
         </li>
@@ -219,8 +233,6 @@
             </a>
             <ul id="Users-icon" class="collapse" data-parent="#sidebarnav">
                 <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                <li> <a href="themify-icons.html">Themify icons</a> </li>
-                <li> <a href="weather-icon.html">Weather icons</a> </li>
             </ul>
         </li>
 

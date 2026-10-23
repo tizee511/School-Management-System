@@ -1,16 +1,13 @@
 @extends('layouts.master')
-@section('css')
 @section('title')
     {{trans('main_trans.add_student')}}
 @stop
+@section('css')
 @endsection
-@section('page-header')
-<!-- breadcrumb -->
 @section('PageTitle')
     {{trans('main_trans.add_student')}}
 @stop
 <!-- breadcrumb -->
-@endsection
 @section('content')
 <!-- row -->
 <div class="row">
@@ -196,7 +193,4 @@
 <!-- row closed -->
 @endsection
 @section('js')
-    @toastr_js
-    @toastr_render
-
 @endsection

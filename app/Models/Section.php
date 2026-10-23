@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Classroom;
+use App\Models\Grade;
 use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
@@ -19,13 +20,15 @@ class Section extends Model
     {   
         return $this->belongsTo(Classroom::class, 'Class_id');
     }
-    // public function Grades()
-    // {   
-    //     return $this->belongsToMany(Grade::class, 'Grade_id');
-    // }
     // علاقة المعلمين مع الاقسام
     public function Teachers()
     {
         return $this->belongsToMany(Teacher::class,'teacher_section');
     }
+    public function Grades()
+    {   
+        return $this->belongsTo(Grade::class, 'Grade_id');
+    }
+    
+    
 }

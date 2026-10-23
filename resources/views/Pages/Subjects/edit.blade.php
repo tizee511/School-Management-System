@@ -56,7 +56,11 @@
                             <div class="form-group col">
                                 <label for="inputState">الصف الدراسي</label>
                                 <select name="Class_id" class="custom-select">
-                                 <option value="{{ $subject->Classrooms->id }}">{{ $subject->Classrooms->Name_class }}
+                                 <option value="{{ $Subjects->Classrooms->id }}">{{ $Subjects->Classrooms->Name_class }}
+
+
+
+
                                  </option>
                                     </select>
                             </div>

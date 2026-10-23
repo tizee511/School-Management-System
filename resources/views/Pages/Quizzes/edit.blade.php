@@ -17,7 +17,6 @@
         <div class="col-md-12 mb-30">
             <div class="card card-statistics h-100">
                 <div class="card-body">
-
                     @if(session()->has('error'))
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <strong>{{ session()->get('error') }}</strong>

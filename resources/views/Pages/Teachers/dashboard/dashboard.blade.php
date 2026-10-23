@@ -19,35 +19,29 @@
 <body style="font-family: 'Cairo', sans-serif">
 
     <div class="wrapper" style="font-family: 'Cairo', sans-serif">
+    
+        <div id="pre-loader">
+            <img src="{{ URL::asset('assets/images/pre-loader/loader-01.svg') }}" alt="">
+        </div>
 
-        <!--=================================
- preloader -->
-
- <div id="pre-loader">
-     <img src="{{ URL::asset('assets/images/pre-loader/loader-01.svg') }}" alt="">
- </div>
-
-        <!--=================================
- preloader -->
 
         @include('layouts.main-header')
 
         @include('layouts.main-sidebar')
 
-        <!--=================================
- Main content -->
         <!-- main-content -->
         <div class="content-wrapper">
-            <div class="page-title" >
-                <div class="row">
+
+            {{-- <div class="page-title" > --}}
+                <div class="row mt-100">
                     <div class="col-sm-6" >
-                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">مرحبا بك : {{auth()->user()->name}}</h4>
+                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">مرحبا بك : {{auth()->user()->Name}}</h4>
                     </div><br><br>
                     <div class="col-sm-6">
                         <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
                         </ol>
                     </div>
-                </div>
+                {{-- </div> --}}
             </div>
             <!-- widgets -->
             <div class="row" >
@@ -86,17 +80,14 @@
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('Teachers.index')}}" target="_blank"><span class="text-danger">عرض البيانات</span></a>
+                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('sections')}}" target="_blank"><span class="text-danger">عرض البيانات</span></a>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Orders Status widgets-->
-
-
             <div class="row">
-
                 <div  style="height: 400px;" class="col-xl-12 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
@@ -159,10 +150,10 @@
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$student->name}}</td>
                                                         <td>{{$student->email}}</td>
-                                                        <td>{{$student->gender->Name}}</td>
-                                                        <td>{{$student->grade->Name}}</td>
-                                                        <td>{{$student->classroom->Name_Class}}</td>
-                                                        <td>{{$student->section->Name_Section}}</td>
+                                                        <td>{{$student->gender->Name_gend}}</td>
+                                                        <td>{{$student->Grades->Name}}</td>
+                                                        <td>{{$student->Classrooms->Name_class}}</td>
+                                                        <td>{{$student->Sections->Name_Section}}</td>
                                                         <td class="text-success">{{$student->created_at}}</td>
                                                         @empty
                                                             <td class="alert-danger" colspan="8">لاتوجد بيانات</td>
@@ -193,7 +184,7 @@
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$teacher->Name}}</td>
-                                                        <td>{{$teacher->genders->Name}}</td>
+                                                        <td>{{$teacher->genders->Name_gend}}</td>
                                                         <td>{{$teacher->Joining_Date}}</td>
                                                         <td>{{$teacher->specializations->Name}}</td>
                                                         <td class="text-success">{{$teacher->created_at}}</td>
@@ -281,14 +272,10 @@
                     </div>
                 </div>
             </div>
-@livewire('calendar')
 
-            <!--=================================
- wrapper -->
-
-            <!--=================================
- footer -->
-
+            <div calendar-main mb-30>
+                @livewire('calendar')
+            </div>
             @include('layouts.footer')
         </div><!-- main content wrapper end-->
     </div>
@@ -297,11 +284,8 @@
 
     <!--=================================
  footer -->
-
     @include('layouts.footer-scripts')
     @livewireScripts
     @stack('scripts')
-
 </body>
-
 </html>

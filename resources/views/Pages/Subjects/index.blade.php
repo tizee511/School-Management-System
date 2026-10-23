@@ -1,16 +1,14 @@
 @extends('layouts.master')
-@section('css')
 @section('title')
     الواد الدراسية
 @stop
+@section('css')
 @endsection
-@section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
     المواد الدراسية
 @stop
 <!-- breadcrumb -->
-@endsection
 @section('content')
     <!-- row -->
     <div class="row">
@@ -46,7 +44,6 @@
                                             <td>{{$Subject->Teachers->Name}}</td>
                                             <td>
                                                 <a href="{{route('subjects.edit',$Subject->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true">
-
                                                 <i class="fas fa-edit"></i></a>
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_subject_invoice{{ $Subject->id }}"
                                                 title="{{ trans('Grades_trans.Delete') }}">

@@ -1,8 +1,12 @@
 <div>
+ <div>
   <div id='calendar-container' wire:ignore>
-   <div id='calendar'></div>
+   <div id='calendar'>
+   
+   </div>
   </div>
- @push('JS')
+ </div>
+ @push('scripts')
  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.1/main.min.js'></script>
 
  <script>
@@ -38,9 +42,7 @@
     , displayEventTime: false
     , droppable: true, // this allows things to be dropped onto the calendar
     drop: function(info) {
-     // is the "remove after drop" checkbox checked?
      if (checkbox.checked) {
-      // if so, remove the element from the "Draggable Events" list
       info.draggedEl.parentNode.removeChild(info.draggedEl);
      }
     }
@@ -66,3 +68,4 @@
  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.1/main.min.css' rel='stylesheet' />
  @endpush
 </div>
+

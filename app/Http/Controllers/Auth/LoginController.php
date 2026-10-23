@@ -28,7 +28,6 @@ class LoginController extends Controller
 
     public function loginapp (Request $request)
         {
-           
 
         if (Auth::guard ($this->chekGuard ($request))->attempt (['email' => $request->email, 'password' => $request->password]))
             {
