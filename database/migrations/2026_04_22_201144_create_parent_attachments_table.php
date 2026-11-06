@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('parent_attachments', function (Blueprint $table) {
             $table->id();
-             $table->string('file_name')->nullable();
-            $table->bigInteger('parent_id')->unsigned();
+            $table->string('file_name')->nullable();
+            // $table->bigInteger('parent_id')->unsigned();
             $table->timestamps();
         });
     }

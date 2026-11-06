@@ -14,13 +14,12 @@ return new class extends Migration
         Schema::create('student_accounts', function (Blueprint $table) {
             $table->id();
             $table->date('Invoice_date');
-            $table->string('type');
-            $table->foreignId ('fee_invoice_id')->nullable ()->references ('id')->on ('fees_invoices')->cascadeOnDelete();
-            $table->foreignId('Receipt_id')->nullable()->references('id')->on('receipt_students')->cascadeOnDelete();
-            $table->foreignId('processing_fee_id')->nullable()->references('id')->on('processing_fees')->cascadeOnDelete();
-            $table->foreignId('Payment_id')->nullable()->references('id')->on('payment_students')->cascadeOnDelete();
-            $table->foreignId ('Student_id')->references ('id')->on ('students')->cascadeOnDelete();
-            $table->decimal ('Debit', 8, 2)->nullable();
+            $table->string('type')->nullable();
+            $table->foreignId ('fee_invoice_id')->nullable ()->constrained ('fees_invoices', 'id')->cascadeOnDelete ();
+            $table->foreignId ('Receipt_id')->nullable ()->constrained ('receipt_students', 'id')->cascadeOnDelete ();
+            $table->foreignId ('processing_fee_id')->nullable ()->constrained ('processing_fees', 'id')->cascadeOnDelete ();
+            $table->foreignId ('Payment_id')->nullable ()->constrained ('payment_students', 'id')->cascadeOnDelete ();
+            $table->foreignId ('Student_id')->constrained ('students', 'id')->cascadeOnDelete ();
             $table->decimal ('Credit', 8, 2)->nullable();
             $table->string ('description')->nullable ();
             $table->timestamps();

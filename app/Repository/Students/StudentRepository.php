@@ -11,6 +11,7 @@ use App\Models\Section;
 use App\Models\Student;
 use App\Models\Type_Blood;
 use App\Repository\Students\StudentRepositoryInterface;
+use App\Trait\AttachFilesTrait;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -18,10 +19,12 @@ use Illuminate\Support\Facades\Storage;
 
 
 class StudentRepository implements StudentRepositoryInterface {
+    use AttachFilesTrait;
         // Get All Students
         public function Get_Student()
         {
             $students = Student::all();
+
             return view('Pages.Students.index',compact('students'));
         }
           // Create Students
@@ -83,20 +86,7 @@ class StudentRepository implements StudentRepositoryInterface {
                 $students->academic_year = $request->academic_year;
                 $students->save();
                 // insert img
-                if($request->hasfile('photos'))
-                {
-                    foreach($request->file('photos') as $file)
-                    {
-                        $file->storeAs('attachments/students/'.$students->Name, $file->getClientOriginalName(),'upload_attachments');
-
-                        // insert in image_table
-                        $images= new Image();
-                        $images->filename=$file->getClientOriginalName();
-                        $images->imageable_id= $students->id;
-                        $images->imageable_type = 'App\Models\Student';
-                        $images->save();
-                    }
-                }
+                $this->verifyAndStoreImage($request,'photos','Students/'.$students->Name,'upload_attachments', $students->id,'App\Models\Student');
                 DB::commit();
                 toastr()->success(trans('messages.success'));
                 return redirect()->route('students.index');
@@ -143,6 +133,7 @@ class StudentRepository implements StudentRepositoryInterface {
                 $Edit_Students->parent_id = $request->parent_id;
                 $Edit_Students->academic_year = $request->academic_year;
                 $Edit_Students->save();
+                
                 toastr()->success(trans('messages.Update'));
                 return redirect()->route('students.index');
             } catch (Exception $e) {
@@ -163,7 +154,12 @@ class StudentRepository implements StudentRepositoryInterface {
             foreach($request->file('photos') as $file)
             {
                 $name = $file->getClientOriginalName();
-                $file->storeAs('attachments/students/'.$request->student_name, $name,'upload_attachments');
+
+
+                // $fileName = $name.".".$file->extension();
+
+                
+                $file->storeAs('attachments/students/'.$request->student_name,'upload_attachments');
 
                 // insert in image_table
                 $images= new image();
@@ -171,6 +167,8 @@ class StudentRepository implements StudentRepositoryInterface {
                 $images->imageable_id = $request->student_id;
                 $images->imageable_type = 'App\Models\Student';
                 $images->save();
+                
+
             }
             toastr()->success(trans('messages.success'));
             return redirect()->route('students.show',$request->student_id);
@@ -183,7 +181,7 @@ class StudentRepository implements StudentRepositoryInterface {
                 abort(404, 'الملف غير موجود');
             }
 
-            return Storage::disk('upload_attachments')->download($path);        
+            return Storage::disk('upload_attachments')->putFile($path);        
         }
         public function Delete_attachment($request)
         {

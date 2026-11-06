@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('Student_id')->references('id')->on('students')->cascadeOnDelete();
-            $table->foreignId('Grade_id')->references('id')->on('grades')->cascadeOnDelete();
-            $table->foreignId('Classroom_id')->references('id')->on('classrooms')->cascadeOnDelete();
-            $table->foreignId('Section_id')->references('id')->on('sections')->cascadeOnDelete();
-            $table->foreignId('Teacher_id')->references('id')->on('teachers')->cascadeOnDelete();
+            $table->foreignId ('Student_id')->constrained ('students', 'id')->cascadeOnDelete ();
+            $table->foreignId ('Grade_id')->constrained ('grades', 'id')->cascadeOnDelete ();
+            $table->foreignId ('Classroom_id')->constrained ('Classrooms', 'id')->cascadeOnDelete ();
+            $table->foreignId ('Section_id')->references ('id')->on ('sections')->cascadeOnDelete ();
+            $table->foreignId ('Teacher_id')->references ('id')->on ('teachers')->cascadeOnDelete ();
             $table->date('attendance_date');
             $table->boolean('attendance_status');
             $table->timestamps();

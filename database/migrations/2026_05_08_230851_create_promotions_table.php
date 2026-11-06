@@ -13,16 +13,18 @@ return new class extends Migration
     {
         Schema::create('promotions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('Student_id')->constrained('students','id')->cascadeOnDelete();
-            $table->foreignId('From_Grade')->constrained('grades','id')->cascadeOnDelete();
-            $table->foreignId('To_Grade')->constrained('grades','id')->cascadeOnDelete();
-            $table->foreignId('From_Classroom')->constrained('Classrooms','id')->cascadeOnDelete();
-            $table->foreignId('To_Classroom')->constrained('Classrooms','id')->cascadeOnDelete();
-            $table->foreignId('From_Section')->constrained('sections','id')->cascadeOnDelete();
-            $table->foreignId('To_Section')->constrained('sections','id')->cascadeOnDelete();
             $table->string('academic_year');
             $table->string('academic_year_new');
             $table->timestamps();
+            
+            // ! Code Old
+            // $table->foreignId('Student_id')->constrained('students','id')->cascadeOnDelete();
+            // $table->foreignId('From_Grade')->constrained('grades','id')->cascadeOnDelete();
+            // $table->foreignId('To_Grade')->constrained('grades','id')->cascadeOnDelete();
+            // $table->foreignId('From_Classroom')->constrained('Classrooms','id')->cascadeOnDelete();
+            // $table->foreignId('To_Classroom')->constrained('Classrooms','id')->cascadeOnDelete();
+            // $table->foreignId('From_Section')->constrained('sections','id')->cascadeOnDelete();
+            // $table->foreignId('To_Section')->constrained('sections','id')->cascadeOnDelete();
         });
     }
 

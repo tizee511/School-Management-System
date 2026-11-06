@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->string('Name');
-            $table->foreignId ('Grade_id')->references ('id')->on ('grades')->cascadeOnDelete ();
-            $table->foreignId ('Classroom_id')->references ('id')->on ('classrooms')->cascadeOnDelete ();
-            $table->foreignId ('Teacher_id')->references ('id')->on ('teachers')->cascadeOnDelete ();
+            $table->foreignId ('Grade_id')->constrained ('grades', 'id')->cascadeOnDelete ();
+            $table->foreignId ('Classroom_id')->constrained ('classrooms', 'id')->cascadeOnDelete ();
+            $table->foreignId ('Teacher_id')->constrained ('teachers', 'id')->cascadeOnDelete ();
             $table->timestamps();
         });
     }

@@ -97,7 +97,7 @@
     </div>
 </nav>--}}
 
-  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm mb-11">
+  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm mb-7">
    <div class="container">
     <a class="navbar-brand" href="{{ route('dashboard') }}">
      {{ config('app.name', 'Laravel') }}

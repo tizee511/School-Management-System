@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('Name');
-            $table->bigInteger('Specialization_id')->unsigned();
-            $table->bigInteger('Gender_id')->unsigned();
+            // $table->bigInteger('Specialization_id')->unsigned();
+            // $table->bigInteger('Gender_id')->unsigned();
             $table->date('Joining_Date');
             $table->text('Address');
             $table->timestamps();

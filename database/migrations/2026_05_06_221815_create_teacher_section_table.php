@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('teacher_section', function (Blueprint $table) {
             $table->id();
-            // rel bettown Tables Teacher & Section
+            //* rel bettown Tables Teacher & Section
             $table->foreignId('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
             $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
         });

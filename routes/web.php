@@ -86,7 +86,7 @@ Route::group([
         Route::post('Filter_Classes', [ClassroomController::class, 'Filter_Classes'])->name('Filter_Classes');
         //*========================={Sections}========================
         Route::resource('Sections', controller: SectionController::class);
-        Route::get('/classes/{id}', [SectionController::class, 'getclasses'])->name('classes.get');
+        Route::get('classes/{id}', [SectionController::class, 'getclasses'])->name('classes.get');
         //*========================={Parents}========================
         Route::view('Add_Parent', 'livewire.show_form');
         //*========================={Teachers}========================

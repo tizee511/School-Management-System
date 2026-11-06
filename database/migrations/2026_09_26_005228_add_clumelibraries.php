@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('libraries', function (Blueprint $table) {
-            $table->foreignId('teacher_id')->references('id')->on('teachers')->onDelete('cascade')->after('section_id');
+
+            $table->foreignId('teacher_id')->constrained('teachers','id')->after('section_id')->cascadeOnDelete ();
+            
         });
     }
 

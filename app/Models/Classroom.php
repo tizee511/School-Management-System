@@ -20,7 +20,7 @@ class Classroom extends Model
 
     public function Grades()
     {
-        return $this->belongsTo('App\Models\Grade', 'Grade_id');
+        return $this->belongsTo(Grade::class, 'Grade_id');
     }
 
 }

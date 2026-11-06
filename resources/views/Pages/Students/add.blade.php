@@ -81,7 +81,6 @@
                                         <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                         @foreach($nationals as $nal)
                                             <option value="{{ $nal->id }}">{{ $nal->nat_name }}</option>
-
                                         @endforeach
                                     </select>
                                 </div>
@@ -93,7 +92,6 @@
                                     <select class="custom-select mr-sm-2" name="blood_id">
                                         <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                         @foreach($bloods as $bg)
-
                                             <option value="{{ $bg->id }}">{{ $bg->Name }}</option>
                                         @endforeach
                                     </select>
@@ -117,10 +115,7 @@
                                     <select class="custom-select mr-sm-2" name="Grade_id">
                                         <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                         @foreach($Grade as $c)
-
-
                                             <option value="{{ $c->id }}">{{ $c->Name }}</option>
-
                                         @endforeach
                                     </select>
                                 </div>
@@ -128,9 +123,8 @@
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="Classroom_id">{{trans('Students_trans.classrooms')}} : <span class="text-danger">*</span></label>
-                                    <select class="custom-select mr-sm-2" name="Classroom_id">
-
+                                    <label for="Class_id">{{trans('Students_trans.classrooms')}} : <span class="text-danger">*</span></label>
+                                    <select class="custom-select mr-sm-2" name="Class_id">
                                     </select>
                                 </div>
                             </div>
@@ -139,7 +133,6 @@
                                 <div class="form-group">
                                     <label for="section_id">{{trans('Students_trans.section')}} : </label>
                                     <select class="custom-select mr-sm-2" name="section_id">
-
                                     </select>
                                 </div>
                             </div>
@@ -150,9 +143,7 @@
                                     <select class="custom-select mr-sm-2" name="parent_id">
                                         <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                        @foreach($parents as $parent)
-
                                             <option value="{{ $parent->id }}">{{ $parent->Name_Father }}</option>
-
                                         @endforeach
                                     </select>
                                 </div>
@@ -180,8 +171,6 @@
                             <input type="file" accept="image/*" name="photos[]" multiple>
                         </div>
                     </div>
-
-
 
                     <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('Students_trans.submit')}}</button>
                 </form>

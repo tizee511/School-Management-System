@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('degrees', function (Blueprint $table) {
             $table->id();
-            $table->foreignId ('quizze_id')->references ('id')->on ('quizzes')->onDelete ('cascade');
-            $table->foreignId ('student_id')->references ('id')->on ('students')->onDelete ('cascade');
-            $table->foreignId ('question_id')->references ('id')->on ('questions')->onDelete ('cascade');
+            $table->foreignId ('quizze_id')->constrained ('quizzes', 'id')->cascadeOnDelete();
+            $table->foreignId ('student_id')->constrained ('students', 'id')->cascadeOnDelete();
+            $table->foreignId ('question_id')->constrained('questions', 'id')->cascadeOnDelete();
             $table->float ('score');
             $table->enum ('abuse', ['0', '1'])->default (0);
             $table->date ('date');
